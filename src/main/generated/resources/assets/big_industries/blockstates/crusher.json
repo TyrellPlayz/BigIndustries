@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "big_industries:block/crusher"
+    },
+    "facing=east": {
+      "model": "big_industries:block/crusher"
+    },
+    "facing=south": {
+      "model": "big_industries:block/crusher"
+    },
+    "facing=west": {
+      "model": "big_industries:block/crusher"
+    }
+  }
+}

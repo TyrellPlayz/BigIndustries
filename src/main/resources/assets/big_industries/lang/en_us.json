@@ -1,0 +1,115 @@
+{
+  "_comment": "Items",
+  "item.big_industries.coal_crushed": "Crushed Coal",
+  "item.big_industries.iron_crushed": "Crushed Iron",
+  "item.big_industries.gold_crushed": "Crushed Gold",
+  "item.big_industries.diamond_crushed": "Crushed Diamond",
+  "item.big_industries.emerald_crushed": "Crushed Emerald",
+  "item.big_industries.obsidian_crushed": "Crushed Obsidian",
+
+  "item.big_industries.copper_ingot": "Copper Ingot",
+  "item.big_industries.copper_nugget": "Copper Nugget",
+  "item.big_industries.copper_crushed": "Crushed Copper",
+
+  "item.big_industries.lead_ingot": "Lead Ingot",
+  "item.big_industries.lead_nugget": "Lead Nugget",
+  "item.big_industries.lead_crushed": "Crushed Lead",
+
+  "item.big_industries.tin_ingot": "Tin Ingot",
+  "item.big_industries.tin_nugget": "Tin Nugget",
+  "item.big_industries.tin_crushed": "Crushed Tin",
+
+  "item.big_industries.silver_ingot": "Silver Ingot",
+  "item.big_industries.silver_nugget": "Silver Nugget",
+  "item.big_industries.silver_crushed": "Crushed Silver",
+
+  "item.big_industries.nickel_ingot": "Nickel Ingot",
+  "item.big_industries.nickel_nugget": "Nickel Nugget",
+  "item.big_industries.nickel_crushed": "Crushed Nickel",
+
+  "item.big_industries.steel_ingot": "Steel Ingot",
+  "item.big_industries.steel_nugget": "Steel Nugget",
+  "item.big_industries.steel_crushed": "Crushed Steel",
+
+  "item.big_industries.bronze_ingot": "Bronze Ingot",
+  "item.big_industries.bronze_nugget": "Bronze Nugget",
+  "item.big_industries.bronze_crushed": "Crushed Bronze",
+
+  "item.big_industries.invar_ingot": "Invar Ingot",
+  "item.big_industries.invar_nugget": "Invar Nugget",
+  "item.big_industries.invar_crushed": "Crushed Invar",
+
+  "item.big_industries.wood_gear": "Wooden Gear",
+  "item.big_industries.stone_gear": "Stone Gear",
+  "item.big_industries.iron_gear": "Iron Gear",
+  "item.big_industries.gold_gear": "Gold Gear",
+  "item.big_industries.copper_gear": "Copper Gear",
+  "item.big_industries.lead_gear": "Lead Gear",
+  "item.big_industries.tin_gear": "Tin Gear",
+  "item.big_industries.silver_gear": "Silver Gear",
+  "item.big_industries.nickel_gear": "Nickel Gear",
+  "item.big_industries.steel_gear": "Steel Gear",
+  "item.big_industries.bronze_gear": "Bronze Gear",
+  "item.big_industries.invar_gear": "Invar Gear",
+
+  "item.big_industries.gravel_clay_ball": "Gravel Clay Ball",
+  "item.big_industries.coke_brick": "Coke Brick",
+  "item.big_industries.coke_coal": "Coke Coal",
+
+  "item.big_industries.wrench": "Wrench",
+
+  "__comment": "Blocks",
+  "block.big_industries.copper_block": "Copper Block",
+  "block.big_industries.copper_ore": "Copper Ore",
+
+  "block.big_industries.lead_block": "Lead Block",
+  "block.big_industries.lead_ore": "Lead Ore",
+
+  "block.big_industries.tin_block": "Tin Block",
+  "block.big_industries.tin_ore": "Tin Ore",
+
+  "block.big_industries.silver_block": "Silver Block",
+  "block.big_industries.silver_ore": "Silver Ore",
+
+  "block.big_industries.nickel_block": "Nickel Block",
+  "block.big_industries.nickel_ore": "Nickel Ore",
+
+  "block.big_industries.steel_block": "Steel Block",
+
+  "block.big_industries.bronze_block": "Bronze Block",
+
+  "block.big_industries.invar_block": "Invar Block",
+
+  "block.big_industries.coke_bricks": "Coke Bricks",
+  "block.big_industries.coke_oven_controller": "Coke Oven Controller",
+
+  "block.big_industries.machine_block": "Machine Block",
+
+  "block.big_industries.crusher": "Crusher",
+  "block.big_industries.alloy_smelter": "Alloy Smelter",
+  "block.big_industries.steam_engine": "Steam Engine",
+  "block.big_industries.combustion_engine": "Combustion Engine",
+  "block.big_industries.capacitor": "Capacitor",
+
+  "____comment": "Containers",
+  "container.big_industries.coke_oven": "Coke Oven",
+  "container.big_industries.crusher": "Crusher",
+  "container.big_industries.alloy_smelter": "Alloy Smelter",
+  "container.big_industries.steam_engine": "Steam Engine",
+  "container.big_industries.combustion_engine": "Combustion Engine",
+  "container.big_industries.capacitor": "Capacitor",
+
+  "_____comment": "Advancements",
+  "advancements.root.title": "Big Industries",
+  "advancements.root.description": "The start",
+  "advancements.mine_copper.title": "Mine Copper",
+  "advancements.mine_copper.description": "Use a stone pickaxe to mine copper ore",
+
+  "______comment": "Item Groups",
+  "itemGroup.big_industries.blocks": "Big Industries (Blocks)",
+  "itemGroup.big_industries.items": "Big Industries (Items)",
+
+  "___comment": "JEI",
+  "screen.jei.category.crushing": "Crushing",
+  "screen.jei.category.alloying": "Alloying"
+}

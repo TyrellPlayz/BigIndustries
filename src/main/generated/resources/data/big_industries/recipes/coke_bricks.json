@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "## ",
+    "## "
+  ],
+  "key": {
+    "#": {
+      "item": "big_industries:coke_brick"
+    }
+  },
+  "result": {
+    "item": "big_industries:coke_bricks"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,on=false": {
+      "model": "big_industries:block/combustion_engine",
+      "y": 0
+    },
+    "facing=east,on=false": {
+      "model": "big_industries:block/combustion_engine",
+      "y": 90
+    },
+    "facing=south,on=false": {
+      "model": "big_industries:block/combustion_engine",
+      "y": 180
+    },
+    "facing=west,on=false": {
+      "model": "big_industries:block/combustion_engine",
+      "y": 270
+    },
+    "facing=north,on=true": {
+      "model": "big_industries:block/combustion_engine_on",
+      "y": 0
+    },
+    "facing=east,on=true": {
+      "model": "big_industries:block/combustion_engine_on",
+      "y": 90
+    },
+    "facing=south,on=true": {
+      "model": "big_industries:block/combustion_engine_on",
+      "y": 180
+    },
+    "facing=west,on=true": {
+      "model": "big_industries:block/combustion_engine_on",
+      "y": 270
+    }
+  }
+}

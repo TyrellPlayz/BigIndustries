@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "big_industries:block/steam_engine"
+    },
+    "facing=east": {
+      "model": "big_industries:block/steam_engine"
+    },
+    "facing=south": {
+      "model": "big_industries:block/steam_engine"
+    },
+    "facing=west": {
+      "model": "big_industries:block/steam_engine"
+    }
+  }
+}

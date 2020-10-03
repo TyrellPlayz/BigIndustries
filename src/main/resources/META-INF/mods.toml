@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+issueTrackerURL="https://github.com/TechCraft/BigIndustries/issues"
+license="GNU GPLv3"
+
+[[mods]]
+modId="big_industries"
+version="0.1.0"
+displayName="Big Industries"
+updateJSONURL="https://raw.githubusercontent.com/TyrellPlayz/BigIndustries/1.16-dev/update.json"
+displayURL="https://github.com/TechCraft/BigIndustries"
+logoFile="examplemod.png"
+credits=""
+authors="TyrellPlayz"
+description='Adds Industrial blocks and items to Minecraft like machines'
+
+[[dependencies.big_industries]]
+    modId="forge"
+    mandatory=true
+    versionRange="[34,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.big_industries]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.3]"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.big_industries]]
+    modId="zlib"
+    mandatory=true
+    versionRange="[0.1.0]"
+    ordering="NONE"
+    side="BOTH"

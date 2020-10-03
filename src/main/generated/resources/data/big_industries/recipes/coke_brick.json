@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "big_industries:gravel_clay_ball"
+  },
+  "result": "big_industries:coke_brick",
+  "experience": 0.3,
+  "cookingtime": 300
+}
