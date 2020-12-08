@@ -48,6 +48,9 @@ public class BIRecipes extends RecipeProvider {
         ShapedRecipeBuilder.shapedRecipe(BIBlocks.COKE_BRICKS).patternLine("## ").patternLine("## ").key('#',BIItems.COKE_BRICK).addCriterion("has_item",hasItem(BIItems.COKE_BRICK)).build(consumer);
         // Coke Controller
         ShapedRecipeBuilder.shapedRecipe(BIBlocks.COKE_OVEN_CONTROLLER).patternLine(" C ").patternLine("CFC").patternLine(" C ").key('C',BIItems.COKE_BRICK).key('F',Blocks.FURNACE).addCriterion("has_item",hasItem(BIItems.COKE_BRICK)).build(consumer);
+        // Coke coal
+        BICookingRecipeBuilder.cokingRecipe(Ingredient.fromItems(Items.COAL), BIItems.COKE_COAL, 0.0F,500).addCriterion("has_coal",hasItem(Items.COAL)).build(consumer);
+
     }
 
     protected void createMetalRecipes(Block block, Item ingotItem, Item nuggetItem, ITag.INamedTag<Item> blockTag, ITag.INamedTag<Item> ingotTag, ITag.INamedTag<Item> nuggetTag, ITag.INamedTag<Item> itemToUnlockTag, Consumer<IFinishedRecipe> consumer) {
@@ -61,9 +64,9 @@ public class BIRecipes extends RecipeProvider {
         ShapedRecipeBuilder.shapedRecipe(block).patternLine("###").patternLine("###").patternLine("###").key('#',ingotTag).addCriterion("has_item", hasItem(itemToUnlockTag)).build(consumer);
     }
 
-    protected void createMetalSmeltingRecipes(ITag.INamedTag<Item> oreItemTag, Item ingotItem, float experienceIn, int cookingTimeIn, Consumer<IFinishedRecipe> consumer) {
-        CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(oreItemTag),ingotItem,experienceIn, cookingTimeIn).addCriterion("has_ore", hasItem(oreItemTag)).build(consumer);
-        CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(oreItemTag),ingotItem,experienceIn, cookingTimeIn/2).addCriterion("has_ore", hasItem(oreItemTag)).build(consumer,new ResourceLocation(ingotItem.getRegistryName().getNamespace(),ingotItem.getRegistryName().getPath()+"_from_blasting"));
+    protected void createMetalSmeltingRecipes(ITag.INamedTag<Item> oreItemTag, Item ingotItem, float experience, int cookingTime, Consumer<IFinishedRecipe> consumer) {
+        CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(oreItemTag),ingotItem,experience, cookingTime).addCriterion("has_ore", hasItem(oreItemTag)).build(consumer);
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(oreItemTag),ingotItem,experience, cookingTime/2).addCriterion("has_ore", hasItem(oreItemTag)).build(consumer,new ResourceLocation(ingotItem.getRegistryName().getNamespace(),ingotItem.getRegistryName().getPath()+"_from_blasting"));
     }
 
 }

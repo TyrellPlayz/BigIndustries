@@ -2,7 +2,7 @@ package com.tyrellplayz.big_industries.client.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.inventory.container.CombustionEngineContainer;
+import com.tyrellplayz.big_industries.common.container.CombustionEngineContainer;
 import com.tyrellplayz.zlib.client.screen.ContainerScreen;
 import com.tyrellplayz.zlib.client.screen.component.BurnComponent;
 import net.minecraft.entity.player.PlayerInventory;
@@ -15,8 +15,8 @@ public class CombustionEngineScreen extends ContainerScreen<CombustionEngineCont
     private static final ResourceLocation ENGINE_GUI_TEXTURES = new ResourceLocation(BigIndustries.MOD_ID,"textures/gui/container/engine/combustion_engine.png");
     protected static final ResourceLocation COMPONENT_TEXTURES = new ResourceLocation("zlib", "textures/gui/components.png");
 
-    private BurnComponent burnComponent;
-    private TankComponent tankComponent;
+    private final BurnComponent burnComponent;
+    private final TankComponent tankComponent;
 
     public CombustionEngineScreen(CombustionEngineContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title,ENGINE_GUI_TEXTURES);

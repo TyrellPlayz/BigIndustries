@@ -20,7 +20,7 @@ public class SteamEngine extends ZHorizontalBlock {
 
     @Override
     public void addInformation(ItemStack stack, IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new StringTextComponent(TextFormatting.WHITE+"Turns solid fuel into steam and energy"));
+        tooltip.add(new StringTextComponent(TextFormatting.WHITE+"Creates RF and steam from solid fuel and water."));
     }
 
     @Override

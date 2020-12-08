@@ -1,4 +1,4 @@
-package com.tyrellplayz.big_industries.inventory.container.slot;
+package com.tyrellplayz.big_industries.common.container.slot;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
@@ -54,8 +54,8 @@ public class OutputSlot extends Slot {
 
     /**
      * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not ore and wood.
-     */@Override
-
+     */
+    @Override
     protected void onCrafting(ItemStack stack) {
         stack.onCrafting(this.player.world, this.player, this.removeCount);
         this.removeCount = 0;

@@ -9,8 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
 
-public class InventoryTile extends ZTile implements IInventory {
+public abstract class InventoryTile extends ZTile implements IInventory {
 
     protected NonNullList<ItemStack> itemStacks;
 

@@ -1,7 +1,6 @@
 package com.tyrellplayz.big_industries.block;
 
-import com.tyrellplayz.big_industries.inventory.container.CrusherMachineContainer;
-import com.tyrellplayz.big_industries.tile.CombustionEngineTile;
+import com.tyrellplayz.big_industries.common.container.CrusherMachineContainer;
 import com.tyrellplayz.big_industries.tile.CrusherMachineTile;
 import com.tyrellplayz.zlib.block.ZHorizontalBlock;
 import com.tyrellplayz.zlib.util.helpers.ServerHelper;

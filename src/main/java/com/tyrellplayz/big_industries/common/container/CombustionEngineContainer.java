@@ -1,7 +1,7 @@
-package com.tyrellplayz.big_industries.inventory.container;
+package com.tyrellplayz.big_industries.common.container;
 
 import com.tyrellplayz.big_industries.core.BIContainers;
-import com.tyrellplayz.big_industries.inventory.container.slot.FuelSlot;
+import com.tyrellplayz.big_industries.common.container.slot.SolidFuelSlot;
 import com.tyrellplayz.zlib.container.ZContainer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -27,7 +27,7 @@ public class CombustionEngineContainer extends ZContainer {
 
     @Override
     public void createSlots(PlayerInventory playerInventory, IInventory containerInventory) {
-        this.addSlot(new FuelSlot(containerInventory, FUEL_SLOT, 87, 46));
+        this.addSlot(new SolidFuelSlot(containerInventory, FUEL_SLOT, 87, 46));
         createPlayerInventory(8,96,playerInventory);
     }
 

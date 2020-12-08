@@ -1,0 +1,6 @@
+{
+  "parent": "forge:block/default",
+  "loader": "forge:obj",
+  "model": "big_industries:models/block/mesh/block.obj",
+  "flip-v": true
+}

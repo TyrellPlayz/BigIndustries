@@ -60,4 +60,6 @@ public class ItemNames {
     public static final String COKE_BRICK = BigIndustries.MOD_ID+":coke_brick";
     public static final String COKE_COAL = BigIndustries.MOD_ID+":coke_coal";
 
+    public static final String PLACE_TEMPLATE_TOOL = BigIndustries.MOD_ID+":place_template_tool";
+
 }

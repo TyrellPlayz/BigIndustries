@@ -4,10 +4,8 @@ import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.block.*;
 import com.tyrellplayz.big_industries.util.BlockNames;
 import com.tyrellplayz.zlib.registry.BlockRegistry;
-import com.tyrellplayz.zlib.world.ore.OreType;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemTier;
@@ -41,12 +39,14 @@ public class BIBlocks extends BlockRegistry {
     // Invar
     public static final Block INVAR_BLOCK = register(BlockNames.INVAR_BLOCK, new Block(Block.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)), BigIndustries.BLOCKS_GROUP);
 
+    public static final Block WATERWHEEL = register(BlockNames.WATERWHEEL, new WaterwheelBlock(AbstractBlock.Properties.create(Material.WOOD).notSolid()),BigIndustries.BLOCKS_GROUP);
+
     public static final Block COKE_BRICKS = register(BlockNames.COKE_BRICKS,new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.0F, 6.0F)), BigIndustries.BLOCKS_GROUP);
     public static final Block COKE_OVEN_CONTROLLER = register(BlockNames.COKE_OVEN_CONTROLLER,new CokeOvenController(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.0F,6.0F).setLightLevel(returnLightValueIfLit(5))), BigIndustries.BLOCKS_GROUP);
 
     public static final Block STEAM_ENGINE = register(BlockNames.STEAM_ENGINE,new SteamEngine(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.METAL)),BigIndustries.BLOCKS_GROUP);
-    public static final Block COMBUSTION_ENGINE = register(BlockNames.COMBUSTION_ENGINE,new CombustionEngineBlock(Block.Properties.create(Material.IRON)), BigIndustries.BLOCKS_GROUP);
-    public static final Block ENERGY_CONDUIT = register(BlockNames.ENERGY_CONDUIT, new EnergyDuctBlock(Block.Properties.create(Material.IRON).sound(SoundType.METAL)), BigIndustries.BLOCKS_GROUP);
+    //public static final Block COMBUSTION_ENGINE = register(BlockNames.COMBUSTION_ENGINE,new CombustionEngineBlock(Block.Properties.create(Material.IRON)), BigIndustries.BLOCKS_GROUP);
+    public static final Block ENERGY_CONDUIT = register(BlockNames.ENERGY_CONDUIT, new EnergyConduitBlock(Block.Properties.create(Material.IRON).sound(SoundType.METAL)), BigIndustries.BLOCKS_GROUP);
 
     // Machines
     public static final Block CRUSHER_MACHINE = register(BlockNames.CRUSHER_MACHINE,new CrusherMachineBlock(Block.Properties.create(Material.IRON).sound(SoundType.METAL).setLightLevel(returnLightValueIfLit(5))), BigIndustries.BLOCKS_GROUP);

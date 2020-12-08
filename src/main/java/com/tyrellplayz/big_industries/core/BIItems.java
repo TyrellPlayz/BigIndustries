@@ -1,6 +1,7 @@
 package com.tyrellplayz.big_industries.core;
 
 import com.tyrellplayz.big_industries.BigIndustries;
+import com.tyrellplayz.big_industries.item.PlaceTemplateToolItem;
 import com.tyrellplayz.big_industries.util.ItemNames;
 import com.tyrellplayz.zlib.item.BurnableItem;
 import com.tyrellplayz.zlib.registry.ItemRegistry;
@@ -68,6 +69,8 @@ public class BIItems extends ItemRegistry {
     public static final Item GRAVEL_CLAY_BALL = register(ItemNames.GRAVEL_CLAY_BALL,new Item(new Item.Properties().group(BigIndustries.ITEMS_GROUP)));
     public static final Item COKE_BRICK = register(ItemNames.COKE_BRICK,new Item(new Item.Properties().group(BigIndustries.ITEMS_GROUP)));
     public static final Item COKE_COAL = register(ItemNames.COKE_COAL,new BurnableItem(2000,new Item.Properties().group(BigIndustries.ITEMS_GROUP)));
+
+    public static final Item PLACE_TEMPLATE_TOOL = register(ItemNames.PLACE_TEMPLATE_TOOL,new PlaceTemplateToolItem(new Item.Properties().group(BigIndustries.ITEMS_GROUP)));
 
     public static Collection<Item> getItems() {
         return ITEMS;

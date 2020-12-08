@@ -1,0 +1,10 @@
+{
+  "type": "big_industries:coking",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "ingredientAmount": 1,
+  "result": "big_industries:coke_coal",
+  "experience": 0.0,
+  "cookingtime": 300
+}

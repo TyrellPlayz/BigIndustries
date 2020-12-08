@@ -2,7 +2,7 @@ package com.tyrellplayz.big_industries.tile;
 
 import com.tyrellplayz.big_industries.core.BITiles;
 import com.tyrellplayz.big_industries.grid.energy.BasicEnergyStorage;
-import com.tyrellplayz.big_industries.inventory.container.CrusherMachineContainer;
+import com.tyrellplayz.big_industries.common.container.CrusherMachineContainer;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

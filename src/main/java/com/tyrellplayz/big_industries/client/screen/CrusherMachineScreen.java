@@ -2,7 +2,7 @@ package com.tyrellplayz.big_industries.client.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.inventory.container.CrusherMachineContainer;
+import com.tyrellplayz.big_industries.common.container.CrusherMachineContainer;
 import com.tyrellplayz.zlib.client.screen.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;

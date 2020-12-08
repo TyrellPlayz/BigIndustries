@@ -4,6 +4,8 @@ import com.tyrellplayz.big_industries.BigIndustries;
 
 public class TileNames {
 
+    public static final String WATERWHEEL = BigIndustries.MOD_ID+":waterwheel";
+
     public static final String COKE_OVEN = BigIndustries.MOD_ID+":coke_oven";
 
     public static final String CRUSHER_MACHINE = BigIndustries.MOD_ID+":crusher";

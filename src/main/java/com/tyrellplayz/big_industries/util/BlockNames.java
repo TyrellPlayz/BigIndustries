@@ -27,6 +27,8 @@ public class BlockNames {
     // Invar
     public static final String INVAR_BLOCK = BigIndustries.MOD_ID+":invar_block";
 
+    public static final String WATERWHEEL = BigIndustries.MOD_ID+":waterwheel";
+
     public static final String COKE_BRICKS = BigIndustries.MOD_ID+":coke_bricks";
     public static final String COKE_OVEN_CONTROLLER = BigIndustries.MOD_ID+":coke_oven_controller";
 

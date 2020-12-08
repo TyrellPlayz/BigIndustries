@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EnergyDuctBlock extends ZWaterloggedBlock {
+public class EnergyConduitBlock extends ZWaterloggedBlock {
 
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty EAST = BlockStateProperties.EAST;
@@ -36,7 +36,7 @@ public class EnergyDuctBlock extends ZWaterloggedBlock {
     public static final BooleanProperty UP = BlockStateProperties.UP;
     public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
 
-    public EnergyDuctBlock(Block.Properties properties) {
+    public EnergyConduitBlock(Block.Properties properties) {
         super(properties.notSolid());
         this.setDefaultState(this.getStateContainer().getBaseState()
                 .with(NORTH,false)

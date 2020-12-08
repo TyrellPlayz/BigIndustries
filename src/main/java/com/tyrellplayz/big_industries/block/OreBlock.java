@@ -1,6 +1,5 @@
 package com.tyrellplayz.big_industries.block;
 
-import com.tyrellplayz.zlib.world.ore.OreType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemTier;

@@ -1,7 +1,7 @@
-package com.tyrellplayz.big_industries.inventory.container;
+package com.tyrellplayz.big_industries.common.container;
 
 import com.tyrellplayz.big_industries.core.BIContainers;
-import com.tyrellplayz.big_industries.inventory.container.slot.OutputSlot;
+import com.tyrellplayz.big_industries.common.container.slot.OutputSlot;
 import com.tyrellplayz.zlib.container.ZContainer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;

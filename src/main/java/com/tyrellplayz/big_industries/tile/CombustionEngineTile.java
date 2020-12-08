@@ -4,7 +4,7 @@ import com.tyrellplayz.big_industries.block.CombustionEngineBlock;
 import com.tyrellplayz.big_industries.core.BITiles;
 import com.tyrellplayz.big_industries.grid.energy.BasicEnergyStorage;
 import com.tyrellplayz.big_industries.grid.energy.EnergyGridNetwork;
-import com.tyrellplayz.big_industries.inventory.container.CombustionEngineContainer;
+import com.tyrellplayz.big_industries.common.container.CombustionEngineContainer;
 import com.tyrellplayz.big_industries.util.Util;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,6 +14,7 @@ import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.text.ITextComponent;
@@ -77,8 +78,14 @@ public class CombustionEngineTile extends InventoryTile implements ITickableTile
         }
     };
 
-    public CombustionEngineTile() {
-        super(BITiles.COMBUSTION_ENGINE,1);
+   // public CombustionEngineTile() {
+   //     super(BITiles.COMBUSTION_ENGINE,1);
+   // }
+
+
+    public CombustionEngineTile(TileEntityType<?> tileEntityTypeIn, int size, BasicEnergyStorage energyStorage) {
+        super(tileEntityTypeIn, size);
+        this.energyStorage = energyStorage;
     }
 
     private boolean isBurning() {
