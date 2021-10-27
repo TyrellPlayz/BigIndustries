@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "tin_ingot",
+  "ingredient": {
+    "item": "big_industries:crushed_tin"
+  },
+  "result": "big_industries:tin_ingot",
+  "experience": 0.0,
+  "cookingtime": 200
+}

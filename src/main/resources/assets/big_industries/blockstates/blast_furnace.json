@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "big_industries:multiblock/blast_furnace",
+      "uvlock": true
+    },
+    "facing=east,lit=false": {
+      "model": "big_industries:multiblock/blast_furnace",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south,lit=false": {
+      "model": "big_industries:multiblock/blast_furnace",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=west,lit=false": {
+      "model": "big_industries:multiblock/blast_furnace",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

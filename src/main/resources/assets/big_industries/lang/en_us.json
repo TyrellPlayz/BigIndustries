@@ -1,0 +1,45 @@
+{
+  "block.big_industries.tin_ore": "Tin Ore",
+  "block.big_industries.tin_block": "Block of Tin",
+  "block.big_industries.raw_tin_block": "Block of Raw Tin",
+
+  "block.big_industries.lead_ore": "Lead Ore",
+  "block.big_industries.lead_block": "Block of Lead",
+  "block.big_industries.raw_lead_block": "Block of Raw Lead",
+
+  "block.big_industries.steel_block": "Block of Steel",
+
+  "block.big_industries.blast_brick": "Blast Bricks",
+
+  "block.big_industries.boiler": "Boiler",
+  "block.big_industries.pipe": "Pipe",
+
+  "item.big_industries.raw_tin": "Raw Tin",
+  "item.big_industries.crushed_tin": "Crushed Tin",
+  "item.big_industries.tin_ingot": "Tin Ingot",
+  "item.big_industries.tin_nugget": "Tin Nugget",
+  "item.big_industries.tin_gear": "Tin Gear",
+
+  "item.big_industries.raw_lead": "Raw Lead",
+  "item.big_industries.crushed_lead": "Crushed Lead",
+  "item.big_industries.lead_ingot": "Lead Ingot",
+  "item.big_industries.lead_nugget": "Lead Nugget",
+  "item.big_industries.lead_gear": "Lead Gear",
+
+  "item.big_industries.crushed_steel": "Crushed Steel",
+  "item.big_industries.steel_ingot": "Steel Ingot",
+  "item.big_industries.steel_nugget": "Steel Nugget",
+  "item.big_industries.steel_gear": "Steel Gear",
+
+  "item.big_industries.crushed_coal": "Crushed Coal",
+  "item.big_industries.crushed_iron": "Crushed Iron",
+  "item.big_industries.crushed_copper": "Crushed Copper",
+  "item.big_industries.crushed_gold": "Crushed Gold",
+
+  "item.big_industries.copper_wire": "Copper Wire",
+
+  "item.big_industries.solar_cell": "Solar Cell",
+
+  "itemGroup.big_industries.blocks": "Big Industries (Blocks)",
+  "itemGroup.big_industries.items": "Big Industries (Items)"
+}

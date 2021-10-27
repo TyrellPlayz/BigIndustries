@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "big_industries:tin_block",
+    "big_industries:tin_ore",
+    "big_industries:raw_tin_block",
+    "big_industries:lead_block",
+    "big_industries:lead_ore",
+    "big_industries:raw_lead_block",
+    "big_industries:steel_block"
+  ]
+}
