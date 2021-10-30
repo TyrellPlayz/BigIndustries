@@ -12,7 +12,7 @@ public class ModContainers {
 
     public static final DeferredRegister<MenuType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.CONTAINERS,BigIndustries.MOD_ID);
 
-    public static final RegistryObject<MenuType<BlastFurnaceMenu>> BLAST_FURNACE = register("blast_furnace",BlastFurnaceMenu::new);
+    //public static final RegistryObject<MenuType<BlastFurnaceMenu>> BLAST_FURNACE = register("blast_furnace",BlastFurnaceMenu::new);
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> register(String registryName, MenuType.MenuSupplier<T> supplier) {
         MenuType<T> menuType = new MenuType<>(supplier);

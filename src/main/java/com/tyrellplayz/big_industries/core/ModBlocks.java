@@ -1,11 +1,9 @@
 package com.tyrellplayz.big_industries.core;
 
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.block.BlastFurnaceBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.fmllegacy.RegistryObject;
@@ -32,7 +30,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> STEEL_BLOCK = register("steel_block",new Block(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(5.0F,6.0F)),block -> new BlockItem(block,new Item.Properties().tab(BigIndustries.BLOCK_TAB)));
 
     public static final RegistryObject<Block> BLAST_BRICK = register("blast_brick",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 9.0F)),block -> new BlockItem(block,new Item.Properties().tab(BigIndustries.BLOCK_TAB)));
-    public static final RegistryObject<Block> BLAST_FURNACE = register("blast_furnace",new BlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,9.0F)), block -> new BlockItem(block,new Item.Properties()));
+    //public static final RegistryObject<Block> BLAST_FURNACE = register("blast_furnace",new BlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,9.0F)), block -> new BlockItem(block,new Item.Properties()));
 
     //public static final RegistryObject<Block> BOILER = register("boiler",new BoilerBlock(BlockBehaviour.Properties.of(Material.METAL)), block -> new BlockItem(block,new Item.Properties().tab(BigIndustries.BLOCK_TAB)));
 

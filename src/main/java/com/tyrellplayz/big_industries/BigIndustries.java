@@ -81,7 +81,7 @@ public class BigIndustries {
     }
 
     public void registerRegistries(RegistryEvent.NewRegistry event) {
-        createRegistry(new ResourceLocation(MOD_ID,"multiblock_type"),MultiblockType.class);
+        //createRegistry(new ResourceLocation(MOD_ID,"multiblock_type"),MultiblockType.class);
     }
 
     public <T extends IForgeRegistryEntry<T>> void createRegistry(ResourceLocation key, Class<T> type) {

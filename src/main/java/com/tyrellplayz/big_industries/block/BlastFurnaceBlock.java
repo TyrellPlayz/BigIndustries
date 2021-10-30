@@ -103,10 +103,10 @@ public class BlastFurnaceBlock extends BaseEntityBlock {
         return new BlastFurnaceEntity(pos,state);
     }
 
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return level.isClientSide ? null : createTickerHelper(type, ModBlockEntities.BLAST_FURNACE.get(), BlastFurnaceEntity::onServerTick);
-    }
+   // @Nullable
+ //   @Override
+  //  public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+   //     return level.isClientSide ? null : createTickerHelper(type, ModBlockEntities.BLAST_FURNACE.get(), BlastFurnaceEntity::onServerTick);
+   // }
 
 }

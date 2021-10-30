@@ -18,7 +18,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void onClientSetup(FMLClientSetupEvent fmlClientSetupEvent) {
-        MenuScreens.register(ModContainers.BLAST_FURNACE.get(), BlastFurnaceScreen::new);
+        //MenuScreens.register(ModContainers.BLAST_FURNACE.get(), BlastFurnaceScreen::new);
 
         MinecraftForge.EVENT_BUS.register(ClientEvents.class);
     }

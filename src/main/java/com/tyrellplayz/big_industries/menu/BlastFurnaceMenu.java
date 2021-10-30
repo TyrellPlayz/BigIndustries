@@ -24,7 +24,8 @@ public class BlastFurnaceMenu extends AbstractMenu {
     }
 
     public BlastFurnaceMenu(int containerId, Inventory inventory, Container container, ContainerData data) {
-        super(ModContainers.BLAST_FURNACE.get(), containerId,inventory,container,data);
+        //super(ModContainers.BLAST_FURNACE.get(), containerId,inventory,container,data);
+        super(null, containerId,inventory,container,data);
         checkContainerSize(container,3);
         checkContainerDataCount(data,4);
         this.recipeType = RecipeType.BLASTING;

@@ -76,7 +76,8 @@ public class BlastFurnaceEntity extends BaseContainerBlockEntity implements Cont
     private final RecipeType<? extends AbstractCookingRecipe> recipeType;
 
     public BlastFurnaceEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BLAST_FURNACE.get(), pos, state);
+       // super(ModBlockEntities.BLAST_FURNACE.get(), pos, state);
+        super(null, pos, state);
         this.recipeType = RecipeType.BLASTING;
     }
 

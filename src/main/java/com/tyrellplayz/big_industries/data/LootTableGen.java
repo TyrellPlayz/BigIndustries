@@ -64,11 +64,6 @@ public class LootTableGen extends LootTableProvider {
             this.dropSelf(ModBlocks.STEEL_BLOCK.get());
 
             this.dropSelf(ModBlocks.BLAST_BRICK.get());
-
-            this.dropSelf(ModBlocks.BLAST_FURNACE.get());
-
-            //this.dropSelf(ModBlocks.BOILER);
-            //this.dropSelf(ModBlocks.PIPE);
         }
 
         @Override

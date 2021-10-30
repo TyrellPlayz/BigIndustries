@@ -14,8 +14,10 @@ c96020af8f34d033dfe9fa9e1345b5d0f9918bd3 assets/big_industries/models/block/lead
 8c9e4e63e52af9f579e0cfe1b8ac39c6b7ab916f assets/big_industries/models/block/steel_block.json
 205441abc563dd002165aed2df5eda6c00da2e84 assets/big_industries/models/block/tin_block.json
 d64d1270e4879f19ffa330c71110c3bad6bd3b48 assets/big_industries/models/block/tin_ore.json
+a3cad2f2babe913a8b5b10da5a416b9845e6a46e assets/big_industries/models/item/aluminium_ingot.json
+8ffcd60f545207a445752edfd929b619ec9e0293 assets/big_industries/models/item/aluminium_nugget.json
 11f5a9f83815a24b5ff3e21d5acaa2cc327f7cad assets/big_industries/models/item/blast_brick.json
-a89ea69175dfedaaedfcea8315237e1e465a9147 assets/big_industries/models/item/copper_wire.json
+2ae436ffe01e196ca46a96604ae67a0a624159c7 assets/big_industries/models/item/crushed_aluminium.json
 f58e589b3fbf7d319d323f029209e06e99b1536f assets/big_industries/models/item/crushed_coal.json
 311dca0b86cb0f60b1f8b78e7780d6b51be9c856 assets/big_industries/models/item/crushed_copper.json
 2643d51760cffac2dbabe4b10c48f3092a905473 assets/big_industries/models/item/crushed_gold.json
@@ -28,11 +30,12 @@ df18304851388db91441b6a436a1f1432488f8eb assets/big_industries/models/item/lead_
 cce11a816148786878a0c67e8ffbaae808fca5a8 assets/big_industries/models/item/lead_ingot.json
 eb82d141731772679c032d897ac2269369a6a79e assets/big_industries/models/item/lead_nugget.json
 72f652ff3ee411186f5e446f16b67089a6dd937e assets/big_industries/models/item/lead_ore.json
+1ce132503b7a51629fd6bbe3e2685c2db31cb5ef assets/big_industries/models/item/raw_aluminium.json
 e384eb1699b80b5ec706e4cdbba2b79ded9517b5 assets/big_industries/models/item/raw_lead.json
 7dfd468a960733eca1ad777df2c697355829ac0d assets/big_industries/models/item/raw_lead_block.json
 a2729b3f6e41d6b14005b2846a483e154dbaf8b5 assets/big_industries/models/item/raw_tin.json
 86e41bb0f5e688e075659e7c6a8ad04e9b481ac0 assets/big_industries/models/item/raw_tin_block.json
-58632b34b56226b75279713537b489bdf03c7fc9 assets/big_industries/models/item/solar_cell.json
+910f47c47123210a61922f814069bcb8b3eee3cc assets/big_industries/models/item/silver_ingot.json
 f61f3d87999843fb6400883a16dce8235be51c0f assets/big_industries/models/item/steel_block.json
 9efb01c0a9684d49da9475dd1eb32d9a38189a22 assets/big_industries/models/item/steel_gear.json
 167e2d36adc5ed3eebc13281f513229d7c66386d assets/big_industries/models/item/steel_ingot.json
@@ -76,7 +79,6 @@ e1345f719047df07de48b7b0407dcf86378e3fa9 data/big_industries/advancements/recipe
 3eda1c98b61d660e59df15e11ccfc27c7d0456ad data/big_industries/advancements/recipes/big_industries.items/tin_ingot_from_smelting_raw_tin.json
 2cccff1e9ac3dc674f9cdec1b3604bc018c770e5 data/big_industries/advancements/recipes/big_industries.items/tin_ingot_from_smelting_tin_ore.json
 db4db639d090a5c19a48f333a3cab7b65d003019 data/big_industries/loot_tables/blocks/blast_brick.json
-6b6dcece65f90afffe4ba5b5f65a81db411c7ab1 data/big_industries/loot_tables/blocks/blast_furnace.json
 fbf21c6b1c736b2e5818778ca8b78de8e6ec2370 data/big_industries/loot_tables/blocks/lead_block.json
 7f3aed10f0d2ad7efdef6a07f731d04eb9ec2b06 data/big_industries/loot_tables/blocks/lead_ore.json
 59447db5ef70e8413e50738c491c7b450d8ba39d data/big_industries/loot_tables/blocks/raw_lead_block.json
@@ -124,6 +126,7 @@ aa7c950029ad9b0ff1dc86b5a2a337f9e232d809 data/forge/tags/blocks/ores/tin.json
 a56c8da876e0399cc78036673cf472f718d8b1f2 data/forge/tags/blocks/storage_blocks/lead.json
 de00ec5d944dd88d6a224e74fe803355efae5152 data/forge/tags/blocks/storage_blocks/steel.json
 ea30ad0220a30e46e4b53f9d6eaa1188c0681af2 data/forge/tags/blocks/storage_blocks/tin.json
+b1d77c068b41d3ffd8c47da6a4d5f6cda6f1b3d6 data/forge/tags/items/crushed/aluminium.json
 3ba1df325c90681c16b8ddc86ba4a2306f58158d data/forge/tags/items/crushed/coal.json
 f73385c9cc372e6049bb0a7144c899267e2e3c0b data/forge/tags/items/crushed/copper.json
 feb20f31d25663a772f8eb02ca779339792041c8 data/forge/tags/items/crushed/gold.json
@@ -134,9 +137,11 @@ cc0544db017f3c759ff8bed4cc83b6ed90ff1abb data/forge/tags/items/crushed/steel.jso
 0e48c73402b7fcfe0352666f403147f03925565f data/forge/tags/items/gears/lead.json
 0f8d5bcad3ba0491d6aa156fa8ca34f5cb566cba data/forge/tags/items/gears/steel.json
 122c80234a91cfb25adf3069a9c1ccf3742329c7 data/forge/tags/items/gears/tin.json
+c572fbd23713ff564312c494aa198ed82b8fcad4 data/forge/tags/items/ingots/aluminium.json
 4c154969ea7a3ba9947eab352cc5fd408eece1c6 data/forge/tags/items/ingots/lead.json
 a46a45cd11787f989ea2219c740dc2be18954262 data/forge/tags/items/ingots/steel.json
 7c7fae6fa2b8e71b477f3b21f358dac7dc718f0d data/forge/tags/items/ingots/tin.json
+a95b0aaa5b4f596207dd626accf4ed1623aa3e24 data/forge/tags/items/nuggets/aluminium.json
 4da2845d051e0a9a8000a9c57ff21163a7a917a3 data/forge/tags/items/nuggets/lead.json
 5cf4ec7a640b470a9c180fc308ba29eedf680528 data/forge/tags/items/nuggets/steel.json
 07705fe259f18924d454a49fd6654b8776de2cd0 data/forge/tags/items/nuggets/tin.json

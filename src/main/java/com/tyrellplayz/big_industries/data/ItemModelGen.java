@@ -22,6 +22,7 @@ public class ItemModelGen extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // Items
+
         // Tin
         simpleItem(ModItems.RAW_TIN.get());
         simpleItem(ModItems.CRUSHED_TIN.get());
@@ -36,6 +37,15 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ModItems.LEAD_NUGGET.get());
         simpleItem(ModItems.LEAD_GEAR.get());
 
+        // Aluminium
+        simpleItem(ModItems.RAW_ALUMINIUM.get());
+        simpleItem(ModItems.CRUSHED_ALUMINIUM.get());
+        simpleItem(ModItems.ALUMINIUM_INGOT.get());
+        simpleItem(ModItems.ALUMINIUM_NUGGET.get());
+
+        // Silver
+        simpleItem(ModItems.SILVER_INGOT.get());
+
         // Steel
         simpleItem(ModItems.CRUSHED_STEEL.get());
         simpleItem(ModItems.STEEL_INGOT.get());
@@ -47,9 +57,9 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(ModItems.CRUSHED_COPPER.get());
         simpleItem(ModItems.CRUSHED_GOLD.get());
 
-        simpleItem(ModItems.COPPER_WIRE.get());
+        //simpleItem(ModItems.COPPER_WIRE.get());
 
-        simpleItem(ModItems.SOLAR_CELL.get());
+        //simpleItem(ModItems.SOLAR_CELL.get());
 
         // Blocks
         simpleItem(ModBlocks.TIN_BLOCK.get());

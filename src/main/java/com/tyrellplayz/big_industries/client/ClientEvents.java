@@ -1,29 +1,19 @@
 package com.tyrellplayz.big_industries.client;
 
-import com.tyrellplayz.big_industries.client.model.BlastFurnaceBModel;
-import com.tyrellplayz.big_industries.core.ModBlocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class ClientEvents {
-
-    @SubscribeEvent
-    public static void onModelBacked(ModelBakeEvent event) {
-        event.getModelRegistry().put(new ResourceLocation(ModBlocks.BLAST_FURNACE.get().getRegistryName().toString(),""),
-                new BlastFurnaceBModel(event.getModelManager().getModel(new ResourceLocation(ModBlocks.BLAST_FURNACE.get().getRegistryName().toString(),""))));
-    }
 
     @SubscribeEvent
     public static void onDebugOverlay(final RenderGameOverlayEvent.Text event){
