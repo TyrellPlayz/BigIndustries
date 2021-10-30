@@ -30,6 +30,7 @@ public class ItemTagGen extends ItemTagsProvider {
         this.tag(Items.GEARS_TIN).add(ModItems.TIN_GEAR.get());
         this.copy(Blocks.ORES_TIN, Items.ORES_TIN);
         this.copy(Blocks.STORAGE_BLOCKS_TIN,Items.STORAGE_BLOCKS_TIN);
+        this.copy(Blocks.RAW_STORAGE_BLOCKS_TIN,Items.RAW_STORAGE_BLOCKS_TIN);
 
         // Lead
         this.tag(Items.RAW_ORES_LEAD).add(ModItems.RAW_LEAD.get());
@@ -39,16 +40,22 @@ public class ItemTagGen extends ItemTagsProvider {
         this.tag(Items.GEARS_LEAD).add(ModItems.LEAD_GEAR.get());
         this.copy(Blocks.ORES_LEAD,Items.ORES_LEAD);
         this.copy(Blocks.STORAGE_BLOCKS_LEAD,Items.STORAGE_BLOCKS_LEAD);
+        this.copy(Blocks.RAW_STORAGE_BLOCKS_LEAD,Items.RAW_STORAGE_BLOCKS_LEAD);
 
         // Aluminium
         this.tag(Items.RAW_ORES_ALUMINIUM).add(ModItems.RAW_ALUMINIUM.get());
         this.tag(Items.DUSTS_ALUMINIUM).add(ModItems.CRUSHED_ALUMINIUM.get());
         this.tag(Items.INGOTS_ALUMINIUM).add(ModItems.ALUMINIUM_INGOT.get());
         this.tag(Items.NUGGETS_ALUMINIUM).add(ModItems.ALUMINIUM_NUGGET.get());
-        //this.copy(ModTags.Blocks.ORES_ALUMINIUM, ModTags.Items.ORES_ALUMINIUM);
-        //this.copy(ModTags.Blocks.STORAGE_BLOCKS_ALUMINIUM,ModTags.Items.STORAGE_BLOCKS_ALUMINIUM);
+        this.copy(Blocks.ORES_ALUMINIUM, Items.ORES_ALUMINIUM);
+        this.copy(Blocks.STORAGE_BLOCKS_ALUMINIUM, Items.STORAGE_BLOCKS_ALUMINIUM);
+        this.copy(Blocks.RAW_STORAGE_BLOCKS_ALUMINIUM,Items.RAW_STORAGE_BLOCKS_ALUMINIUM);
 
         // Steel
+        this.tag(Items.DUSTS_STEEL).add(ModItems.CRUSHED_STEEL.get());
+        this.tag(Items.INGOTS_STEEL).add(ModItems.STEEL_INGOT.get());
+        this.tag(Items.NUGGETS_STEEL).add(ModItems.STEEL_NUGGET.get());
+        this.tag(Items.GEARS_STEEL).add(ModItems.STEEL_GEAR.get());
         this.copy(Blocks.STORAGE_BLOCKS_STEEL,Items.STORAGE_BLOCKS_STEEL);
 
         // Global

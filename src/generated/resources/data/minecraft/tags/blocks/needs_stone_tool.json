@@ -7,6 +7,8 @@
     "big_industries:lead_block",
     "big_industries:lead_ore",
     "big_industries:raw_lead_block",
-    "big_industries:steel_block"
+    "big_industries:aluminium_block",
+    "big_industries:aluminium_ore",
+    "big_industries:raw_aluminium_block"
   ]
 }

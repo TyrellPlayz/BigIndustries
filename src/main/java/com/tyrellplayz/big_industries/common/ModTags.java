@@ -18,14 +18,17 @@ public class ModTags {
         // Tin
         public static final Tag.Named<Block> ORES_TIN = forgeTag("ores/tin");
         public static final Tag.Named<Block> STORAGE_BLOCKS_TIN = forgeTag("storage_blocks/tin");
+        public static final Tag.Named<Block> RAW_STORAGE_BLOCKS_TIN = forgeTag("raw_storage_blocks/tin");
 
         // Lead
         public static final Tag.Named<Block> ORES_LEAD = forgeTag("ores/lead");
         public static final Tag.Named<Block> STORAGE_BLOCKS_LEAD = forgeTag("storage_blocks/lead");
+        public static final Tag.Named<Block> RAW_STORAGE_BLOCKS_LEAD = forgeTag("raw_storage_blocks/lead");
 
         // Aluminium
         public static final Tag.Named<Block> ORES_ALUMINIUM = forgeTag("ores/aluminium");
         public static final Tag.Named<Block> STORAGE_BLOCKS_ALUMINIUM = forgeTag("storage_blocks/aluminium");
+        public static final Tag.Named<Block> RAW_STORAGE_BLOCKS_ALUMINIUM = forgeTag("raw_storage_blocks/aluminium");
 
         // Steel
         public static final Tag.Named<Block> STORAGE_BLOCKS_STEEL = forgeTag("storage_blocks/steel");
@@ -56,6 +59,7 @@ public class ModTags {
         public static final Tag.Named<Item> GEARS_TIN = forgeTag("gears/tin");
 
         public static final Tag.Named<Item> STORAGE_BLOCKS_TIN = forgeTag("storage_blocks/tin");
+        public static final Tag.Named<Item> RAW_STORAGE_BLOCKS_TIN = forgeTag("raw_storage_blocks/tin");
         public static final Tag.Named<Item> ORES_TIN = forgeTag("ores/tin");
 
         // Lead
@@ -66,6 +70,7 @@ public class ModTags {
         public static final Tag.Named<Item> GEARS_LEAD = forgeTag("gears/lead");
 
         public static final Tag.Named<Item> STORAGE_BLOCKS_LEAD = forgeTag("storage_blocks/lead");
+        public static final Tag.Named<Item> RAW_STORAGE_BLOCKS_LEAD = forgeTag("raw_storage_blocks/lead");
         public static final Tag.Named<Item> ORES_LEAD = forgeTag("ores/lead");
 
         // Aluminium
@@ -75,6 +80,7 @@ public class ModTags {
         public static final Tag.Named<Item> NUGGETS_ALUMINIUM = forgeTag("nuggets/aluminium");
 
         public static final Tag.Named<Item> STORAGE_BLOCKS_ALUMINIUM = forgeTag("storage_blocks/aluminium");
+        public static final Tag.Named<Item> RAW_STORAGE_BLOCKS_ALUMINIUM = forgeTag("raw_storage_blocks/aluminium");
         public static final Tag.Named<Item> ORES_ALUMINIUM = forgeTag("ores/aluminium");
 
         // Steel

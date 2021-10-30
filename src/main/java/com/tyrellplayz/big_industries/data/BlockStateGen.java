@@ -14,14 +14,22 @@ public class BlockStateGen extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        // Tin
         simpleBlock(ModBlocks.TIN_BLOCK.get());
         simpleBlock(ModBlocks.TIN_ORE.get());
         simpleBlock(ModBlocks.RAW_TIN_BLOCK.get());
 
+        // Lead
         simpleBlock(ModBlocks.LEAD_BLOCK.get());
         simpleBlock(ModBlocks.LEAD_ORE.get());
         simpleBlock(ModBlocks.RAW_LEAD_BLOCK.get());
 
+        // Aluminium
+        simpleBlock(ModBlocks.ALUMINIUM_BLOCK.get());
+        simpleBlock(ModBlocks.ALUMINIUM_ORE.get());
+        simpleBlock(ModBlocks.RAW_ALUMINIUM_BLOCK.get());
+
+        // Steel
         simpleBlock(ModBlocks.STEEL_BLOCK.get());
 
         simpleBlock(ModBlocks.BLAST_BRICK.get());

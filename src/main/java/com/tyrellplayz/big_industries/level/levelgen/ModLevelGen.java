@@ -28,6 +28,7 @@ public class ModLevelGen {
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.OVERWORLD)) {
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(ModFeatures.TIN_ORE));
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(ModFeatures.LEAD_ORE));
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(ModFeatures.ALUMINIUM_ORE));
         }
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.NETHER)) {
 

@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "big_industries:tin_ore",
-    "big_industries:lead_ore"
+    "big_industries:lead_ore",
+    "big_industries:aluminium_ore"
   ]
 }

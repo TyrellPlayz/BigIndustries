@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "big_industries:tin_ore",
-    "big_industries:lead_ore"
+    "#forge:ores/tin",
+    "#forge:ores/lead",
+    "#forge:ores/aluminium"
   ]
 }

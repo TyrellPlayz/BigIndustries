@@ -3,7 +3,7 @@
   "group": "raw_tin",
   "ingredients": [
     {
-      "item": "big_industries:raw_tin_block"
+      "tag": "forge:raw_storage_blocks/tin"
     }
   ],
   "result": {

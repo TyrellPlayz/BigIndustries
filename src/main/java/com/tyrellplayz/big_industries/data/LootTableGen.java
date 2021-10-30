@@ -55,10 +55,15 @@ public class LootTableGen extends LootTableProvider {
             this.dropSelf(ModBlocks.TIN_BLOCK.get());
             this.dropSelf(ModBlocks.RAW_TIN_BLOCK.get());
 
-            // Steel
+            // Lead
             this.add(ModBlocks.LEAD_ORE.get(), block -> createOreDrop(block, ModItems.RAW_LEAD.get()));
             this.dropSelf(ModBlocks.LEAD_BLOCK.get());
             this.dropSelf(ModBlocks.RAW_LEAD_BLOCK.get());
+
+            // Aluminium
+            this.add(ModBlocks.ALUMINIUM_ORE.get(), block -> createOreDrop(block, ModItems.RAW_ALUMINIUM.get()));
+            this.dropSelf(ModBlocks.ALUMINIUM_BLOCK.get());
+            this.dropSelf(ModBlocks.RAW_ALUMINIUM_BLOCK.get());
 
             // Steel
             this.dropSelf(ModBlocks.STEEL_BLOCK.get());

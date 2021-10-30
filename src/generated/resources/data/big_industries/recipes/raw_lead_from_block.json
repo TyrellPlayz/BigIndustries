@@ -3,7 +3,7 @@
   "group": "raw_lead",
   "ingredients": [
     {
-      "item": "big_industries:raw_lead_block"
+      "tag": "forge:raw_storage_blocks/lead"
     }
   ],
   "result": {
