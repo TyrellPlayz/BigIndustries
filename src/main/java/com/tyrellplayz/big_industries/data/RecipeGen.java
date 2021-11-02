@@ -2,9 +2,9 @@ package com.tyrellplayz.big_industries.data;
 
 import com.google.common.collect.ImmutableList;
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.common.ModTags;
-import com.tyrellplayz.big_industries.core.ModBlocks;
-import com.tyrellplayz.big_industries.core.ModItems;
+import com.tyrellplayz.big_industries.common.BITags;
+import com.tyrellplayz.big_industries.core.BIBlocks;
+import com.tyrellplayz.big_industries.core.BIItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -16,15 +16,14 @@ import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
-import java.util.Map;
 import java.util.function.Consumer;
 
 public class RecipeGen extends RecipeProvider {
 
-    private static final ImmutableList<ItemLike> TIN_SMELTABLES = ImmutableList.of(ModBlocks.TIN_ORE.get(), ModItems.RAW_TIN.get(), ModItems.CRUSHED_TIN.get());
-    private static final ImmutableList<ItemLike> LEAD_SMELTABLES = ImmutableList.of(ModBlocks.LEAD_ORE.get(), ModItems.RAW_LEAD.get(), ModItems.CRUSHED_LEAD.get());
-    private static final ImmutableList<ItemLike> ALUMINIUM_SMELTABLES = ImmutableList.of(ModBlocks.ALUMINIUM_ORE.get(), ModItems.RAW_ALUMINIUM.get(), ModItems.CRUSHED_ALUMINIUM.get());
-    private static final ImmutableList<ItemLike> STEEL_SMELTABLES = ImmutableList.of(ModItems.CRUSHED_STEEL.get());
+    private static final ImmutableList<ItemLike> TIN_SMELTABLES = ImmutableList.of(BIBlocks.TIN_ORE.get(), BIItems.RAW_TIN.get(), BIItems.CRUSHED_TIN.get());
+    private static final ImmutableList<ItemLike> LEAD_SMELTABLES = ImmutableList.of(BIBlocks.LEAD_ORE.get(), BIItems.RAW_LEAD.get(), BIItems.CRUSHED_LEAD.get());
+    private static final ImmutableList<ItemLike> ALUMINIUM_SMELTABLES = ImmutableList.of(BIBlocks.ALUMINIUM_ORE.get(), BIItems.RAW_ALUMINIUM.get(), BIItems.CRUSHED_ALUMINIUM.get());
+    private static final ImmutableList<ItemLike> STEEL_SMELTABLES = ImmutableList.of(BIItems.CRUSHED_STEEL.get());
 
     public RecipeGen(DataGenerator generator) {
         super(generator);
@@ -33,35 +32,35 @@ public class RecipeGen extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         // Tin
-        metalRecipe(consumer,ModItems.TIN_INGOT.get(),ModTags.Items.INGOTS_TIN,ModItems.TIN_NUGGET.get(),ModTags.Items.NUGGETS_TIN,ModBlocks.TIN_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_TIN,ModItems.RAW_TIN.get(),ModTags.Items.RAW_ORES_TIN,ModBlocks.RAW_TIN_BLOCK.get(),ModTags.Items.RAW_STORAGE_BLOCKS_TIN);
+        metalRecipe(consumer, BIItems.TIN_INGOT.get(), BITags.Items.INGOTS_TIN, BIItems.TIN_NUGGET.get(), BITags.Items.NUGGETS_TIN, BIBlocks.TIN_BLOCK.get(), BITags.Items.STORAGE_BLOCKS_TIN, BIItems.RAW_TIN.get(), BITags.Items.RAW_ORES_TIN, BIBlocks.RAW_TIN_BLOCK.get(), BITags.Items.RAW_STORAGE_BLOCKS_TIN);
         //nineStorageRecipe(consumer, ModItems.TIN_INGOT.get(),ModTags.Items.INGOTS_TIN, ModBlocks.TIN_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_TIN,simpleItemName(ModItems.TIN_INGOT.get())+"_from_block");
         //nineStorageRecipe(consumer, ModItems.TIN_NUGGET.get(),ModTags.Items.NUGGETS_TIN, ModItems.TIN_INGOT.get(),ModTags.Items.INGOTS_TIN,simpleItemName(ModItems.TIN_INGOT.get())+"_from_nugget");
         //nineStorageRecipe(consumer, ModItems.RAW_TIN.get(), ModBlocks.RAW_TIN_BLOCK.get(),simpleItemName(ModItems.RAW_TIN.get())+"_from_block");
-        ShapedRecipeBuilder.shaped(ModItems.TIN_GEAR.get()).define('T',ModTags.Items.INGOTS_TIN).define('S', Items.STICK).pattern(" T ").pattern("TST").pattern(" T ").group("gear").unlockedBy("has_item",has(ModTags.Items.INGOTS_TIN)).save(consumer);
-        oreSmelting(consumer,TIN_SMELTABLES, ModItems.TIN_INGOT.get(),0F,200);
-        oreBlasting(consumer,TIN_SMELTABLES, ModItems.TIN_INGOT.get(),0F,100);
+        ShapedRecipeBuilder.shaped(BIItems.TIN_GEAR.get()).define('T', BITags.Items.INGOTS_TIN).define('S', Items.STICK).pattern(" T ").pattern("TST").pattern(" T ").group("gear").unlockedBy("has_item",has(BITags.Items.INGOTS_TIN)).save(consumer);
+        oreSmelting(consumer,TIN_SMELTABLES, BIItems.TIN_INGOT.get(),0F,200);
+        oreBlasting(consumer,TIN_SMELTABLES, BIItems.TIN_INGOT.get(),0F,100);
         // Lead
-        metalRecipe(consumer,ModItems.LEAD_INGOT.get(),ModTags.Items.INGOTS_LEAD,ModItems.LEAD_NUGGET.get(),ModTags.Items.NUGGETS_LEAD,ModBlocks.LEAD_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_LEAD,ModItems.RAW_LEAD.get(),ModTags.Items.RAW_ORES_LEAD,ModBlocks.RAW_LEAD_BLOCK.get(),ModTags.Items.RAW_STORAGE_BLOCKS_LEAD);
+        metalRecipe(consumer, BIItems.LEAD_INGOT.get(), BITags.Items.INGOTS_LEAD, BIItems.LEAD_NUGGET.get(), BITags.Items.NUGGETS_LEAD, BIBlocks.LEAD_BLOCK.get(), BITags.Items.STORAGE_BLOCKS_LEAD, BIItems.RAW_LEAD.get(), BITags.Items.RAW_ORES_LEAD, BIBlocks.RAW_LEAD_BLOCK.get(), BITags.Items.RAW_STORAGE_BLOCKS_LEAD);
         //nineStorageRecipe(consumer, ModItems.LEAD_INGOT.get(),ModTags.Items.INGOTS_LEAD, ModBlocks.LEAD_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_LEAD,simpleItemName(ModItems.LEAD_INGOT.get())+"_from_block");
         //nineStorageRecipe(consumer, ModItems.LEAD_NUGGET.get(),ModTags.Items.NUGGETS_LEAD, ModItems.LEAD_INGOT.get(),ModTags.Items.INGOTS_LEAD,simpleItemName(ModItems.LEAD_INGOT.get())+"_from_nugget");
         //nineStorageRecipe(consumer, ModItems.RAW_LEAD.get(), ModBlocks.RAW_LEAD_BLOCK.get(),simpleItemName(ModItems.RAW_LEAD.get())+"_from_block");
-        ShapedRecipeBuilder.shaped(ModItems.LEAD_GEAR.get()).define('T',ModTags.Items.INGOTS_LEAD).define('S', Items.STICK).pattern(" T ").pattern("TST").pattern(" T ").group("gear").unlockedBy("has_item",has(ModTags.Items.INGOTS_LEAD)).save(consumer);
-        oreSmelting(consumer,LEAD_SMELTABLES, ModItems.LEAD_INGOT.get(),0F,200);
-        oreBlasting(consumer,LEAD_SMELTABLES, ModItems.LEAD_INGOT.get(),0F,100);
+        ShapedRecipeBuilder.shaped(BIItems.LEAD_GEAR.get()).define('T', BITags.Items.INGOTS_LEAD).define('S', Items.STICK).pattern(" T ").pattern("TST").pattern(" T ").group("gear").unlockedBy("has_item",has(BITags.Items.INGOTS_LEAD)).save(consumer);
+        oreSmelting(consumer,LEAD_SMELTABLES, BIItems.LEAD_INGOT.get(),0F,200);
+        oreBlasting(consumer,LEAD_SMELTABLES, BIItems.LEAD_INGOT.get(),0F,100);
         // Aluminium
-        metalRecipe(consumer,ModItems.ALUMINIUM_INGOT.get(),ModTags.Items.INGOTS_ALUMINIUM,ModItems.ALUMINIUM_NUGGET.get(),ModTags.Items.NUGGETS_ALUMINIUM,ModBlocks.ALUMINIUM_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_ALUMINIUM,ModItems.RAW_ALUMINIUM.get(),ModTags.Items.RAW_ORES_ALUMINIUM,ModBlocks.RAW_ALUMINIUM_BLOCK.get(),ModTags.Items.RAW_STORAGE_BLOCKS_ALUMINIUM);
+        metalRecipe(consumer, BIItems.ALUMINIUM_INGOT.get(), BITags.Items.INGOTS_ALUMINIUM, BIItems.ALUMINIUM_NUGGET.get(), BITags.Items.NUGGETS_ALUMINIUM, BIBlocks.ALUMINIUM_BLOCK.get(), BITags.Items.STORAGE_BLOCKS_ALUMINIUM, BIItems.RAW_ALUMINIUM.get(), BITags.Items.RAW_ORES_ALUMINIUM, BIBlocks.RAW_ALUMINIUM_BLOCK.get(), BITags.Items.RAW_STORAGE_BLOCKS_ALUMINIUM);
         //nineStorageRecipe(consumer, ModItems.ALUMINIUM_INGOT.get(),ModTags.Items.INGOTS_ALUMINIUM, ModBlocks.ALUMINIUM_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_ALUMINIUM,simpleItemName(ModItems.ALUMINIUM_INGOT.get())+"_from_block");
         //nineStorageRecipe(consumer, ModItems.ALUMINIUM_NUGGET.get(),ModTags.Items.NUGGETS_ALUMINIUM, ModItems.ALUMINIUM_INGOT.get(),ModTags.Items.INGOTS_ALUMINIUM,simpleItemName(ModItems.ALUMINIUM_INGOT.get())+"_from_nugget");
         //nineStorageRecipe(consumer, ModItems.RAW_ALUMINIUM.get(), ModBlocks.RAW_ALUMINIUM_BLOCK.get(),simpleItemName(ModItems.RAW_ALUMINIUM.get())+"_from_block");
-        oreSmelting(consumer,ALUMINIUM_SMELTABLES, ModItems.ALUMINIUM_INGOT.get(),0F,200);
-        oreBlasting(consumer,ALUMINIUM_SMELTABLES, ModItems.ALUMINIUM_INGOT.get(),0F,100);
+        oreSmelting(consumer,ALUMINIUM_SMELTABLES, BIItems.ALUMINIUM_INGOT.get(),0F,200);
+        oreBlasting(consumer,ALUMINIUM_SMELTABLES, BIItems.ALUMINIUM_INGOT.get(),0F,100);
         // Steel
-        metalRecipeAlloy(consumer,ModItems.STEEL_INGOT.get(),ModTags.Items.INGOTS_STEEL,ModItems.STEEL_NUGGET.get(),ModTags.Items.NUGGETS_STEEL,ModBlocks.STEEL_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_STEEL);
+        metalRecipeAlloy(consumer, BIItems.STEEL_INGOT.get(), BITags.Items.INGOTS_STEEL, BIItems.STEEL_NUGGET.get(), BITags.Items.NUGGETS_STEEL, BIBlocks.STEEL_BLOCK.get(), BITags.Items.STORAGE_BLOCKS_STEEL);
         //nineStorageRecipe(consumer, ModItems.STEEL_INGOT.get(),ModTags.Items.INGOTS_STEEL, ModBlocks.STEEL_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_STEEL,simpleItemName(ModItems.STEEL_INGOT.get())+"_from_block");
         //nineStorageRecipe(consumer, ModItems.STEEL_NUGGET.get(),ModTags.Items.NUGGETS_STEEL, ModItems.STEEL_INGOT.get(),ModTags.Items.INGOTS_STEEL,simpleItemName(ModItems.STEEL_INGOT.get())+"_from_nugget");
-        ShapedRecipeBuilder.shaped(ModItems.STEEL_GEAR.get()).define('T',ModTags.Items.INGOTS_STEEL).define('S', Items.STICK).pattern(" T ").pattern("TST").pattern(" T ").group("gear").unlockedBy("has_item",has(ModTags.Items.INGOTS_STEEL)).save(consumer);
-        oreSmelting(consumer,STEEL_SMELTABLES, ModItems.STEEL_INGOT.get(),0F,200);
-        oreBlasting(consumer,STEEL_SMELTABLES, ModItems.STEEL_INGOT.get(),0F,100);
+        ShapedRecipeBuilder.shaped(BIItems.STEEL_GEAR.get()).define('T', BITags.Items.INGOTS_STEEL).define('S', Items.STICK).pattern(" T ").pattern("TST").pattern(" T ").group("gear").unlockedBy("has_item",has(BITags.Items.INGOTS_STEEL)).save(consumer);
+        oreSmelting(consumer,STEEL_SMELTABLES, BIItems.STEEL_INGOT.get(),0F,200);
+        oreBlasting(consumer,STEEL_SMELTABLES, BIItems.STEEL_INGOT.get(),0F,100);
     }
 
     protected void metalRecipe(Consumer<FinishedRecipe> consumer, Item ingotItem, Tag<Item> ingotTag, Item nuggetItem, Tag<Item> nuggetTag, Block storageBlock, Tag<Item> storageBlockTag, Item rawItem, Tag<Item> rawTag, Block rawStorageBlock, Tag<Item> rawStorageBlockTag) {

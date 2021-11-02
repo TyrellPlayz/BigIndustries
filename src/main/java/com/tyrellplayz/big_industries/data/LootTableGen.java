@@ -3,8 +3,8 @@ package com.tyrellplayz.big_industries.data;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.core.ModBlocks;
-import com.tyrellplayz.big_industries.core.ModItems;
+import com.tyrellplayz.big_industries.core.BIBlocks;
+import com.tyrellplayz.big_industries.core.BIItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.loot.LootTableProvider;
@@ -51,24 +51,27 @@ public class LootTableGen extends LootTableProvider {
         @Override
         protected void addTables() {
             // Tin
-            this.add(ModBlocks.TIN_ORE.get(), block -> createOreDrop(block, ModItems.RAW_TIN.get()));
-            this.dropSelf(ModBlocks.TIN_BLOCK.get());
-            this.dropSelf(ModBlocks.RAW_TIN_BLOCK.get());
+            this.add(BIBlocks.TIN_ORE.get(), block -> createOreDrop(block, BIItems.RAW_TIN.get()));
+            this.add(BIBlocks.DEEPSLATE_TIN_ORE.get(), block -> createOreDrop(block, BIItems.RAW_TIN.get()));
+            this.dropSelf(BIBlocks.TIN_BLOCK.get());
+            this.dropSelf(BIBlocks.RAW_TIN_BLOCK.get());
 
             // Lead
-            this.add(ModBlocks.LEAD_ORE.get(), block -> createOreDrop(block, ModItems.RAW_LEAD.get()));
-            this.dropSelf(ModBlocks.LEAD_BLOCK.get());
-            this.dropSelf(ModBlocks.RAW_LEAD_BLOCK.get());
+            this.add(BIBlocks.LEAD_ORE.get(), block -> createOreDrop(block, BIItems.RAW_LEAD.get()));
+            this.add(BIBlocks.DEEPSLATE_LEAD_ORE.get(), block -> createOreDrop(block, BIItems.RAW_LEAD.get()));
+            this.dropSelf(BIBlocks.LEAD_BLOCK.get());
+            this.dropSelf(BIBlocks.RAW_LEAD_BLOCK.get());
 
             // Aluminium
-            this.add(ModBlocks.ALUMINIUM_ORE.get(), block -> createOreDrop(block, ModItems.RAW_ALUMINIUM.get()));
-            this.dropSelf(ModBlocks.ALUMINIUM_BLOCK.get());
-            this.dropSelf(ModBlocks.RAW_ALUMINIUM_BLOCK.get());
+            this.add(BIBlocks.ALUMINIUM_ORE.get(), block -> createOreDrop(block, BIItems.RAW_ALUMINIUM.get()));
+            this.add(BIBlocks.DEEPSLATE_ALUMINIUM_ORE.get(), block -> createOreDrop(block, BIItems.RAW_ALUMINIUM.get()));
+            this.dropSelf(BIBlocks.ALUMINIUM_BLOCK.get());
+            this.dropSelf(BIBlocks.RAW_ALUMINIUM_BLOCK.get());
 
             // Steel
-            this.dropSelf(ModBlocks.STEEL_BLOCK.get());
+            this.dropSelf(BIBlocks.STEEL_BLOCK.get());
 
-            this.dropSelf(ModBlocks.BLAST_BRICK.get());
+            this.dropSelf(BIBlocks.BLAST_BRICK.get());
         }
 
         @Override

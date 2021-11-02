@@ -1,20 +1,13 @@
 package com.tyrellplayz.big_industries.core;
 
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.common.ModTags;
-import com.tyrellplayz.big_industries.data.ItemTagGen;
 import com.tyrellplayz.big_industries.item.BurnableItem;
-import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.EnumMap;
-import java.util.Map;
-
-public class ModItems {
+public class BIItems {
 
     public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS,BigIndustries.MOD_ID);
 

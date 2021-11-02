@@ -1,7 +1,7 @@
-package com.tyrellplayz.big_industries.level.levelgen;
+package com.tyrellplayz.big_industries.world;
 
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.core.ModFeatures;
+import com.tyrellplayz.big_industries.core.BIFeatures;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -15,10 +15,14 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = BigIndustries.MOD_ID)
-public class ModLevelGen {
+public class BIWorldGen {
+
+    private static final List<ConfiguredFeature<?,?>> CONFIGURED_FEATURE_LIST = new ArrayList<>();
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void addFeaturesToBiomes(final BiomeLoadingEvent event) {
@@ -26,9 +30,9 @@ public class ModLevelGen {
         final ResourceKey<Biome> biomeRegistryKey = ResourceKey.create(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(event.getName(), "Biome registry name was null"));
 
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.OVERWORLD)) {
-            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(ModFeatures.TIN_ORE));
-            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(ModFeatures.LEAD_ORE));
-            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(ModFeatures.ALUMINIUM_ORE));
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(BIFeatures.ORE_TIN));
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(BIFeatures.ORE_LEAD));
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(BIFeatures.ORE_ALUMINIUM));
         }
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.NETHER)) {
 

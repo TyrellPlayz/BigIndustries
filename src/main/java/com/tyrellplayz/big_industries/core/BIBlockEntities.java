@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
-public class ModBlockEntities {
+public class BIBlockEntities {
 
     public static final DeferredRegister<BlockEntityType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES,BigIndustries.MOD_ID);
 

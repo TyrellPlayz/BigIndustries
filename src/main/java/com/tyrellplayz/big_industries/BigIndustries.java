@@ -29,10 +29,10 @@ public class BigIndustries {
     public static final String MOD_ID = "big_industries";
 
     public static final CreativeModeTab BLOCK_TAB = new CreativeModeTab(MOD_ID+".blocks") {
-        public ItemStack makeIcon() { return new ItemStack(ModBlocks.TIN_ORE.get()); }
+        public ItemStack makeIcon() { return new ItemStack(BIBlocks.TIN_ORE.get()); }
     };
     public static final CreativeModeTab ITEM_TAB = new CreativeModeTab(MOD_ID+".items") {
-        public ItemStack makeIcon() { return new ItemStack(ModItems.RAW_TIN.get()); }
+        public ItemStack makeIcon() { return new ItemStack(BIItems.RAW_TIN.get()); }
     };
 
     public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
@@ -45,10 +45,12 @@ public class BigIndustries {
         eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::gatherData);
 
-        ModBlocks.REGISTER.register(eventBus);
-        ModItems.REGISTER.register(eventBus);
-        ModBlockEntities.REGISTER.register(eventBus);
-        ModContainers.REGISTER.register(eventBus);
+        BIBlocks.REGISTER.register(eventBus);
+        BIItems.REGISTER.register(eventBus);
+        BIBlockEntities.REGISTER.register(eventBus);
+        BIContainers.REGISTER.register(eventBus);
+
+        //MinecraftForge.EVENT_BUS.register(ModFeatures.class);
 
         MinecraftForge.EVENT_BUS.addListener(this::registerRegistries);
     }

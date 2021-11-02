@@ -1,8 +1,8 @@
 package com.tyrellplayz.big_industries.data;
 
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.core.ModBlocks;
-import com.tyrellplayz.big_industries.core.ModItems;
+import com.tyrellplayz.big_industries.core.BIBlocks;
+import com.tyrellplayz.big_industries.core.BIItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
 import net.minecraft.world.item.Item;
@@ -27,38 +27,38 @@ public class ItemModelGen extends ItemModelProvider {
 
     private void registerItemModels() {
         // Tin
-        simpleItem(ModItems.RAW_TIN.get());
-        simpleItem(ModItems.CRUSHED_TIN.get());
-        simpleItem(ModItems.TIN_INGOT.get());
-        simpleItem(ModItems.TIN_NUGGET.get());
-        simpleItem(ModItems.TIN_GEAR.get());
+        simpleItem(BIItems.RAW_TIN.get());
+        simpleItem(BIItems.CRUSHED_TIN.get());
+        simpleItem(BIItems.TIN_INGOT.get());
+        simpleItem(BIItems.TIN_NUGGET.get());
+        simpleItem(BIItems.TIN_GEAR.get());
 
         // Lead
-        simpleItem(ModItems.RAW_LEAD.get());
-        simpleItem(ModItems.CRUSHED_LEAD.get());
-        simpleItem(ModItems.LEAD_INGOT.get());
-        simpleItem(ModItems.LEAD_NUGGET.get());
-        simpleItem(ModItems.LEAD_GEAR.get());
+        simpleItem(BIItems.RAW_LEAD.get());
+        simpleItem(BIItems.CRUSHED_LEAD.get());
+        simpleItem(BIItems.LEAD_INGOT.get());
+        simpleItem(BIItems.LEAD_NUGGET.get());
+        simpleItem(BIItems.LEAD_GEAR.get());
 
         // Aluminium
-        simpleItem(ModItems.RAW_ALUMINIUM.get());
-        simpleItem(ModItems.CRUSHED_ALUMINIUM.get());
-        simpleItem(ModItems.ALUMINIUM_INGOT.get());
-        simpleItem(ModItems.ALUMINIUM_NUGGET.get());
+        simpleItem(BIItems.RAW_ALUMINIUM.get());
+        simpleItem(BIItems.CRUSHED_ALUMINIUM.get());
+        simpleItem(BIItems.ALUMINIUM_INGOT.get());
+        simpleItem(BIItems.ALUMINIUM_NUGGET.get());
 
         // Silver
-        simpleItem(ModItems.SILVER_INGOT.get());
+        simpleItem(BIItems.SILVER_INGOT.get());
 
         // Steel
-        simpleItem(ModItems.CRUSHED_STEEL.get());
-        simpleItem(ModItems.STEEL_INGOT.get());
-        simpleItem(ModItems.STEEL_NUGGET.get());
-        simpleItem(ModItems.STEEL_GEAR.get());
+        simpleItem(BIItems.CRUSHED_STEEL.get());
+        simpleItem(BIItems.STEEL_INGOT.get());
+        simpleItem(BIItems.STEEL_NUGGET.get());
+        simpleItem(BIItems.STEEL_GEAR.get());
 
-        simpleItem(ModItems.CRUSHED_COAL.get());
-        simpleItem(ModItems.CRUSHED_IRON.get());
-        simpleItem(ModItems.CRUSHED_COPPER.get());
-        simpleItem(ModItems.CRUSHED_GOLD.get());
+        simpleItem(BIItems.CRUSHED_COAL.get());
+        simpleItem(BIItems.CRUSHED_IRON.get());
+        simpleItem(BIItems.CRUSHED_COPPER.get());
+        simpleItem(BIItems.CRUSHED_GOLD.get());
 
         //simpleItem(ModItems.COPPER_WIRE.get());
 
@@ -67,24 +67,27 @@ public class ItemModelGen extends ItemModelProvider {
 
     private void registerBlockModels() {
         // Tin
-        simpleItem(ModBlocks.TIN_ORE.get());
-        simpleItem(ModBlocks.RAW_TIN_BLOCK.get());
-        simpleItem(ModBlocks.TIN_BLOCK.get());
+        simpleItem(BIBlocks.TIN_ORE.get());
+        simpleItem(BIBlocks.DEEPSLATE_TIN_ORE.get());
+        simpleItem(BIBlocks.RAW_TIN_BLOCK.get());
+        simpleItem(BIBlocks.TIN_BLOCK.get());
 
         // Lead
-        simpleItem(ModBlocks.LEAD_ORE.get());
-        simpleItem(ModBlocks.RAW_LEAD_BLOCK.get());
-        simpleItem(ModBlocks.LEAD_BLOCK.get());
+        simpleItem(BIBlocks.LEAD_ORE.get());
+        simpleItem(BIBlocks.DEEPSLATE_LEAD_ORE.get());
+        simpleItem(BIBlocks.RAW_LEAD_BLOCK.get());
+        simpleItem(BIBlocks.LEAD_BLOCK.get());
 
         // Aluminium
-        simpleItem(ModBlocks.ALUMINIUM_ORE.get());
-        simpleItem(ModBlocks.RAW_ALUMINIUM_BLOCK.get());
-        simpleItem(ModBlocks.ALUMINIUM_BLOCK.get());
+        simpleItem(BIBlocks.ALUMINIUM_ORE.get());
+        simpleItem(BIBlocks.DEEPSLATE_ALUMINIUM_ORE.get());
+        simpleItem(BIBlocks.RAW_ALUMINIUM_BLOCK.get());
+        simpleItem(BIBlocks.ALUMINIUM_BLOCK.get());
 
         // Steel
-        simpleItem(ModBlocks.STEEL_BLOCK.get());
+        simpleItem(BIBlocks.STEEL_BLOCK.get());
 
-        simpleItem(ModBlocks.BLAST_BRICK.get());
+        simpleItem(BIBlocks.BLAST_BRICK.get());
 
         //simpleItem(ModBlocks.BOILER);
         //simpleItem(ModBlocks.PIPE);

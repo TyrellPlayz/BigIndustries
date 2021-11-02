@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "big_industries:lead_ore"
+    "big_industries:lead_ore",
+    "big_industries:deepslate_lead_ore"
   ]
 }

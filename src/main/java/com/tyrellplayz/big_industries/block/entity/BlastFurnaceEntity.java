@@ -1,7 +1,6 @@
 package com.tyrellplayz.big_industries.block.entity;
 
 import com.tyrellplayz.big_industries.menu.BlastFurnaceMenu;
-import com.tyrellplayz.big_industries.core.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;

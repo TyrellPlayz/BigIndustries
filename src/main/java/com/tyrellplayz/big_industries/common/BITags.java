@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.Tags;
 
-public class ModTags {
+public class BITags {
 
     public static class Blocks {
 

@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
+    "#forge:ores/tin",
+    "#forge:ores/lead",
+    "#forge:ores/aluminium",
     "big_industries:tin_block",
-    "big_industries:tin_ore",
     "big_industries:raw_tin_block",
     "big_industries:lead_block",
-    "big_industries:lead_ore",
     "big_industries:raw_lead_block",
     "big_industries:aluminium_block",
-    "big_industries:aluminium_ore",
     "big_industries:raw_aluminium_block",
     "big_industries:steel_block"
   ]

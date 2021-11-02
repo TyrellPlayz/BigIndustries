@@ -1,7 +1,6 @@
 package com.tyrellplayz.big_industries.menu;
 
 import com.tyrellplayz.big_industries.block.entity.BlastFurnaceEntity;
-import com.tyrellplayz.big_industries.core.ModContainers;
 import com.tyrellplayz.big_industries.menu.slot.FuelSlot;
 import com.tyrellplayz.big_industries.menu.slot.OutputSlot;
 import net.minecraft.world.Container;
