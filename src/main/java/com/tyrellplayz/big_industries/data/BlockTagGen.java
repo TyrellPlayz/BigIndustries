@@ -47,7 +47,8 @@ public class BlockTagGen extends BlockTagsProvider {
                 .add(BIBlocks.TIN_BLOCK.get(), BIBlocks.RAW_TIN_BLOCK.get())
                 .add(BIBlocks.LEAD_BLOCK.get(), BIBlocks.RAW_LEAD_BLOCK.get())
                 .add(BIBlocks.ALUMINIUM_BLOCK.get(), BIBlocks.RAW_ALUMINIUM_BLOCK.get())
-                .add(BIBlocks.STEEL_BLOCK.get());
+                .add(BIBlocks.STEEL_BLOCK.get())
+                .add(BIBlocks.BLAST_BRICK.get()).add(BIBlocks.BLAST_FURNACE.get());
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(BIBlocks.TIN_BLOCK.get(), BIBlocks.TIN_ORE.get(), BIBlocks.RAW_TIN_BLOCK.get())
                 .add(BIBlocks.LEAD_BLOCK.get(), BIBlocks.LEAD_ORE.get(), BIBlocks.RAW_LEAD_BLOCK.get())

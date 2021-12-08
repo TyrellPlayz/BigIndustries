@@ -2,6 +2,7 @@ package com.tyrellplayz.big_industries.core;
 
 import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.item.BurnableItem;
+import com.tyrellplayz.big_industries.item.HammerItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -48,7 +49,7 @@ public class BIItems {
     //public static final RegistryObject<Item> SOLAR_CELL = register("solar_cell",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
     // Tools
-    //public static final RegistryObject<Item> HAMMER = register("hammer",new HammerItem(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> HAMMER = register("hammer",new HammerItem(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
     public static <T extends Item> RegistryObject<T> register(String registryName, T item) {
         return REGISTER.register(registryName,() -> item);

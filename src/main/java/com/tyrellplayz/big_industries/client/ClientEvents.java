@@ -1,5 +1,6 @@
 package com.tyrellplayz.big_industries.client;
 
+import com.tyrellplayz.big_industries.block.entity.MultiblockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -30,6 +31,11 @@ public class ClientEvents {
                     event.getRight().add("");
                     event.getRight().add(ChatFormatting.UNDERLINE + "Targeted Block Entity: " + blockpos.getX() + ", " + blockpos.getY() + ", " + blockpos.getZ());
                     event.getRight().add(String.valueOf(blockEntity.getType().getRegistryName()));
+                    if(blockEntity instanceof MultiblockEntity mbEntity) {
+                        BlockPos parentPos = mbEntity.getParent();
+                        if(parentPos == null) parentPos = new BlockPos(0,0,0);
+                        event.getRight().add("MB Parent: " + parentPos.getX() + ", " + parentPos.getY() + ", " + parentPos.getZ());
+                    }
                 }
             }
 

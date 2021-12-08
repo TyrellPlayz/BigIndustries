@@ -23,7 +23,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
     mappings channel: 'official', version: '1.17.1'
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
     runs {
         client {
             workingDirectory project.file('run')
@@ -75,11 +75,11 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.17.1-37.0.103'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.0.110'
     // compile against the JEI API but do not include it at runtime
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
+    compileOnly fg.deobf("mezz.jei:jei-1.17.1:8.1.0.31:api")
     // at runtime, use the full JEI jar
-    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.17.1:8.1.0.31")
 }
 
 jar {

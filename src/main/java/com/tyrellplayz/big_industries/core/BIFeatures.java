@@ -35,27 +35,6 @@ public class BIFeatures {
         register(ORE_TIN,defaultOreFeature(ORE_TIN_TARGET_LIST,9,63,20));
         register(ORE_LEAD,defaultOreFeature(ORE_LEAD_TARGET_LIST,9,63,20));
         register(ORE_ALUMINIUM,defaultOreFeature(ORE_ALUMINIUM_TARGET_LIST,9,63,20));
-
-        //registerDefaultOre(ORE_TIN, ORE_TIN_TARGET_LIST,9,63,20);
-        //registerDefaultOre(ORE_LEAD, ORE_LEAD_TARGET_LIST,7,31,15);
-        //registerDefaultOre(ORE_ALUMINIUM, ORE_ALUMINIUM_TARGET_LIST,7,63,15);
-        /*
-        register(TIN_ORE,Feature.ORE
-                .configured(new OreConfiguration(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, ModBlocks.TIN_ORE.get().defaultBlockState(), 9))
-                .rangeUniform(VerticalAnchor.bottom(),VerticalAnchor.absolute(64))
-                .squared()
-                .count(20));
-        register(LEAD_ORE,Feature.ORE
-                .configured(new OreConfiguration(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, ModBlocks.LEAD_ORE.get().defaultBlockState(),7))
-                .rangeUniform(VerticalAnchor.bottom(),VerticalAnchor.absolute(32))
-                .squared()
-                .count(15));
-        register(ALUMINIUM_ORE,Feature.ORE
-                .configured(new OreConfiguration(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, ModBlocks.ALUMINIUM_ORE.get().defaultBlockState(),7))
-                .rangeUniform(VerticalAnchor.bottom(),VerticalAnchor.absolute(64))
-                .squared()
-                .count(20));
-         */
     }
 
     private static ConfiguredFeature<?, ?> defaultOreFeature(ImmutableList<OreConfiguration.TargetBlockState> targetList, int maxVeinSize, int maxHeight, int maxPerChunk) {

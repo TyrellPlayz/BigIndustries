@@ -2,6 +2,7 @@ package com.tyrellplayz.big_industries;
 
 import com.tyrellplayz.big_industries.core.*;
 import com.tyrellplayz.big_industries.data.*;
+import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import com.tyrellplayz.big_industries.proxy.ClientProxy;
 import com.tyrellplayz.big_industries.proxy.CommonProxy;
 import net.minecraft.data.DataGenerator;
@@ -83,11 +84,14 @@ public class BigIndustries {
     }
 
     public void registerRegistries(RegistryEvent.NewRegistry event) {
-        //createRegistry(new ResourceLocation(MOD_ID,"multiblock_type"),MultiblockType.class);
+        createRegistry(new ResourceLocation(MOD_ID,"multiblock_type"), MultiblockType.class);
     }
 
     public <T extends IForgeRegistryEntry<T>> void createRegistry(ResourceLocation key, Class<T> type) {
         new RegistryBuilder<T>().setName(key).setType(type).setDefaultKey(key).create();
     }
 
+    public static Logger getLogger() {
+        return LOGGER;
+    }
 }
