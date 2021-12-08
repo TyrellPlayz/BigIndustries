@@ -2,6 +2,7 @@ package com.tyrellplayz.big_industries.world;
 
 import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.core.BIFeatures;
+import com.tyrellplayz.big_industries.world.worldgen.BIOrePlacements;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -30,9 +31,9 @@ public class BIWorldGen {
         final ResourceKey<Biome> biomeRegistryKey = ResourceKey.create(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(event.getName(), "Biome registry name was null"));
 
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.OVERWORLD)) {
-            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(BIFeatures.ORE_TIN));
-            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(BIFeatures.ORE_LEAD));
-            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,getFeature(BIFeatures.ORE_ALUMINIUM));
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_TIN);
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_ALUMINIUM);
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_LEAD);
         }
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.NETHER)) {
 
@@ -40,10 +41,6 @@ public class BIWorldGen {
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.END)) {
 
         }
-    }
-
-    private static ConfiguredFeature<?, ?> getFeature(final ResourceKey<ConfiguredFeature<?, ?>> key) {
-        return BuiltinRegistries.CONFIGURED_FEATURE.getOrThrow(key);
     }
 
 }

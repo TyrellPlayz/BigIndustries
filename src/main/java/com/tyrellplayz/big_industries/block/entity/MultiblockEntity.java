@@ -120,7 +120,7 @@ public class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multibl
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return new ClientboundBlockEntityDataPacket(this.worldPosition,9, getUpdateTag());
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override

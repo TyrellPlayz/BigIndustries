@@ -5,6 +5,8 @@ import com.tyrellplayz.big_industries.data.*;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import com.tyrellplayz.big_industries.proxy.ClientProxy;
 import com.tyrellplayz.big_industries.proxy.CommonProxy;
+import com.tyrellplayz.big_industries.world.worldgen.BIOreFeatures;
+import com.tyrellplayz.big_industries.world.worldgen.BIOrePlacements;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -61,6 +63,10 @@ public class BigIndustries {
     }
 
     public void onCommonSetup(final FMLCommonSetupEvent event) {
+
+        BIOreFeatures.init();
+        BIOrePlacements.init();
+
         proxy.onCommonSetup(event);
     }
 

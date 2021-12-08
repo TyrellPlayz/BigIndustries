@@ -4,8 +4,10 @@ import com.google.common.collect.ImmutableList;
 import com.tyrellplayz.big_industries.BigIndustries;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -28,22 +30,23 @@ public class BIFeatures {
 
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void registerEvent(final RegistryEvent.Register<Feature<?>> event) {
-        ImmutableList<OreConfiguration.TargetBlockState> ORE_TIN_TARGET_LIST = ImmutableList.of(OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, BIBlocks.TIN_ORE.get().defaultBlockState()), OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES, BIBlocks.DEEPSLATE_TIN_ORE.get().defaultBlockState()));
-        ImmutableList<OreConfiguration.TargetBlockState> ORE_LEAD_TARGET_LIST = ImmutableList.of(OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, BIBlocks.LEAD_ORE.get().defaultBlockState()), OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES, BIBlocks.DEEPSLATE_LEAD_ORE.get().defaultBlockState()));
-        ImmutableList<OreConfiguration.TargetBlockState> ORE_ALUMINIUM_TARGET_LIST = ImmutableList.of(OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, BIBlocks.ALUMINIUM_ORE.get().defaultBlockState()), OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES, BIBlocks.DEEPSLATE_ALUMINIUM_ORE.get().defaultBlockState()));
 
-        register(ORE_TIN,defaultOreFeature(ORE_TIN_TARGET_LIST,9,63,20));
-        register(ORE_LEAD,defaultOreFeature(ORE_LEAD_TARGET_LIST,9,63,20));
-        register(ORE_ALUMINIUM,defaultOreFeature(ORE_ALUMINIUM_TARGET_LIST,9,63,20));
+        ImmutableList<OreConfiguration.TargetBlockState> ORE_TIN_TARGET_LIST = ImmutableList.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BIBlocks.TIN_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BIBlocks.DEEPSLATE_TIN_ORE.get().defaultBlockState()));
+        ImmutableList<OreConfiguration.TargetBlockState> ORE_LEAD_TARGET_LIST = ImmutableList.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BIBlocks.LEAD_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BIBlocks.DEEPSLATE_LEAD_ORE.get().defaultBlockState()));
+        ImmutableList<OreConfiguration.TargetBlockState> ORE_ALUMINIUM_TARGET_LIST = ImmutableList.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BIBlocks.ALUMINIUM_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BIBlocks.DEEPSLATE_ALUMINIUM_ORE.get().defaultBlockState()));
+
+        //register(ORE_TIN,defaultOreFeature(ORE_TIN_TARGET_LIST,9,63,20));
+        //register(ORE_LEAD,defaultOreFeature(ORE_LEAD_TARGET_LIST,9,63,20));
+        //register(ORE_ALUMINIUM,defaultOreFeature(ORE_ALUMINIUM_TARGET_LIST,9,63,20));
     }
 
-    private static ConfiguredFeature<?, ?> defaultOreFeature(ImmutableList<OreConfiguration.TargetBlockState> targetList, int maxVeinSize, int maxHeight, int maxPerChunk) {
-        return Feature.ORE
-                .configured(new OreConfiguration(targetList,maxVeinSize))
-                .rangeUniform(VerticalAnchor.bottom(),VerticalAnchor.absolute(maxHeight))
-                .squared()
-                .count(maxPerChunk);
-    }
+    //private static ConfiguredFeature<?, ?> defaultOreFeature(ImmutableList<OreConfiguration.TargetBlockState> targetList, int maxVeinSize, int maxHeight, int maxPerChunk) {
+    //    return Feature.ORE
+    //            .configured(new OreConfiguration(targetList,maxVeinSize))
+    //            .rangeUniform(VerticalAnchor.bottom(),VerticalAnchor.absolute(maxHeight))
+    //            .squared()
+    //            .count(maxPerChunk);
+    //}
 
     private static <T extends ConfiguredFeature<?, ?>> T register(ResourceKey<ConfiguredFeature<?,?>> key, T configuredFeature) {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, key.location(),configuredFeature);
