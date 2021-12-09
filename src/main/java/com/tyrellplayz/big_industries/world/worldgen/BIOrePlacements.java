@@ -16,6 +16,8 @@ public class BIOrePlacements {
     private BIOrePlacements() {}
 
     public static void init() {
+        // TODO: Update ores to be placed like the vanilla ores in 1.18.
+
         ORE_TIN = PlacementUtils.register(BigIndustries.MOD_ID+":ore_tin",BIOreFeatures.ORE_TIN
                 .placed(commonOrePlacement(15,HeightRangePlacement.triangle(VerticalAnchor.bottom(),VerticalAnchor.absolute(56)))));
         ORE_LEAD = PlacementUtils.register(BigIndustries.MOD_ID+":ore_lead",BIOreFeatures.ORE_LEAD

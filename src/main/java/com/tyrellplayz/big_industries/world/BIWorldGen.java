@@ -1,9 +1,7 @@
 package com.tyrellplayz.big_industries.world;
 
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.core.BIFeatures;
 import com.tyrellplayz.big_industries.world.worldgen.BIOrePlacements;
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;

@@ -20,10 +20,10 @@ import java.util.function.Consumer;
 
 public class RecipeGen extends RecipeProvider {
 
-    private static final ImmutableList<ItemLike> TIN_SMELTABLES = ImmutableList.of(BIBlocks.TIN_ORE.get(), BIItems.RAW_TIN.get(), BIItems.CRUSHED_TIN.get());
-    private static final ImmutableList<ItemLike> LEAD_SMELTABLES = ImmutableList.of(BIBlocks.LEAD_ORE.get(), BIItems.RAW_LEAD.get(), BIItems.CRUSHED_LEAD.get());
-    private static final ImmutableList<ItemLike> ALUMINIUM_SMELTABLES = ImmutableList.of(BIBlocks.ALUMINIUM_ORE.get(), BIItems.RAW_ALUMINIUM.get(), BIItems.CRUSHED_ALUMINIUM.get());
-    private static final ImmutableList<ItemLike> STEEL_SMELTABLES = ImmutableList.of(BIItems.CRUSHED_STEEL.get());
+    private static final ImmutableList<ItemLike> TIN_SMELTABLES = ImmutableList.of(BIBlocks.TIN_ORE.get(), BIItems.RAW_TIN.get(), BIItems.TIN_DUST.get());
+    private static final ImmutableList<ItemLike> LEAD_SMELTABLES = ImmutableList.of(BIBlocks.LEAD_ORE.get(), BIItems.RAW_LEAD.get(), BIItems.LEAD_DUST.get());
+    private static final ImmutableList<ItemLike> ALUMINIUM_SMELTABLES = ImmutableList.of(BIBlocks.ALUMINIUM_ORE.get(), BIItems.RAW_ALUMINIUM.get(), BIItems.ALUMINIUM_DUST.get());
+    private static final ImmutableList<ItemLike> STEEL_SMELTABLES = ImmutableList.of(BIItems.STEEL_DUST.get());
 
     public RecipeGen(DataGenerator generator) {
         super(generator);

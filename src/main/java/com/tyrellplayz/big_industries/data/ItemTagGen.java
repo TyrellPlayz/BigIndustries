@@ -23,7 +23,7 @@ public class ItemTagGen extends ItemTagsProvider {
     protected void addTags() {
         // Tin
         this.tag(Items.RAW_ORES_TIN).add(BIItems.RAW_TIN.get());
-        this.tag(Items.DUSTS_TIN).add(BIItems.CRUSHED_TIN.get());
+        this.tag(Items.DUSTS_TIN).add(BIItems.TIN_DUST.get());
         this.tag(Items.INGOTS_TIN).add(BIItems.TIN_INGOT.get());
         this.tag(Items.NUGGETS_TIN).add(BIItems.TIN_NUGGET.get());
         this.tag(Items.GEARS_TIN).add(BIItems.TIN_GEAR.get());
@@ -33,7 +33,7 @@ public class ItemTagGen extends ItemTagsProvider {
 
         // Lead
         this.tag(Items.RAW_ORES_LEAD).add(BIItems.RAW_LEAD.get());
-        this.tag(Items.DUSTS_LEAD).add(BIItems.CRUSHED_LEAD.get());
+        this.tag(Items.DUSTS_LEAD).add(BIItems.LEAD_DUST.get());
         this.tag(Items.INGOTS_LEAD).add(BIItems.LEAD_INGOT.get());
         this.tag(Items.NUGGETS_LEAD).add(BIItems.LEAD_NUGGET.get());
         this.tag(Items.GEARS_LEAD).add(BIItems.LEAD_GEAR.get());
@@ -43,7 +43,7 @@ public class ItemTagGen extends ItemTagsProvider {
 
         // Aluminium
         this.tag(Items.RAW_ORES_ALUMINIUM).add(BIItems.RAW_ALUMINIUM.get());
-        this.tag(Items.DUSTS_ALUMINIUM).add(BIItems.CRUSHED_ALUMINIUM.get());
+        this.tag(Items.DUSTS_ALUMINIUM).add(BIItems.ALUMINIUM_DUST.get());
         this.tag(Items.INGOTS_ALUMINIUM).add(BIItems.ALUMINIUM_INGOT.get());
         this.tag(Items.NUGGETS_ALUMINIUM).add(BIItems.ALUMINIUM_NUGGET.get());
         this.copy(Blocks.ORES_ALUMINIUM, Items.ORES_ALUMINIUM);
@@ -51,15 +51,22 @@ public class ItemTagGen extends ItemTagsProvider {
         this.copy(Blocks.RAW_STORAGE_BLOCKS_ALUMINIUM,Items.RAW_STORAGE_BLOCKS_ALUMINIUM);
 
         // Steel
-        this.tag(Items.DUSTS_STEEL).add(BIItems.CRUSHED_STEEL.get());
+        this.tag(Items.DUSTS_STEEL).add(BIItems.STEEL_DUST.get());
         this.tag(Items.INGOTS_STEEL).add(BIItems.STEEL_INGOT.get());
         this.tag(Items.NUGGETS_STEEL).add(BIItems.STEEL_NUGGET.get());
         this.tag(Items.GEARS_STEEL).add(BIItems.STEEL_GEAR.get());
         this.copy(Blocks.STORAGE_BLOCKS_STEEL,Items.STORAGE_BLOCKS_STEEL);
 
+        // Vil
+        this.tag(Items.DUSTS_COAL).add(BIItems.COAL_DUST.get());
+        this.tag(Items.DUSTS_IRON).add(BIItems.IRON_DUST.get());
+        this.tag(Items.DUSTS_COPPER).add(BIItems.COPPER_DUST.get());
+        this.tag(Items.DUSTS_GOLD).add(BIItems.GOLD_DUST.get());
+
         // Global
         this.tag(Items.RAW_ORES).addTags(Items.RAW_ORES_TIN,Items.RAW_ORES_LEAD,Items.RAW_ORES_ALUMINIUM);
-        this.tag(Items.DUSTS).addTags(Items.DUSTS_TIN,Items.DUSTS_LEAD,Items.DUSTS_ALUMINIUM,Items.DUSTS_STEEL);
+        this.tag(Items.DUSTS).addTags(Items.DUSTS_TIN,Items.DUSTS_LEAD,Items.DUSTS_ALUMINIUM,Items.DUSTS_STEEL,
+                Items.DUSTS_COAL,Items.DUSTS_IRON,Items.DUSTS_COAL,Items.DUSTS_GOLD);
         this.tag(Items.INGOTS).addTags(Items.INGOTS_TIN,Items.INGOTS_LEAD,Items.INGOTS_ALUMINIUM,Items.INGOTS_STEEL);
         this.tag(Items.NUGGETS).addTags(Items.NUGGETS_TIN,Items.NUGGETS_LEAD,Items.NUGGETS_ALUMINIUM,Items.NUGGETS_STEEL);
     }

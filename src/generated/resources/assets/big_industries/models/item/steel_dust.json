@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "big_industries:item/crushed_iron"
+    "layer0": "big_industries:item/steel_dust"
   }
 }

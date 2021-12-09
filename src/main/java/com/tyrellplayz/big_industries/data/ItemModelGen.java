@@ -28,21 +28,21 @@ public class ItemModelGen extends ItemModelProvider {
     private void registerItemModels() {
         // Tin
         simpleItem(BIItems.RAW_TIN.get());
-        simpleItem(BIItems.CRUSHED_TIN.get());
+        simpleItem(BIItems.TIN_DUST.get());
         simpleItem(BIItems.TIN_INGOT.get());
         simpleItem(BIItems.TIN_NUGGET.get());
         simpleItem(BIItems.TIN_GEAR.get());
 
         // Lead
         simpleItem(BIItems.RAW_LEAD.get());
-        simpleItem(BIItems.CRUSHED_LEAD.get());
+        simpleItem(BIItems.LEAD_DUST.get());
         simpleItem(BIItems.LEAD_INGOT.get());
         simpleItem(BIItems.LEAD_NUGGET.get());
         simpleItem(BIItems.LEAD_GEAR.get());
 
         // Aluminium
         simpleItem(BIItems.RAW_ALUMINIUM.get());
-        simpleItem(BIItems.CRUSHED_ALUMINIUM.get());
+        simpleItem(BIItems.ALUMINIUM_DUST.get());
         simpleItem(BIItems.ALUMINIUM_INGOT.get());
         simpleItem(BIItems.ALUMINIUM_NUGGET.get());
 
@@ -50,15 +50,15 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(BIItems.SILVER_INGOT.get());
 
         // Steel
-        simpleItem(BIItems.CRUSHED_STEEL.get());
+        simpleItem(BIItems.STEEL_DUST.get());
         simpleItem(BIItems.STEEL_INGOT.get());
         simpleItem(BIItems.STEEL_NUGGET.get());
         simpleItem(BIItems.STEEL_GEAR.get());
 
-        simpleItem(BIItems.CRUSHED_COAL.get());
-        simpleItem(BIItems.CRUSHED_IRON.get());
-        simpleItem(BIItems.CRUSHED_COPPER.get());
-        simpleItem(BIItems.CRUSHED_GOLD.get());
+        simpleItem(BIItems.COAL_DUST.get());
+        simpleItem(BIItems.IRON_DUST.get());
+        simpleItem(BIItems.COPPER_DUST.get());
+        simpleItem(BIItems.GOLD_DUST.get());
 
         //simpleItem(ModItems.COPPER_WIRE.get());
 
