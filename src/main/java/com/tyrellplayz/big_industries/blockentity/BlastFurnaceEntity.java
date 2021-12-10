@@ -1,6 +1,9 @@
-package com.tyrellplayz.big_industries.block.entity;
+package com.tyrellplayz.big_industries.blockentity;
 
+import com.tyrellplayz.big_industries.core.BIBlockEntities;
 import com.tyrellplayz.big_industries.menu.BlastFurnaceMenu;
+import com.tyrellplayz.big_industries.multiblock.BlastFurnaceMultiblock;
+import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -19,11 +22,10 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 
-public class _BlastFurnaceEntity extends BaseContainerBlockEntity implements Container, StackedContentsCompatible {
+public class BlastFurnaceEntity extends MultiblockEntity<BlastFurnaceEntity, BlastFurnaceMultiblock> implements StackedContentsCompatible {
 
     public static final int SLOT_INPUT = 0;
     public static final int SLOT_FUEL = 1;
@@ -48,10 +50,10 @@ public class _BlastFurnaceEntity extends BaseContainerBlockEntity implements Con
         @Override
         public int get(int id) {
             return switch (id) {
-                case 0 -> _BlastFurnaceEntity.this.litTime;
-                case 1 -> _BlastFurnaceEntity.this.litDuration;
-                case 2 -> _BlastFurnaceEntity.this.cookingProgress;
-                case 3 -> _BlastFurnaceEntity.this.cookingTotalTime;
+                case 0 -> BlastFurnaceEntity.this.litTime;
+                case 1 -> BlastFurnaceEntity.this.litDuration;
+                case 2 -> BlastFurnaceEntity.this.cookingProgress;
+                case 3 -> BlastFurnaceEntity.this.cookingTotalTime;
                 default -> 0;
             };
         }
@@ -59,10 +61,10 @@ public class _BlastFurnaceEntity extends BaseContainerBlockEntity implements Con
         @Override
         public void set(int id, int value) {
             switch (id) {
-                case 0 -> _BlastFurnaceEntity.this.litTime = value;
-                case 1 -> _BlastFurnaceEntity.this.litDuration = value;
-                case 2 -> _BlastFurnaceEntity.this.cookingProgress = value;
-                case 3 -> _BlastFurnaceEntity.this.cookingTotalTime = value;
+                case 0 -> BlastFurnaceEntity.this.litTime = value;
+                case 1 -> BlastFurnaceEntity.this.litDuration = value;
+                case 2 -> BlastFurnaceEntity.this.cookingProgress = value;
+                case 3 -> BlastFurnaceEntity.this.cookingTotalTime = value;
             }
         }
 
@@ -74,9 +76,8 @@ public class _BlastFurnaceEntity extends BaseContainerBlockEntity implements Con
 
     private final RecipeType<? extends AbstractCookingRecipe> recipeType;
 
-    public _BlastFurnaceEntity(BlockPos pos, BlockState state) {
-       // super(ModBlockEntities.BLAST_FURNACE.get(), pos, state);
-        super(null, pos, state);
+    public BlastFurnaceEntity(BlockPos pos, BlockState state) {
+        super(BIBlockEntities.BLAST_FURNACE.get(), MultiblockType.BLAST_FURNACE, pos, state);
         this.recipeType = RecipeType.BLASTING;
     }
 
@@ -139,7 +140,7 @@ public class _BlastFurnaceEntity extends BaseContainerBlockEntity implements Con
         }
     }
 
-    public static void onServerTick(Level level, BlockPos pos, BlockState state, _BlastFurnaceEntity entity) {
+    public static void onServerTick(Level level, BlockPos pos, BlockState state, BlastFurnaceEntity entity) {
 
     }
 

@@ -33,7 +33,12 @@ public class BIItems {
     public static final RegistryObject<Item> ALUMINIUM_NUGGET = register("aluminium_nugget",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
     // Silver
+    public static final RegistryObject<Item> RAW_SILVER = register("raw_silver",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> SILVER_DUST = register("silver_dust",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
     public static final RegistryObject<Item> SILVER_INGOT = register("silver_ingot",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> SILVER_NUGGET = register("silver_nugget",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+
+    // Nickel
 
     // Steel
     public static final RegistryObject<Item> STEEL_DUST = register("steel_dust",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));

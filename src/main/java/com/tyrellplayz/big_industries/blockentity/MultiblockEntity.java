@@ -1,6 +1,7 @@
-package com.tyrellplayz.big_industries.block.entity;
+package com.tyrellplayz.big_industries.blockentity;
 
 import com.google.common.collect.ImmutableList;
+import com.tyrellplayz.big_industries.multiblock.IMultiblockEntity;
 import com.tyrellplayz.big_industries.multiblock.Multiblock;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
@@ -9,16 +10,16 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multiblock> extends BlockEntity {
+public abstract class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multiblock> extends BaseContainerBlockEntity implements IMultiblockEntity {
 
     protected final MultiblockType<M> multiblockType;
-    protected BlockPos parent;
     protected ImmutableList<BlockPos> children;
     protected boolean beingDeconstructed;
 
@@ -29,28 +30,36 @@ public class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multibl
         this.multiblockType = multiblockType;
     }
 
+    @Override
     public BlockPos getParent() {
-        return parent;
+        return this.worldPosition;
     }
 
-    public void setParent(BlockPos parent) {
-        this.parent = parent;
-        markUpdated();
+    @Override
+    public BlockEntity getParentEntity() {
+        return this;
     }
 
-    public boolean isParent() {
-        return this.parent.equals(this.worldPosition);
-    }
-
+    /**
+     * @return A list of all children of parent BlockEntity. If BlockEntity is a child null is returned.
+     */
+    @Nullable
     public ImmutableList<BlockPos> getChildren() {
         return children;
     }
 
+    /**
+     * Sets the child of the parent BlockEntity. If BlockEntity is not parent, nothing happens.
+     * @param children
+     */
     public void setChildren(ImmutableList<BlockPos> children) {
         this.children = children;
         markUpdated();
     }
 
+    /**
+     * @return If the Multiblock is being deconstructed
+     */
     public boolean isBeingDeconstructed() {
         return beingDeconstructed;
     }
@@ -59,6 +68,10 @@ public class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multibl
         this.beingDeconstructed = beingDeconstructed;
     }
 
+    /**
+     * @return The registry name of the block that was replaced by the multiblock.
+     * Used when the multiblock is destroyed.
+     */
     public ResourceLocation getPreviousBlock() {
         return previousBlock;
     }
@@ -68,34 +81,19 @@ public class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multibl
         markUpdated();
     }
 
-    public void onConstruct() {
-
-    }
-
-    public void onDeconstruct() {
-
-    }
-
     @Override
     public CompoundTag save(CompoundTag tag) {
         super.save(tag);
-        if(parent != null) {
-            tag.putInt("parent_x", this.parent.getX());
-            tag.putInt("parent_y", this.parent.getY());
-            tag.putInt("parent_z", this.parent.getZ());
-        }
-        if(isParent()) {
-            tag.putInt("children_size",this.children.size());
-            ListTag childrenTag = new ListTag();
-            children.forEach(pos -> {
-                CompoundTag childTag = new CompoundTag();
-                childTag.putInt("x", pos.getX());
-                childTag.putInt("y", pos.getY());
-                childTag.putInt("z", pos.getZ());
-                childrenTag.add(childTag);
-            });
-            tag.put("children",childrenTag);
-        }
+        tag.putInt("children_size",this.children.size());
+        ListTag childrenTag = new ListTag();
+        children.forEach(pos -> {
+            CompoundTag childTag = new CompoundTag();
+            childTag.putInt("x", pos.getX());
+            childTag.putInt("y", pos.getY());
+            childTag.putInt("z", pos.getZ());
+            childrenTag.add(childTag);
+        });
+        tag.put("children",childrenTag);
 
         tag.putString("previous_block",previousBlock.toString());
         return tag;
@@ -104,16 +102,13 @@ public class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multibl
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        this.parent = new BlockPos(tag.getInt("parent_x"),tag.getInt("parent_y"),tag.getInt("parent_z"));
-        if(isParent()) {
-            int childrenSize = tag.getInt("children_size");
-            ImmutableList.Builder<BlockPos> listBuilder = ImmutableList.builder();
-            tag.getList("children",childrenSize).forEach(tag1 -> {
-                CompoundTag childTag = (CompoundTag)tag1;
-                listBuilder.add(new BlockPos(childTag.getInt("x"),childTag.getInt("y"),childTag.getInt("z")));
-            });
-            this.children = listBuilder.build();
-        }
+        int childrenSize = tag.getInt("children_size");
+        ImmutableList.Builder<BlockPos> listBuilder = ImmutableList.builder();
+        tag.getList("children",childrenSize).forEach(tag1 -> {
+            CompoundTag childTag = (CompoundTag)tag1;
+            listBuilder.add(new BlockPos(childTag.getInt("x"),childTag.getInt("y"),childTag.getInt("z")));
+        });
+        this.children = listBuilder.build();
         this.previousBlock = new ResourceLocation(tag.getString("previous_block"));
     }
 

@@ -84,6 +84,12 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(BIBlocks.RAW_ALUMINIUM_BLOCK.get());
         simpleItem(BIBlocks.ALUMINIUM_BLOCK.get());
 
+        // Silver
+        simpleItem(BIBlocks.SILVER_ORE.get());
+        simpleItem(BIBlocks.DEEPSLATE_SILVER_ORE.get());
+        simpleItem(BIBlocks.RAW_SILVER_BLOCK.get());
+        simpleItem(BIBlocks.SILVER_BLOCK.get());
+
         // Steel
         simpleItem(BIBlocks.STEEL_BLOCK.get());
 

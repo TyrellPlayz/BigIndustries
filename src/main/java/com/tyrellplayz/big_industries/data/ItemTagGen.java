@@ -50,6 +50,15 @@ public class ItemTagGen extends ItemTagsProvider {
         this.copy(Blocks.STORAGE_BLOCKS_ALUMINIUM, Items.STORAGE_BLOCKS_ALUMINIUM);
         this.copy(Blocks.RAW_STORAGE_BLOCKS_ALUMINIUM,Items.RAW_STORAGE_BLOCKS_ALUMINIUM);
 
+        // Silver
+        this.tag(Items.RAW_ORES_SILVER).add(BIItems.RAW_SILVER.get());
+        this.tag(Items.DUSTS_SILVER).add(BIItems.SILVER_DUST.get());
+        this.tag(Items.INGOTS_SILVER).add(BIItems.SILVER_INGOT.get());
+        this.tag(Items.NUGGETS_SILVER).add(BIItems.SILVER_NUGGET.get());
+        this.copy(Blocks.ORES_SILVER, Items.ORES_SILVER);
+        this.copy(Blocks.STORAGE_BLOCKS_SILVER, Items.STORAGE_BLOCKS_SILVER);
+        this.copy(Blocks.RAW_STORAGE_BLOCKS_SILVER,Items.RAW_STORAGE_BLOCKS_SILVER);
+
         // Steel
         this.tag(Items.DUSTS_STEEL).add(BIItems.STEEL_DUST.get());
         this.tag(Items.INGOTS_STEEL).add(BIItems.STEEL_INGOT.get());
@@ -64,11 +73,11 @@ public class ItemTagGen extends ItemTagsProvider {
         this.tag(Items.DUSTS_GOLD).add(BIItems.GOLD_DUST.get());
 
         // Global
-        this.tag(Items.RAW_ORES).addTags(Items.RAW_ORES_TIN,Items.RAW_ORES_LEAD,Items.RAW_ORES_ALUMINIUM);
-        this.tag(Items.DUSTS).addTags(Items.DUSTS_TIN,Items.DUSTS_LEAD,Items.DUSTS_ALUMINIUM,Items.DUSTS_STEEL,
+        this.tag(Items.RAW_ORES).addTags(Items.RAW_ORES_TIN,Items.RAW_ORES_LEAD,Items.RAW_ORES_ALUMINIUM,Items.RAW_ORES_SILVER);
+        this.tag(Items.DUSTS).addTags(Items.DUSTS_TIN,Items.DUSTS_LEAD,Items.DUSTS_ALUMINIUM,Items.DUSTS_SILVER,Items.DUSTS_STEEL,
                 Items.DUSTS_COAL,Items.DUSTS_IRON,Items.DUSTS_COAL,Items.DUSTS_GOLD);
-        this.tag(Items.INGOTS).addTags(Items.INGOTS_TIN,Items.INGOTS_LEAD,Items.INGOTS_ALUMINIUM,Items.INGOTS_STEEL);
-        this.tag(Items.NUGGETS).addTags(Items.NUGGETS_TIN,Items.NUGGETS_LEAD,Items.NUGGETS_ALUMINIUM,Items.NUGGETS_STEEL);
+        this.tag(Items.INGOTS).addTags(Items.INGOTS_TIN,Items.INGOTS_LEAD,Items.INGOTS_ALUMINIUM,Items.INGOTS_SILVER,Items.INGOTS_STEEL);
+        this.tag(Items.NUGGETS).addTags(Items.NUGGETS_TIN,Items.NUGGETS_LEAD,Items.NUGGETS_ALUMINIUM,Items.NUGGETS_SILVER,Items.NUGGETS_STEEL);
     }
 
     @Override

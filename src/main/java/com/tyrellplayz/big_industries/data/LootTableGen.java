@@ -68,6 +68,12 @@ public class LootTableGen extends LootTableProvider {
             this.dropSelf(BIBlocks.ALUMINIUM_BLOCK.get());
             this.dropSelf(BIBlocks.RAW_ALUMINIUM_BLOCK.get());
 
+            // Silver
+            this.add(BIBlocks.SILVER_ORE.get(), block -> createOreDrop(block, BIItems.RAW_SILVER.get()));
+            this.add(BIBlocks.DEEPSLATE_SILVER_ORE.get(), block -> createOreDrop(block, BIItems.RAW_SILVER.get()));
+            this.dropSelf(BIBlocks.SILVER_BLOCK.get());
+            this.dropSelf(BIBlocks.RAW_SILVER_BLOCK.get());
+
             // Steel
             this.dropSelf(BIBlocks.STEEL_BLOCK.get());
 

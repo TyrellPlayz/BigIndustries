@@ -21,8 +21,6 @@ import java.util.Objects;
 @Mod.EventBusSubscriber(modid = BigIndustries.MOD_ID)
 public class BIWorldGen {
 
-    private static final List<ConfiguredFeature<?,?>> CONFIGURED_FEATURE_LIST = new ArrayList<>();
-
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void addFeaturesToBiomes(final BiomeLoadingEvent event) {
         final BiomeGenerationSettingsBuilder generation = event.getGeneration();
@@ -32,6 +30,7 @@ public class BIWorldGen {
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_TIN);
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_ALUMINIUM);
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_LEAD);
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_SILVER);
         }
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.NETHER)) {
 

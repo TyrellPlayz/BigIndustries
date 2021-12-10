@@ -30,6 +30,11 @@ public class BITags {
         public static final Tag.Named<Block> STORAGE_BLOCKS_ALUMINIUM = forgeTag("storage_blocks/aluminium");
         public static final Tag.Named<Block> RAW_STORAGE_BLOCKS_ALUMINIUM = forgeTag("raw_storage_blocks/aluminium");
 
+        // Silver
+        public static final Tag.Named<Block> ORES_SILVER = forgeTag("ores/silver");
+        public static final Tag.Named<Block> STORAGE_BLOCKS_SILVER = forgeTag("storage_blocks/silver");
+        public static final Tag.Named<Block> RAW_STORAGE_BLOCKS_SILVER = forgeTag("raw_storage_blocks/silver");
+
         // Steel
         public static final Tag.Named<Block> STORAGE_BLOCKS_STEEL = forgeTag("storage_blocks/steel");
 
@@ -82,6 +87,16 @@ public class BITags {
         public static final Tag.Named<Item> STORAGE_BLOCKS_ALUMINIUM = forgeTag("storage_blocks/aluminium");
         public static final Tag.Named<Item> RAW_STORAGE_BLOCKS_ALUMINIUM = forgeTag("raw_storage_blocks/aluminium");
         public static final Tag.Named<Item> ORES_ALUMINIUM = forgeTag("ores/aluminium");
+
+        // Silver
+        public static final Tag.Named<Item> RAW_ORES_SILVER = forgeTag("raw_ores/silver");
+        public static final Tag.Named<Item> DUSTS_SILVER  = forgeTag("dusts/silver");
+        public static final Tag.Named<Item> INGOTS_SILVER  = forgeTag("ingots/silver");
+        public static final Tag.Named<Item> NUGGETS_SILVER  = forgeTag("nuggets/silver");
+
+        public static final Tag.Named<Item> STORAGE_BLOCKS_SILVER  = forgeTag("storage_blocks/silver");
+        public static final Tag.Named<Item> RAW_STORAGE_BLOCKS_SILVER  = forgeTag("raw_storage_blocks/silver");
+        public static final Tag.Named<Item> ORES_SILVER  = forgeTag("ores/silver");
 
         // Steel
         public static final Tag.Named<Item> DUSTS_STEEL = forgeTag("dusts/steel");

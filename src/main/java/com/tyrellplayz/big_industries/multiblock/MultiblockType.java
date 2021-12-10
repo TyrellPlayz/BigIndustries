@@ -3,14 +3,14 @@ package com.tyrellplayz.big_industries.multiblock;
 import com.google.common.collect.ImmutableList;
 import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.block.MultiblockBlock;
-import com.tyrellplayz.big_industries.block.entity.MultiblockEntity;
+import com.tyrellplayz.big_industries.blockentity.MultiblockEntity;
+import com.tyrellplayz.big_industries.blockentity.MultiblockEntityChild;
 import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.util.StructureUtil;
 import com.tyrellplayz.big_industries.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
@@ -65,27 +65,68 @@ public class MultiblockType<T extends Multiblock> extends ForgeRegistryEntry<Mul
         List<BlockPos> posList = StructureUtil.getBlockLocations(parentPos,template,new StructurePlaceSettings().setRotation(Util.getRotation(player.getDirection().getOpposite())),true);
         ImmutableList.Builder<BlockPos> childBuilder = ImmutableList.builder();
 
+        // Go through each multiblock location.
         for (BlockPos multiblockPos : posList) {
             Block previousBlock = level.getBlockState(multiblockPos).getBlock();
-            level.setBlockAndUpdate(multiblockPos,getBlock().defaultBlockState().setValue(MultiblockBlock.FACING,player.getDirection().getOpposite()));
-
-            if(!(level.getBlockEntity(multiblockPos) instanceof MultiblockEntity<?,?> multiblockEntity)) {
-                BigIndustries.getLogger().error("Multiblock child is not a Multiblock block entity.");
-                return;
+            // Change the base block into the multiblock
+            if(multiblockPos.equals(parentPos)) {
+                // Is parent block
+                level.setBlockAndUpdate(multiblockPos,getBlock().defaultBlockState().setValue(MultiblockBlock.FACING,player.getDirection().getOpposite()).setValue(MultiblockBlock.PARENT,true));
+                if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?,?> parentEntity)) {
+                    BigIndustries.getLogger().error("Multiblock parent is not a Multiblock block entity.");
+                    return;
+                }
+                parentEntity.setPreviousBlock(previousBlock.getRegistryName());
+            }else {
+                // Is child block
+                level.setBlockAndUpdate(multiblockPos,getBlock().defaultBlockState().setValue(MultiblockBlock.FACING,player.getDirection().getOpposite()).setValue(MultiblockBlock.PARENT,false));
+                // Add child to list of children.
+                childBuilder.add(multiblockPos);
+                if(!(level.getBlockEntity(multiblockPos) instanceof MultiblockEntityChild childEntity)) {
+                    BigIndustries.getLogger().error("Multiblock child is not a Multiblock block entity.");
+                    return;
+                }
+                // Tell the child who its parent is.
+                childEntity.setParent(parentPos);
+                childEntity.setPreviousBlock(previousBlock.getRegistryName());
             }
-            multiblockEntity.setParent(parentPos);
-
-            // The current block is not the parent so add it to the children list.
-            if(!parentPos.equals(multiblockPos)) childBuilder.add(multiblockPos);
-            multiblockEntity.setPreviousBlock(previousBlock.getRegistryName());
         }
-
         if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?,?> parentEntity)) {
-            BigIndustries.getLogger().error("Multiblock child is not a Multiblock block entity.");
+            BigIndustries.getLogger().error("Multiblock parent is not a Multiblock block entity.");
             return;
         }
+        // Tell the parent who its children is.
         parentEntity.setChildren(childBuilder.build());
     }
+
+    public boolean deconstruct(ServerLevel level, BlockPos removedPos, BlockPos parentPos) {
+        if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?,?> parentEntity)) {
+            BigIndustries.getLogger().error("Multiblock parent is not a multiblock block. Some how??");
+            return false;
+        }
+        if(parentEntity.isBeingDeconstructed()) {
+            return true;
+        }
+        parentEntity.setBeingDeconstructed(true);
+        parentEntity.getChildren().forEach(childPos -> {
+            // If the child block was the removed block there is no need to replace it.
+            if(!childPos.equals(removedPos)) {
+                if(level.getBlockEntity(childPos) instanceof MultiblockEntityChild childEntity) {
+                    level.setBlockAndUpdate(childPos,Util.getBlock(childEntity.getPreviousBlock()).defaultBlockState());
+                }else {
+                    BigIndustries.getLogger().error("Multiblock child is not a multiblock block. Some how??");
+                }
+            }
+        });
+
+        if(removedPos != parentPos) {
+            level.setBlockAndUpdate(parentPos,Util.getBlock(parentEntity.getPreviousBlock()).defaultBlockState());
+        }
+
+        return true;
+    }
+
+    /*
 
     public boolean deconstruct(ServerLevel level, BlockPos removedPos, BlockPos parentPos) {
         if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?,?> parentEntity)) {
@@ -114,7 +155,7 @@ public class MultiblockType<T extends Multiblock> extends ForgeRegistryEntry<Mul
         }
 
         return true;
-    }
+    }*/
 
     /*
      * Deconstructs the multiblock.

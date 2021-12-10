@@ -20,9 +20,10 @@ import java.util.function.Consumer;
 
 public class RecipeGen extends RecipeProvider {
 
-    private static final ImmutableList<ItemLike> TIN_SMELTABLES = ImmutableList.of(BIBlocks.TIN_ORE.get(), BIItems.RAW_TIN.get(), BIItems.TIN_DUST.get());
-    private static final ImmutableList<ItemLike> LEAD_SMELTABLES = ImmutableList.of(BIBlocks.LEAD_ORE.get(), BIItems.RAW_LEAD.get(), BIItems.LEAD_DUST.get());
-    private static final ImmutableList<ItemLike> ALUMINIUM_SMELTABLES = ImmutableList.of(BIBlocks.ALUMINIUM_ORE.get(), BIItems.RAW_ALUMINIUM.get(), BIItems.ALUMINIUM_DUST.get());
+    private static final ImmutableList<ItemLike> TIN_SMELTABLES = ImmutableList.of(BIBlocks.TIN_ORE.get(),BIBlocks.DEEPSLATE_TIN_ORE.get(), BIItems.RAW_TIN.get(), BIItems.TIN_DUST.get());
+    private static final ImmutableList<ItemLike> LEAD_SMELTABLES = ImmutableList.of(BIBlocks.LEAD_ORE.get(),BIBlocks.DEEPSLATE_LEAD_ORE.get(), BIItems.RAW_LEAD.get(), BIItems.LEAD_DUST.get());
+    private static final ImmutableList<ItemLike> ALUMINIUM_SMELTABLES = ImmutableList.of(BIBlocks.ALUMINIUM_ORE.get(),BIBlocks.DEEPSLATE_ALUMINIUM_ORE.get(), BIItems.RAW_ALUMINIUM.get(), BIItems.ALUMINIUM_DUST.get());
+    private static final ImmutableList<ItemLike> SILVER_SMELTABLES = ImmutableList.of(BIBlocks.SILVER_ORE.get(),BIBlocks.DEEPSLATE_SILVER_ORE.get(), BIItems.RAW_SILVER.get(), BIItems.SILVER_DUST.get());
     private static final ImmutableList<ItemLike> STEEL_SMELTABLES = ImmutableList.of(BIItems.STEEL_DUST.get());
 
     public RecipeGen(DataGenerator generator) {
@@ -54,6 +55,10 @@ public class RecipeGen extends RecipeProvider {
         //nineStorageRecipe(consumer, ModItems.RAW_ALUMINIUM.get(), ModBlocks.RAW_ALUMINIUM_BLOCK.get(),simpleItemName(ModItems.RAW_ALUMINIUM.get())+"_from_block");
         oreSmelting(consumer,ALUMINIUM_SMELTABLES, BIItems.ALUMINIUM_INGOT.get(),0F,200);
         oreBlasting(consumer,ALUMINIUM_SMELTABLES, BIItems.ALUMINIUM_INGOT.get(),0F,100);
+        // Silver
+        metalRecipe(consumer, BIItems.SILVER_INGOT.get(), BITags.Items.INGOTS_SILVER, BIItems.SILVER_NUGGET.get(), BITags.Items.NUGGETS_SILVER, BIBlocks.SILVER_BLOCK.get(), BITags.Items.STORAGE_BLOCKS_SILVER, BIItems.RAW_SILVER.get(), BITags.Items.RAW_ORES_SILVER, BIBlocks.RAW_SILVER_BLOCK.get(), BITags.Items.RAW_STORAGE_BLOCKS_SILVER);
+        oreSmelting(consumer,SILVER_SMELTABLES, BIItems.SILVER_INGOT.get(),0F,200);
+        oreBlasting(consumer,SILVER_SMELTABLES, BIItems.SILVER_INGOT.get(),0F,100);
         // Steel
         metalRecipeAlloy(consumer, BIItems.STEEL_INGOT.get(), BITags.Items.INGOTS_STEEL, BIItems.STEEL_NUGGET.get(), BITags.Items.NUGGETS_STEEL, BIBlocks.STEEL_BLOCK.get(), BITags.Items.STORAGE_BLOCKS_STEEL);
         //nineStorageRecipe(consumer, ModItems.STEEL_INGOT.get(),ModTags.Items.INGOTS_STEEL, ModBlocks.STEEL_BLOCK.get(),ModTags.Items.STORAGE_BLOCKS_STEEL,simpleItemName(ModItems.STEEL_INGOT.get())+"_from_block");

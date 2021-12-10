@@ -51,7 +51,7 @@ public class BigIndustries {
         BIBlocks.REGISTER.register(eventBus);
         BIItems.REGISTER.register(eventBus);
         BIBlockEntities.REGISTER.register(eventBus);
-        BIContainers.REGISTER.register(eventBus);
+        BIMenus.REGISTER.register(eventBus);
 
         //MinecraftForge.EVENT_BUS.register(ModFeatures.class);
 

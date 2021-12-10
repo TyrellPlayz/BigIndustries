@@ -38,6 +38,18 @@ public class BIBlocks {
     public static final RegistryObject<Block> RAW_ALUMINIUM_BLOCK = register("raw_aluminium_block",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F)), BIBlocks::tabBlockItem);
     public static final RegistryObject<Block> ALUMINIUM_BLOCK = register("aluminium_block",new Block(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(5.0F, 6.0F)), BIBlocks::tabBlockItem);
 
+    // Silver
+    public static final RegistryObject<Block> SILVER_ORE = register("silver_ore",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,3.0F)), block -> new BlockItem(block,new Item.Properties().tab(BigIndustries.BLOCK_TAB)));
+    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().color(MaterialColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE)), BIBlocks::tabBlockItem);
+    public static final RegistryObject<Block> RAW_SILVER_BLOCK = register("raw_silver_block",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F)), BIBlocks::tabBlockItem);
+    public static final RegistryObject<Block> SILVER_BLOCK = register("silver_block",new Block(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(5.0F, 6.0F)), BIBlocks::tabBlockItem);
+
+    // Nickel
+    //public static final RegistryObject<Block> NICKEL_ORE = register("nickel_ore",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,3.0F)), block -> new BlockItem(block,new Item.Properties().tab(BigIndustries.BLOCK_TAB)));
+    //public static final RegistryObject<Block> DEEPSLATE_NICKEL_ORE = register("deepslate_nickel_ore",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().color(MaterialColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE)), BIBlocks::tabBlockItem);
+    //public static final RegistryObject<Block> RAW_NICKEL_BLOCK = register("raw_nickel_block",new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F)), BIBlocks::tabBlockItem);
+    //public static final RegistryObject<Block> NICKEL_BLOCK = register("nickel_block",new Block(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(5.0F, 6.0F)), BIBlocks::tabBlockItem);
+
     // Steel
     public static final RegistryObject<Block> STEEL_BLOCK = register("steel_block",new Block(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(5.0F,6.0F)), BIBlocks::tabBlockItem);
 

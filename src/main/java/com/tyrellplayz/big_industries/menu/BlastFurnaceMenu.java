@@ -1,6 +1,7 @@
 package com.tyrellplayz.big_industries.menu;
 
-import com.tyrellplayz.big_industries.block.entity._BlastFurnaceEntity;
+import com.tyrellplayz.big_industries.blockentity.BlastFurnaceEntity;
+import com.tyrellplayz.big_industries.core.BIMenus;
 import com.tyrellplayz.big_industries.menu.slot.FuelSlot;
 import com.tyrellplayz.big_industries.menu.slot.OutputSlot;
 import net.minecraft.world.Container;
@@ -23,8 +24,7 @@ public class BlastFurnaceMenu extends AbstractMenu {
     }
 
     public BlastFurnaceMenu(int containerId, Inventory inventory, Container container, ContainerData data) {
-        //super(ModContainers.BLAST_FURNACE.get(), containerId,inventory,container,data);
-        super(null, containerId,inventory,container,data);
+        super(BIMenus.BLAST_FURNACE.get(), containerId,inventory,container,data);
         checkContainerSize(container,3);
         checkContainerDataCount(data,4);
         this.recipeType = RecipeType.BLASTING;
@@ -32,9 +32,9 @@ public class BlastFurnaceMenu extends AbstractMenu {
 
     @Override
     public void createSlots(Inventory inventory, Container container) {
-        this.addSlot(new Slot(container, _BlastFurnaceEntity.SLOT_INPUT,56,17));
-        this.addSlot(new FuelSlot(this,container,recipeType,FuelSlot.FuelType.BOTH, _BlastFurnaceEntity.SLOT_FUEL,56,53));
-        this.addSlot(new OutputSlot(inventory.player,container, _BlastFurnaceEntity.SLOT_RESULT,116,35));
+        this.addSlot(new Slot(container, BlastFurnaceEntity.SLOT_INPUT,56,17));
+        this.addSlot(new FuelSlot(this,container,recipeType,FuelSlot.FuelType.BOTH, BlastFurnaceEntity.SLOT_FUEL,56,53));
+        this.addSlot(new OutputSlot(inventory.player,container, BlastFurnaceEntity.SLOT_RESULT,116,35));
         createPlayerSlots(8,84,inventory);
     }
 

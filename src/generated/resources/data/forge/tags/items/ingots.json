@@ -4,6 +4,7 @@
     "#forge:ingots/tin",
     "#forge:ingots/lead",
     "#forge:ingots/aluminium",
+    "#forge:ingots/silver",
     "#forge:ingots/steel"
   ]
 }

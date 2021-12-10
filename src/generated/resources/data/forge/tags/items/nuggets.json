@@ -4,6 +4,7 @@
     "#forge:nuggets/tin",
     "#forge:nuggets/lead",
     "#forge:nuggets/aluminium",
+    "#forge:nuggets/silver",
     "#forge:nuggets/steel"
   ]
 }

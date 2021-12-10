@@ -12,6 +12,7 @@ public class BIOrePlacements {
     public static PlacedFeature ORE_TIN;
     public static PlacedFeature ORE_LEAD;
     public static PlacedFeature ORE_ALUMINIUM;
+    public static PlacedFeature ORE_SILVER;
 
     private BIOrePlacements() {}
 
@@ -23,6 +24,8 @@ public class BIOrePlacements {
         ORE_LEAD = PlacementUtils.register(BigIndustries.MOD_ID+":ore_lead",BIOreFeatures.ORE_LEAD
                 .placed(commonOrePlacement(15,HeightRangePlacement.triangle(VerticalAnchor.bottom(),VerticalAnchor.absolute(56)))));
         ORE_ALUMINIUM = PlacementUtils.register(BigIndustries.MOD_ID+":ore_aluminium",BIOreFeatures.ORE_ALUMINIUM
+                .placed(commonOrePlacement(15,HeightRangePlacement.triangle(VerticalAnchor.bottom(),VerticalAnchor.absolute(56)))));
+        ORE_SILVER = PlacementUtils.register(BigIndustries.MOD_ID+":ore_silver",BIOreFeatures.ORE_SILVER
                 .placed(commonOrePlacement(15,HeightRangePlacement.triangle(VerticalAnchor.bottom(),VerticalAnchor.absolute(56)))));
     }
 

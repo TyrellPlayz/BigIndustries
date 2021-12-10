@@ -32,6 +32,12 @@ public class BlockStateGen extends BlockStateProvider {
         simpleBlock(BIBlocks.DEEPSLATE_ALUMINIUM_ORE.get());
         simpleBlock(BIBlocks.RAW_ALUMINIUM_BLOCK.get());
 
+        // Silver
+        simpleBlock(BIBlocks.SILVER_BLOCK.get());
+        simpleBlock(BIBlocks.SILVER_ORE.get());
+        simpleBlock(BIBlocks.DEEPSLATE_SILVER_ORE.get());
+        simpleBlock(BIBlocks.RAW_SILVER_BLOCK.get());
+
         // Steel
         simpleBlock(BIBlocks.STEEL_BLOCK.get());
 

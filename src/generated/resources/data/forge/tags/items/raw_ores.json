@@ -3,6 +3,7 @@
   "values": [
     "#forge:raw_ores/tin",
     "#forge:raw_ores/lead",
-    "#forge:raw_ores/aluminium"
+    "#forge:raw_ores/aluminium",
+    "#forge:raw_ores/silver"
   ]
 }
