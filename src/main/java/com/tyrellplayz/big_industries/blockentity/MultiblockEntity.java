@@ -6,6 +6,7 @@ import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
@@ -16,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public abstract class MultiblockEntity<T extends MultiblockEntity<T>> extends BaseContainerBlockEntity implements IMultiblockEntity {
+public abstract class MultiblockEntity<T extends MultiblockEntity<T>> extends SyncBaseContainerBlockEntity implements IMultiblockEntity {
 
     protected final MultiblockType multiblockType;
     protected ImmutableList<BlockPos> children;
@@ -77,24 +78,6 @@ public abstract class MultiblockEntity<T extends MultiblockEntity<T>> extends Ba
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
-        super.save(tag);
-        tag.putInt("children_size",this.children.size());
-        ListTag childrenTag = new ListTag();
-        children.forEach(pos -> {
-            CompoundTag childTag = new CompoundTag();
-            childTag.putInt("x", pos.getX());
-            childTag.putInt("y", pos.getY());
-            childTag.putInt("z", pos.getZ());
-            childrenTag.add(childTag);
-        });
-        tag.put("children",childrenTag);
-
-        tag.putString("previous_block",previousBlock.toString());
-        return tag;
-    }
-
-    @Override
     public void load(CompoundTag tag) {
         super.load(tag);
         int childrenSize = tag.getInt("children_size");
@@ -107,19 +90,21 @@ public abstract class MultiblockEntity<T extends MultiblockEntity<T>> extends Ba
         this.previousBlock = new ResourceLocation(tag.getString("previous_block"));
     }
 
-    @Nullable
     @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        tag.putInt("children_size",this.children.size());
+        ListTag childrenTag = new ListTag();
+        children.forEach(pos -> {
+            CompoundTag childTag = new CompoundTag();
+            childTag.putInt("x", pos.getX());
+            childTag.putInt("y", pos.getY());
+            childTag.putInt("z", pos.getZ());
+            childrenTag.add(childTag);
+        });
+        tag.put("children",childrenTag);
 
-    @Override
-    public CompoundTag getUpdateTag() {
-        return save(new CompoundTag());
-    }
-
-    private void markUpdated() {
-        this.setChanged();
+        tag.putString("previous_block",previousBlock.toString());
     }
 
     public static void onServerTick(Level level, BlockPos pos, BlockState state, MultiblockEntity entity) {

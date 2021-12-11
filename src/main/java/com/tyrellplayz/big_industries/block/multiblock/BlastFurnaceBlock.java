@@ -1,5 +1,6 @@
 package com.tyrellplayz.big_industries.block.multiblock;
 
+import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.blockentity.BlastFurnaceEntity;
 import com.tyrellplayz.big_industries.blockentity.MultiblockEntityChild;
 import com.tyrellplayz.big_industries.core.BIBlockEntities;
@@ -90,6 +91,10 @@ public class BlastFurnaceBlock extends MultiblockBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof IMultiblockEntity multiblockEntity) {
+            if(multiblockEntity instanceof BlockEntity blockEntity) {
+                BigIndustries.getLogger().info(blockEntity.getUpdateTag());
+            }
+
             if (level.getBlockEntity(multiblockEntity.getParent()) instanceof MenuProvider menuProvider) {
                 player.openMenu(menuProvider);
             }

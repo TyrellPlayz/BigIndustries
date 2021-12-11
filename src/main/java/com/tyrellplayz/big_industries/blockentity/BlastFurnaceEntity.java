@@ -155,13 +155,12 @@ public class BlastFurnaceEntity extends MultiblockEntity<BlastFurnaceEntity> imp
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
-        super.save(tag);
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
         tag.putInt("BurnTime",this.litTime);
         tag.putInt("CookTIme",this.cookingProgress);
         tag.putInt("CookTimeTotal",this.cookingTotalTime);
         ContainerHelper.saveAllItems(tag,this.items);
-        return tag;
     }
 
     @Override
