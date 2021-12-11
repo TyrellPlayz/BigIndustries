@@ -24,7 +24,6 @@ public class BlastBrickBlock extends Block {
         if((player.getItemInHand(hand).getItem() instanceof HammerItem) && !level.isClientSide()) {
             ServerLevel serverLevel = (ServerLevel) level;
             if(MultiblockType.BLAST_FURNACE.isStructureValid(serverLevel,pos,player)) {
-                System.out.println("Success");
                 MultiblockType.BLAST_FURNACE.construct(serverLevel,pos,player);
                 return InteractionResult.SUCCESS;
             }

@@ -1,4 +1,4 @@
-package com.tyrellplayz.big_industries.block;
+package com.tyrellplayz.big_industries.block.multiblock;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;

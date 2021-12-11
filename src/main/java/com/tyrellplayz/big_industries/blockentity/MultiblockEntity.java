@@ -2,7 +2,6 @@ package com.tyrellplayz.big_industries.blockentity;
 
 import com.google.common.collect.ImmutableList;
 import com.tyrellplayz.big_industries.multiblock.IMultiblockEntity;
-import com.tyrellplayz.big_industries.multiblock.Multiblock;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -17,15 +16,15 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public abstract class MultiblockEntity<T extends MultiblockEntity<T,M>, M extends Multiblock> extends BaseContainerBlockEntity implements IMultiblockEntity {
+public abstract class MultiblockEntity<T extends MultiblockEntity<T>> extends BaseContainerBlockEntity implements IMultiblockEntity {
 
-    protected final MultiblockType<M> multiblockType;
+    protected final MultiblockType multiblockType;
     protected ImmutableList<BlockPos> children;
     protected boolean beingDeconstructed;
 
     protected ResourceLocation previousBlock;
 
-    public MultiblockEntity(BlockEntityType<?> type, MultiblockType<M> multiblockType, BlockPos pos, BlockState state) {
+    public MultiblockEntity(BlockEntityType<?> type, MultiblockType multiblockType, BlockPos pos, BlockState state) {
         super(type, pos, state);
         this.multiblockType = multiblockType;
     }
@@ -68,10 +67,6 @@ public abstract class MultiblockEntity<T extends MultiblockEntity<T,M>, M extend
         this.beingDeconstructed = beingDeconstructed;
     }
 
-    /**
-     * @return The registry name of the block that was replaced by the multiblock.
-     * Used when the multiblock is destroyed.
-     */
     public ResourceLocation getPreviousBlock() {
         return previousBlock;
     }

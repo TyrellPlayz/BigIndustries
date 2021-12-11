@@ -2,7 +2,7 @@ package com.tyrellplayz.big_industries.multiblock;
 
 import com.google.common.collect.ImmutableList;
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.block.MultiblockBlock;
+import com.tyrellplayz.big_industries.block.multiblock.MultiblockBlock;
 import com.tyrellplayz.big_industries.blockentity.MultiblockEntity;
 import com.tyrellplayz.big_industries.blockentity.MultiblockEntityChild;
 import com.tyrellplayz.big_industries.core.BIBlocks;
@@ -25,34 +25,28 @@ import java.util.List;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = BigIndustries.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class MultiblockType<T extends Multiblock> extends ForgeRegistryEntry<MultiblockType<?>> {
+public class MultiblockType extends ForgeRegistryEntry<MultiblockType> {
 
-    protected static final List<MultiblockType<?>> MULTIBLOCK_TYPES = new ArrayList<>();
+    protected static final List<MultiblockType> MULTIBLOCK_TYPES = new ArrayList<>();
 
-    public static final MultiblockType<BlastFurnaceMultiblock> BLAST_FURNACE = register("blast_furnace", BlastFurnaceMultiblock::new, BIBlocks.BLAST_FURNACE);
+    public static final MultiblockType BLAST_FURNACE = register("blast_furnace", BIBlocks.BLAST_FURNACE);
 
-    private static <E extends Multiblock> MultiblockType<E> register(String name, MultiblockType.MultiblockSupplier<E> factory, Supplier<Block> blockSupplier) {
-        MultiblockType<E> type = new MultiblockType<>(factory, blockSupplier);
+    private static MultiblockType register(String name, Supplier<Block> blockSupplier) {
+        MultiblockType type = new MultiblockType(blockSupplier);
         type.setRegistryName(modLoc(name));
         MULTIBLOCK_TYPES.add(type);
         return type;
     }
 
     @SubscribeEvent
-    public static void registerMB(final RegistryEvent.Register<MultiblockType<?>> event) {
+    public static void registerMB(final RegistryEvent.Register<MultiblockType> event) {
         MULTIBLOCK_TYPES.forEach(multiblockType -> event.getRegistry().register(multiblockType));
     }
 
-    private final MultiblockType.MultiblockSupplier<? extends T> factory;
     private final Supplier<Block> blockSupplier;
 
-    public MultiblockType(MultiblockSupplier<? extends T> factory, Supplier<Block> blockSupplier) {
-        this.factory = factory;
+    public MultiblockType(Supplier<Block> blockSupplier) {
         this.blockSupplier = blockSupplier;
-    }
-
-    public T create() {
-        return factory.create();
     }
 
     public Block getBlock() {
@@ -72,7 +66,7 @@ public class MultiblockType<T extends Multiblock> extends ForgeRegistryEntry<Mul
             if(multiblockPos.equals(parentPos)) {
                 // Is parent block
                 level.setBlockAndUpdate(multiblockPos,getBlock().defaultBlockState().setValue(MultiblockBlock.FACING,player.getDirection().getOpposite()).setValue(MultiblockBlock.PARENT,true));
-                if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?,?> parentEntity)) {
+                if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?> parentEntity)) {
                     BigIndustries.getLogger().error("Multiblock parent is not a Multiblock block entity.");
                     return;
                 }
@@ -91,7 +85,7 @@ public class MultiblockType<T extends Multiblock> extends ForgeRegistryEntry<Mul
                 childEntity.setPreviousBlock(previousBlock.getRegistryName());
             }
         }
-        if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?,?> parentEntity)) {
+        if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?> parentEntity)) {
             BigIndustries.getLogger().error("Multiblock parent is not a Multiblock block entity.");
             return;
         }
@@ -100,7 +94,7 @@ public class MultiblockType<T extends Multiblock> extends ForgeRegistryEntry<Mul
     }
 
     public boolean deconstruct(ServerLevel level, BlockPos removedPos, BlockPos parentPos) {
-        if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?,?> parentEntity)) {
+        if(!(level.getBlockEntity(parentPos) instanceof MultiblockEntity<?> parentEntity)) {
             BigIndustries.getLogger().error("Multiblock parent is not a multiblock block. Some how??");
             return false;
         }
@@ -188,11 +182,6 @@ public class MultiblockType<T extends Multiblock> extends ForgeRegistryEntry<Mul
         StructureTemplate template = StructureUtil.getStructureTemplate(level,getRegistryName());
         if(template == null) return false;
         return StructureUtil.structureInLevel(level,template,pos,player.getDirection().getOpposite());
-    }
-
-    @FunctionalInterface
-    public interface MultiblockSupplier<T extends Multiblock> {
-        T create();
     }
 
     private static ResourceLocation modLoc(String path) {

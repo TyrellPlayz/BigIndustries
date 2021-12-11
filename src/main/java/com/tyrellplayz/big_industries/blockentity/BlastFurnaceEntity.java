@@ -2,7 +2,6 @@ package com.tyrellplayz.big_industries.blockentity;
 
 import com.tyrellplayz.big_industries.core.BIBlockEntities;
 import com.tyrellplayz.big_industries.menu.BlastFurnaceMenu;
-import com.tyrellplayz.big_industries.multiblock.BlastFurnaceMultiblock;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -25,7 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 
-public class BlastFurnaceEntity extends MultiblockEntity<BlastFurnaceEntity, BlastFurnaceMultiblock> implements StackedContentsCompatible {
+public class BlastFurnaceEntity extends MultiblockEntity<BlastFurnaceEntity> implements StackedContentsCompatible {
 
     public static final int SLOT_INPUT = 0;
     public static final int SLOT_FUEL = 1;

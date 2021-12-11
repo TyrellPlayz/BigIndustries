@@ -2,7 +2,7 @@ package com.tyrellplayz.big_industries.core;
 
 import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.block.BlastBrickBlock;
-import com.tyrellplayz.big_industries.block.BlastFurnaceBlock;
+import com.tyrellplayz.big_industries.block.multiblock.BlastFurnaceBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

@@ -48,6 +48,11 @@ public class MultiblockEntityChild extends BlockEntity implements IMultiblockEnt
     }
 
     @Override
+    public boolean isBeingDeconstructed() {
+        return ((IMultiblockEntity)getParentEntity()).isBeingDeconstructed();
+    }
+
+    @Override
     public CompoundTag save(CompoundTag tag) {
         super.save(tag);
         tag.putInt("parent_x", this.parent.getX());
