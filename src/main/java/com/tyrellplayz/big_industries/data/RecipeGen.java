@@ -66,6 +66,8 @@ public class RecipeGen extends RecipeProvider {
         ShapedRecipeBuilder.shaped(BIItems.STEEL_GEAR.get()).define('T', BITags.Items.INGOTS_STEEL).define('S', Items.STICK).pattern(" T ").pattern("TST").pattern(" T ").group("gear").unlockedBy("has_item",has(BITags.Items.INGOTS_STEEL)).save(consumer);
         oreSmelting(consumer,STEEL_SMELTABLES, BIItems.STEEL_INGOT.get(),0F,200);
         oreBlasting(consumer,STEEL_SMELTABLES, BIItems.STEEL_INGOT.get(),0F,100);
+
+        ShapedRecipeBuilder.shaped(BIItems.HAMMER.get()).define('T',BIItems.TIN_INGOT.get()).define('I',Items.IRON_INGOT).define('S',Items.STICK).pattern("TIT").pattern("TST").pattern(" S ").unlockedBy("has_item",has(BIItems.TIN_INGOT.get())).save(consumer);
     }
 
     protected void metalRecipe(Consumer<FinishedRecipe> consumer, Item ingotItem, Tag<Item> ingotTag, Item nuggetItem, Tag<Item> nuggetTag, Block storageBlock, Tag<Item> storageBlockTag, Item rawItem, Tag<Item> rawTag, Block rawStorageBlock, Tag<Item> rawStorageBlockTag) {

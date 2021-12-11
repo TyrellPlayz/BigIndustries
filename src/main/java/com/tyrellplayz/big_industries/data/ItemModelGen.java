@@ -5,6 +5,9 @@ import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.core.BIItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplate;
+import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -63,6 +66,7 @@ public class ItemModelGen extends ItemModelProvider {
         //simpleItem(ModItems.COPPER_WIRE.get());
 
         //simpleItem(ModItems.SOLAR_CELL.get());
+        simpleTool(BIItems.HAMMER.get());
     }
 
     private void registerBlockModels() {
@@ -108,6 +112,12 @@ public class ItemModelGen extends ItemModelProvider {
     public void simpleItem(Block block) {
         getBuilder(block.getRegistryName().getPath())
                 .parent(new ModelFile.UncheckedModelFile(modLoc("block/"+block.getRegistryName().getPath())));
+    }
+
+    public void simpleTool(Item item) {
+        getBuilder(item.getRegistryName().getPath())
+                .parent(new ModelFile.UncheckedModelFile("item/handheld"))
+                .texture("layer0",modLoc("item/"+item.getRegistryName().getPath()));
     }
 
     @Override

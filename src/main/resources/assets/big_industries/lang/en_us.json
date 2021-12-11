@@ -61,6 +61,8 @@
 
   "item.big_industries.copper_wire": "Copper Wire",
 
+  "item.big_industries.hammer": "Hammer",
+
   "itemGroup.big_industries.blocks": "Big Industries (Blocks)",
   "itemGroup.big_industries.items": "Big Industries (Items)"
 }
