@@ -1,5 +1,6 @@
 package com.tyrellplayz.big_industries;
 
+import com.tyrellplayz.big_industries.client.render.BIInstances;
 import com.tyrellplayz.big_industries.core.*;
 import com.tyrellplayz.big_industries.data.*;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
@@ -66,6 +67,8 @@ public class BigIndustries {
 
         BIOreFeatures.init();
         BIOrePlacements.init();
+
+        BIInstances.init();
 
         proxy.onCommonSetup(event);
     }

@@ -98,9 +98,6 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(BIBlocks.STEEL_BLOCK.get());
 
         simpleItem(BIBlocks.BLAST_BRICK.get());
-
-        //simpleItem(ModBlocks.BOILER);
-        //simpleItem(ModBlocks.PIPE);
     }
 
     public void simpleItem(Item item) {

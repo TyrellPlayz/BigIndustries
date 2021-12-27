@@ -1,0 +1,5 @@
+{
+	"loader": "forge:obj",
+	"model": "big_industries:models/multiblock/test_block.obj",
+	"flip-v": true
+}

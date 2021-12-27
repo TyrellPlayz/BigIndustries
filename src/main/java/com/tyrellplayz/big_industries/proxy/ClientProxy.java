@@ -14,9 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 public class ClientProxy extends CommonProxy {
 
     @Override
-    public void onCommonSetup(FMLCommonSetupEvent fmlCommonSetupEvent) {
-
-    }
+    public void onCommonSetup(FMLCommonSetupEvent fmlCommonSetupEvent) {}
 
     @Override
     public void onClientSetup(FMLClientSetupEvent fmlClientSetupEvent) {
@@ -24,4 +22,5 @@ public class ClientProxy extends CommonProxy {
 
         MinecraftForge.EVENT_BUS.register(ClientEvents.class);
     }
+
 }

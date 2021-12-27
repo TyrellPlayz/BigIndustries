@@ -2,14 +2,12 @@ package com.tyrellplayz.big_industries.block.multiblock;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraftforge.client.model.obj.OBJLoader;
 
 import javax.annotation.Nullable;
 
@@ -22,6 +20,11 @@ public abstract class MultiblockBlock extends BaseEntityBlock {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(PARENT,false));
     }
+
+    //@Override
+    //public RenderShape getRenderShape(BlockState state) {
+    //    return RenderShape.INVISIBLE;
+    //}
 
     @Nullable
     @Override

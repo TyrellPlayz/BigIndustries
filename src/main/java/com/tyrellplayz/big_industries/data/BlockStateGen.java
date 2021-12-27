@@ -4,6 +4,7 @@ import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.core.BIBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BlockStateGen extends BlockStateProvider {
