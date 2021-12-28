@@ -1,5 +1,7 @@
 {
+  "parent": "minecraft:block/block",
   "loader": "forge:obj",
   "model": "big_industries:models/multiblock/blast_furnace.obj",
-  "flip-v": true
+  "flip-v": true,
+  "detectCullableFaces": false
 }

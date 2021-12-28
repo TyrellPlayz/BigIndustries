@@ -20,7 +20,8 @@ public class TestBlockInstance extends TileEntityInstance<TestBlockEntity> {
                 .createInstance();
 
         modelData.loadIdentity()
-                .translate(getInstancePosition());
+                .translate(getInstancePosition())
+                .translate(-0.5,0,-0.5);
     }
 
     @Override

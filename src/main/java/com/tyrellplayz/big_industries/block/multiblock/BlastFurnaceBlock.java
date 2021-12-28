@@ -1,12 +1,13 @@
 package com.tyrellplayz.big_industries.block.multiblock;
 
-import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.blockentity.BlastFurnaceEntity;
 import com.tyrellplayz.big_industries.blockentity.MultiblockEntityChild;
 import com.tyrellplayz.big_industries.core.BIBlockEntities;
+import com.tyrellplayz.big_industries.item.HammerItem;
 import com.tyrellplayz.big_industries.multiblock.IMultiblockEntity;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -20,35 +21,16 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
 public class BlastFurnaceBlock extends MultiblockBlock {
 
+
     public BlastFurnaceBlock(Properties properties) {
         super(properties);
-    }
-
-    /*
-    @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(level.isClientSide) return InteractionResult.SUCCESS;
-        if(level.getBlockEntity(pos) instanceof BlastFurnaceEntity blockEntity) {
-            NetworkHooks.openGui((ServerPlayer) player,blockEntity,pos);
-        }
-        return InteractionResult.CONSUME;
-    }
-     */
-
-    @Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
-        if(stack.hasCustomHoverName()) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if(blockEntity instanceof BlastFurnaceEntity blastFurnaceEntity) {
-                blastFurnaceEntity.setCustomName(stack.getHoverName());
-            }
-        }
     }
 
     @Override
@@ -65,16 +47,6 @@ public class BlastFurnaceBlock extends MultiblockBlock {
         }
     }
 
-    @Override
-    public boolean hasAnalogOutputSignal(BlockState state) {
-        return true;
-    }
-
-    @Override
-    public RenderShape getRenderShape(BlockState state) {
-        return RenderShape.MODEL;
-    }
-
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
@@ -88,17 +60,4 @@ public class BlastFurnaceBlock extends MultiblockBlock {
         return level.isClientSide ? null : createTickerHelper(type, BIBlockEntities.BLAST_FURNACE.get(), BlastFurnaceEntity::onServerTick);
     }
 
-    @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof IMultiblockEntity multiblockEntity) {
-            if(multiblockEntity instanceof BlockEntity blockEntity) {
-                BigIndustries.getLogger().info(blockEntity.getUpdateTag());
-            }
-
-            if (level.getBlockEntity(multiblockEntity.getParent()) instanceof MenuProvider menuProvider) {
-                player.openMenu(menuProvider);
-            }
-        }
-        return InteractionResult.SUCCESS;
-    }
 }
