@@ -4,24 +4,22 @@ import com.jozufozu.flywheel.api.MaterialManager;
 import com.jozufozu.flywheel.backend.instancing.tile.TileEntityInstance;
 import com.jozufozu.flywheel.core.Materials;
 import com.jozufozu.flywheel.core.materials.model.ModelData;
-import com.tyrellplayz.big_industries.blockentity.BlastFurnaceEntity;
-import com.tyrellplayz.big_industries.core.BIBlocks;
+import com.tyrellplayz.big_industries.blockentity.MultiblockEntity;
 
-public class BlastFurnaceInstance extends TileEntityInstance<BlastFurnaceEntity> {
+public class MultiblockRenderInstance<T extends MultiblockEntity<T>> extends TileEntityInstance<MultiblockEntity<T>> {
 
     private final ModelData modelData;
 
-    public BlastFurnaceInstance(MaterialManager materialManager, BlastFurnaceEntity tile) {
+    public MultiblockRenderInstance(MaterialManager materialManager, MultiblockEntity<T> tile) {
         super(materialManager, tile);
 
         modelData = materialManager.defaultSolid()
                 .material(Materials.TRANSFORMED)
-                .getModel(BIBlocks.BLAST_FURNACE.get().defaultBlockState())
+                .getModel(tile.getBlockState())
                 .createInstance();
 
         modelData.loadIdentity()
-                .translate(getInstancePosition())
-                .translate;
+                .translate(getInstancePosition());
     }
 
     @Override

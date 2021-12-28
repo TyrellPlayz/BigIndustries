@@ -36,8 +36,7 @@ public abstract class MultiblockBlock extends BaseEntityBlock {
 
     @Override
     public RenderShape getRenderShape(BlockState state) {
-        if(!state.getValue(PARENT)) return RenderShape.INVISIBLE;
-        return RenderShape.MODEL;
+        return RenderShape.INVISIBLE;
     }
 
     @Nullable

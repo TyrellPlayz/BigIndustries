@@ -2,6 +2,10 @@
   "parent": "minecraft:block/block",
   "loader": "forge:obj",
   "model": "big_industries:models/multiblock/blast_furnace.obj",
+  "textures": {
+    "black_concrete": "minecraft:block/black_concrete",
+    "blast_furnace": "big_industries:block/multiblock/blast_furnace"
+  },
   "flip-v": true,
   "detectCullableFaces": false
 }

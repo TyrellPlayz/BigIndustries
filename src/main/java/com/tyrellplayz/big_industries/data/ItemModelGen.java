@@ -50,7 +50,10 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(BIItems.ALUMINIUM_NUGGET.get());
 
         // Silver
+        //simpleItem(BIItems.RAW_SILVER.get());
+        //simpleItem(BIItems.SILVER_DUST.get());
         simpleItem(BIItems.SILVER_INGOT.get());
+        //simpleItem(BIItems.SILVER_NUGGET.get());
 
         // Steel
         simpleItem(BIItems.STEEL_DUST.get());

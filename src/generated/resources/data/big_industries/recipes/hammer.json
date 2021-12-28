@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TIT",
+    "TST",
+    " S "
+  ],
+  "key": {
+    "T": {
+      "item": "big_industries:tin_ingot"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "big_industries:hammer"
+  }
+}
