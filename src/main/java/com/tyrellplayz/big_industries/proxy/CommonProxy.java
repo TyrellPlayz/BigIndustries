@@ -1,13 +1,9 @@
 package com.tyrellplayz.big_industries.proxy;
 
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import tyrellplayz.zlib.proxy.IProxy;
 
-public class CommonProxy {
+public class CommonProxy implements IProxy {
 
-    public void onCommonSetup(FMLCommonSetupEvent fmlCommonSetupEvent) {
-    }
 
-    public void onClientSetup(FMLClientSetupEvent fmlClientSetupEvent) {}
 
 }

@@ -25,6 +25,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.RegistryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tyrellplayz.zlib.proxy.IProxy;
 
 @Mod(BigIndustries.MOD_ID)
 public class BigIndustries {
@@ -39,12 +40,11 @@ public class BigIndustries {
         public ItemStack makeIcon() { return new ItemStack(BIItems.RAW_TIN.get()); }
     };
 
-    public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+    public static IProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
     public BigIndustries() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register the setup method for mod loading
-        eventBus.addListener(this::setup);
         eventBus.addListener(this::onCommonSetup);
         eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::gatherData);
@@ -57,10 +57,6 @@ public class BigIndustries {
         //MinecraftForge.EVENT_BUS.register(ModFeatures.class);
 
         MinecraftForge.EVENT_BUS.addListener(this::registerRegistries);
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-        LOGGER.info("HELLO FROM PREINIT");
     }
 
     public void onCommonSetup(final FMLCommonSetupEvent event) {

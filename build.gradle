@@ -8,20 +8,23 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
-apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
-version = '0.1.0-1.18'
-group = 'com.tyrellplayz'
-archivesBaseName = 'big_industries'
+plugins {
+    id 'java'
+    id 'idea'
+    id 'maven-publish'
+}
+apply plugin: 'net.minecraftforge.gradle'
+
+version = "${project.mod_version}"
+group = 'com.tyrellplayz.big_industries'
+archivesBaseName = "big_industries-${project.minecraft_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.18'
+    mappings channel: 'official', version: "${project.minecraft_version}"
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
@@ -68,6 +71,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    mavenLocal()
     maven {
         // location of the maven that hosts JEI files
         name = "Progwml6 maven"
@@ -85,25 +89,49 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
     // compile against the JEI API but do not include it at runtime
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
+    compileOnly fg.deobf("mezz.jei:jei-${project.minecraft_version}:${project.jei_version}:api")
     // at runtime, use the full JEI jar
-    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft_version}:${project.jei_version}")
 
-    implementation fg.deobf("com.jozufozu.flywheel:Flywheel-Forge:1.18-0.5.0.31")
+    implementation fg.deobf("com.jozufozu.flywheel:Flywheel-Forge:1.18-${project.flywheel_version}")
+
+    implementation fg.deobf("com.tyrellplayz.zlib:zlib-1.18.1:1.0.1")
+}
+
+def replaceResources = tasks.register("replaceResources", Copy) {
+    it.outputs.upToDateWhen {false}
+    it.from(sourceSets.main.resources) {
+        include "META-INF/mods.toml"
+        expand 'mod_version': mod_version, 'minecraft_version_range': minecraft_version_range, 'forge_version_range': forge_version_range, "loader_version_range": loader_version_range, "zlib_version": zlib_version
+    }
+    it.into "$buildDir/resources/main/"
+}
+
+processResources {
+    duplicatesStrategy(DuplicatesStrategy.FAIL)
+    exclude('META-INF/mods.toml')
+    configure { finalizedBy(replaceResources) }
+}
+
+classes.configure {
+    dependsOn(replaceResources)
 }
 
 jar {
+    from sourceSets.main.output
     manifest {
         attributes([
                 "Specification-Title"     : "big_industries",
-                "Specification-Vendor"    : "examplemodsareus",
+                "Specification-Vendor"    : "TyrellPlayz",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "examplemodsareus",
+                "Implementation-Version"  : "${project.version}",
+                "Implementation-Vendor"   : "TyrellPlayz",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+
+    finalizedBy 'reobfJar'
 }

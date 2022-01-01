@@ -1,6 +1,5 @@
 package com.tyrellplayz.big_industries.client;
 
-import com.tyrellplayz.big_industries.blockentity.MultiblockEntity;
 import com.tyrellplayz.big_industries.multiblock.IMultiblockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;

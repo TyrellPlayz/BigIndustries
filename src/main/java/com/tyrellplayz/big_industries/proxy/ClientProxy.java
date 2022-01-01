@@ -9,9 +9,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import tyrellplayz.zlib.proxy.IProxy;
 
 @OnlyIn(Dist.CLIENT)
-public class ClientProxy extends CommonProxy {
+public class ClientProxy implements IProxy {
 
     @Override
     public void onCommonSetup(FMLCommonSetupEvent fmlCommonSetupEvent) {}

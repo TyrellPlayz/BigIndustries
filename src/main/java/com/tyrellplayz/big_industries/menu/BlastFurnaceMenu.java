@@ -2,11 +2,10 @@ package com.tyrellplayz.big_industries.menu;
 
 import com.tyrellplayz.big_industries.blockentity.BlastFurnaceEntity;
 import com.tyrellplayz.big_industries.core.BIMenus;
-import com.tyrellplayz.big_industries.menu.slot.FuelSlot;
-import com.tyrellplayz.big_industries.menu.slot.OutputSlot;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
@@ -14,8 +13,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.common.ForgeHooks;
+import tyrellplayz.zlib.inventory.ZContainerMenu;
+import tyrellplayz.zlib.inventory.slot.FuelSlot;
+import tyrellplayz.zlib.inventory.slot.OutputSlot;
 
-public class BlastFurnaceMenu extends AbstractMenu {
+public class BlastFurnaceMenu extends ZContainerMenu {
 
     private final RecipeType<? extends AbstractCookingRecipe> recipeType;
 
@@ -33,7 +35,7 @@ public class BlastFurnaceMenu extends AbstractMenu {
     @Override
     public void createSlots(Inventory inventory, Container container) {
         this.addSlot(new Slot(container, BlastFurnaceEntity.SLOT_INPUT,56,17));
-        this.addSlot(new FuelSlot(this,container,recipeType,FuelSlot.FuelType.BOTH, BlastFurnaceEntity.SLOT_FUEL,56,53));
+        this.addSlot(new FuelSlot(container,recipeType,FuelSlot.FuelType.BOTH, BlastFurnaceEntity.SLOT_FUEL,56,53));
         this.addSlot(new OutputSlot(inventory.player,container, BlastFurnaceEntity.SLOT_RESULT,116,35));
         createPlayerSlots(8,84,inventory);
     }
@@ -52,5 +54,5 @@ public class BlastFurnaceMenu extends AbstractMenu {
     public static boolean isFuel(ItemStack itemStack, RecipeType<?> type) {
         return ForgeHooks.getBurnTime(itemStack,type) > 0;
     }
-
+    
 }

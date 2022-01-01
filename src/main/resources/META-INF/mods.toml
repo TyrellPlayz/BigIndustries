@@ -1,9 +1,9 @@
 modLoader="javafml"
-loaderVersion="[38,)"
+loaderVersion="${loader_version_range}"
 license="All rights reserved"
 [[mods]]
 modId="big_industries"
-version="0.1.0"
+version="${mod_version}"
 displayName="Big Industries"
 #updateJSONURL="https://change.me.example.invalid/updates.json"
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
@@ -14,15 +14,22 @@ description='Adds machines to Minecraft'
 [[dependencies.big_industries]]
     modId="forge"
     mandatory=true
-    versionRange="[38,)"
+    versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.big_industries]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18,1.19)"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+[[dependencies.big_industries]]
+modId="zlib"
+mandatory=true
+versionRange="[${zlib_version},)"
+ordering="NONE"
+side="BOTH"
+
 [[dependencies.big_industries]]
     modId="flywheel"
     mandatory=true

@@ -20,8 +20,7 @@ public class BlastFurnaceInstance extends TileEntityInstance<BlastFurnaceEntity>
                 .createInstance();
 
         modelData.loadIdentity()
-                .translate(getInstancePosition())
-                .translate;
+                .translate(getInstancePosition());
     }
 
     @Override
