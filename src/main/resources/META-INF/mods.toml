@@ -1,12 +1,13 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
-license="All rights reserved"
+license="GPLv3"
+issueTrackerURL="https://github.com/TyrellPlayz/BigIndustries/issues" #optional
 [[mods]]
 modId="big_industries"
 version="${mod_version}"
 displayName="Big Industries"
 #updateJSONURL="https://change.me.example.invalid/updates.json"
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/big-industries"
 logoFile="big_industries.png"
 credits="Thanks for this example mod goes to Java"
 authors="Love, Cheese and small house plants"
@@ -24,11 +25,11 @@ description='Adds machines to Minecraft'
     ordering="NONE"
     side="BOTH"
 [[dependencies.big_industries]]
-modId="zlib"
-mandatory=true
-versionRange="[${zlib_version},)"
-ordering="NONE"
-side="BOTH"
+    modId="zlib"
+    mandatory=true
+    versionRange="[${zlib_version},)"
+    ordering="NONE"
+    side="BOTH"
 
 [[dependencies.big_industries]]
     modId="flywheel"

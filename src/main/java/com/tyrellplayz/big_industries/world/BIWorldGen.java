@@ -31,6 +31,7 @@ public class BIWorldGen {
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_ALUMINIUM);
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_LEAD);
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_SILVER);
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BIOrePlacements.ORE_NICKEL);
         }
         if(BiomeDictionary.hasType(biomeRegistryKey,BiomeDictionary.Type.NETHER)) {
 

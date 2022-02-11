@@ -3,7 +3,7 @@ package com.tyrellplayz.big_industries.client.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.menu.BlastFurnaceMenu;
+import com.tyrellplayz.big_industries.inventory.BlastFurnaceMenu;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;

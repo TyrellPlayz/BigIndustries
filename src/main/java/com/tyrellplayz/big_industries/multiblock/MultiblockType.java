@@ -6,6 +6,8 @@ import com.tyrellplayz.big_industries.block.multiblock.MultiblockBlock;
 import com.tyrellplayz.big_industries.blockentity.MultiblockEntity;
 import com.tyrellplayz.big_industries.blockentity.MultiblockEntityChild;
 import com.tyrellplayz.big_industries.core.BIBlocks;
+import com.tyrellplayz.zlib.util.StructureUtil;
+import com.tyrellplayz.zlib.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -17,8 +19,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistryEntry;
-import tyrellplayz.zlib.util.StructureUtil;
-import tyrellplayz.zlib.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;

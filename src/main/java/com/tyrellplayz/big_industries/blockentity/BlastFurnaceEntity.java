@@ -1,7 +1,7 @@
 package com.tyrellplayz.big_industries.blockentity;
 
 import com.tyrellplayz.big_industries.core.BIBlockEntities;
-import com.tyrellplayz.big_industries.menu.BlastFurnaceMenu;
+import com.tyrellplayz.big_industries.inventory.BlastFurnaceMenu;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;

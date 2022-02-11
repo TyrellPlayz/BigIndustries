@@ -1,13 +1,15 @@
 package com.tyrellplayz.big_industries;
 
 import com.tyrellplayz.big_industries.client.render.BIInstances;
-import com.tyrellplayz.big_industries.core.*;
+import com.tyrellplayz.big_industries.core.BIBlockEntities;
+import com.tyrellplayz.big_industries.core.BIBlocks;
+import com.tyrellplayz.big_industries.core.BIItems;
+import com.tyrellplayz.big_industries.core.BIMenus;
 import com.tyrellplayz.big_industries.data.*;
 import com.tyrellplayz.big_industries.multiblock.MultiblockType;
-import com.tyrellplayz.big_industries.proxy.ClientProxy;
-import com.tyrellplayz.big_industries.proxy.CommonProxy;
 import com.tyrellplayz.big_industries.world.worldgen.BIOreFeatures;
 import com.tyrellplayz.big_industries.world.worldgen.BIOrePlacements;
+import com.tyrellplayz.zlib.proxy.ModProxy;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -25,7 +27,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.RegistryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import tyrellplayz.zlib.proxy.IProxy;
 
 @Mod(BigIndustries.MOD_ID)
 public class BigIndustries {
@@ -34,13 +35,13 @@ public class BigIndustries {
     public static final String MOD_ID = "big_industries";
 
     public static final CreativeModeTab BLOCK_TAB = new CreativeModeTab(MOD_ID+".blocks") {
-        public ItemStack makeIcon() { return new ItemStack(BIBlocks.TIN_ORE.get()); }
+        public ItemStack makeIcon() { return new ItemStack(BIBlocks.ORE.get(Metals.TIN).get()); }
     };
     public static final CreativeModeTab ITEM_TAB = new CreativeModeTab(MOD_ID+".items") {
-        public ItemStack makeIcon() { return new ItemStack(BIItems.RAW_TIN.get()); }
+        public ItemStack makeIcon() { return new ItemStack(BIItems.INGOT.get(Metals.TIN).get()); }
     };
 
-    public static IProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+    public static ModProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
     public BigIndustries() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();

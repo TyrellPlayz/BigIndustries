@@ -1,7 +1,7 @@
 package com.tyrellplayz.big_industries.core;
 
 import com.tyrellplayz.big_industries.BigIndustries;
-import com.tyrellplayz.big_industries.menu.BlastFurnaceMenu;
+import com.tyrellplayz.big_industries.inventory.BlastFurnaceMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.registries.DeferredRegister;

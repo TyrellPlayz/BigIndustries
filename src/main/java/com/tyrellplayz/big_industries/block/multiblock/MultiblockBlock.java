@@ -2,8 +2,10 @@ package com.tyrellplayz.big_industries.block.multiblock;
 
 import com.tyrellplayz.big_industries.item.HammerItem;
 import com.tyrellplayz.big_industries.multiblock.IMultiblockEntity;
+import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -27,8 +29,11 @@ public abstract class MultiblockBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty PARENT = BooleanProperty.create("parent");
 
-    public MultiblockBlock(Properties properties) {
+    public MultiblockType multiblockType;
+
+    public MultiblockBlock(MultiblockType multiblockType, Properties properties) {
         super(properties);
+        this.multiblockType = multiblockType;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(PARENT,false));
@@ -60,4 +65,17 @@ public abstract class MultiblockBlock extends BaseEntityBlock {
         return InteractionResult.SUCCESS;
     }
 
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean b) {
+        if(!state.is(newState.getBlock())) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if(blockEntity instanceof IMultiblockEntity blastFurnaceEntity) {
+                if(level instanceof ServerLevel serverLevel) {
+                    multiblockType.deconstruct(serverLevel,pos,blastFurnaceEntity.getParent());
+                }
+                level.updateNeighbourForOutputSignal(pos,this);
+            }
+        }
+        super.onRemove(state, level, pos, newState, b);
+    }
 }

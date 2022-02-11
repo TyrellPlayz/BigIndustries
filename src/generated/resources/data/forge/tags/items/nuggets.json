@@ -5,6 +5,7 @@
     "#forge:nuggets/lead",
     "#forge:nuggets/aluminium",
     "#forge:nuggets/silver",
+    "#forge:nuggets/nickel",
     "#forge:nuggets/steel"
   ]
 }

@@ -13,6 +13,7 @@ plugins {
     id 'java'
     id 'idea'
     id 'maven-publish'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 apply plugin: 'net.minecraftforge.gradle'
 
@@ -57,7 +58,8 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            args '--mod', 'big_industries', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'big_industries', '--server', '--client', '--dev', '--reports', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            //args '--mod', 'big_industries', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
                 big_industries {
                     source sourceSets.main
@@ -132,6 +134,20 @@ jar {
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
-
     finalizedBy 'reobfJar'
+}
+
+curseforge {
+    apiKey = project.findProperty('curseforge_apikey') ?: '0'
+    project {
+        id = curse_project_id
+        changelog = file('changelog.html')
+        changelogType = 'html'
+        releaseType = 'beta'
+        addGameVersion "${minecraft_version}"
+        relations {
+            requiredDependency 'zlib'
+            optionalDependency 'jei'
+        }
+    }
 }

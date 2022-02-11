@@ -30,21 +30,7 @@ public class BlastFurnaceBlock extends MultiblockBlock {
 
 
     public BlastFurnaceBlock(Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean b) {
-        if(!state.is(newState.getBlock())) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if(blockEntity instanceof IMultiblockEntity blastFurnaceEntity) {
-                if(level instanceof ServerLevel serverLevel) {
-                    MultiblockType.BLAST_FURNACE.deconstruct(serverLevel,pos,blastFurnaceEntity.getParent());
-                }
-                level.updateNeighbourForOutputSignal(pos,this);
-            }
-            super.onRemove(state, level, pos, newState, b);
-        }
+        super(MultiblockType.BLAST_FURNACE,properties);
     }
 
     @Nullable

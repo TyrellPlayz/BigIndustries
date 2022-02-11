@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "nickel_ingot",
+  "ingredient": {
+    "item": "big_industries:nickel_ore"
+  },
+  "result": "big_industries:nickel_ingot",
+  "experience": 0.0,
+  "cookingtime": 100
+}

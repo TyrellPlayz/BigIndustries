@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "forge:obj",
+  "model": "big_industries:models/multiblock/coke_oven.obj",
+  "textures": {
+    "coke_oven": "big_industries:block/multiblock/coke_oven"
+  },
+  "flip-v": true,
+  "detectCullableFaces": false
+}

@@ -19,10 +19,18 @@
   "block.big_industries.raw_silver_block": "Block of Raw Silver",
   "block.big_industries.silver_block": "Block of Silver",
 
+  "block.big_industries.nickel_ore": "Nickel Ore",
+  "block.big_industries.deepslate_nickel_ore": "Deepslate Nickel Ore",
+  "block.big_industries.raw_nickel_block": "Block of Raw Nickel",
+  "block.big_industries.nickel_block": "Block of Nickel",
+
   "block.big_industries.steel_block": "Block of Steel",
 
   "block.big_industries.blast_brick": "Blast Bricks",
   "block.big_industries.blast_furnace": "Blast Furnace",
+  "block.big_industries.coke_oven": "Coke Oven",
+
+  "block.big_industries.fluid_pipe": "Fluid Pipe",
 
   "item.big_industries.raw_tin": "Raw Tin",
   "item.big_industries.tin_dust": "Tin Dust",
@@ -56,9 +64,11 @@
   "item.big_industries.copper_dust": "Copper Dust",
   "item.big_industries.gold_dust": "Gold Dust",
 
-  "item.big_industries.copper_wire": "Copper Wire",
+  "item.big_industries.coke": "Coke",
 
   "item.big_industries.hammer": "Hammer",
+
+  "container.big_industries.coke_oven": "Coke Oven",
 
   "itemGroup.big_industries.blocks": "Big Industries (Blocks)",
   "itemGroup.big_industries.items": "Big Industries (Items)"
