@@ -30,10 +30,3 @@ description='Adds machines to Minecraft'
     versionRange="[${zlib_version},)"
     ordering="NONE"
     side="BOTH"
-
-[[dependencies.big_industries]]
-    modId="flywheel"
-    mandatory=true
-    versionRange="[1.18-0.5.0.31,)"
-    ordering="NONE"
-    side="BOTH"

@@ -5,6 +5,7 @@ import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.core.BIItems;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
@@ -50,7 +51,7 @@ public enum Metals {
         return BIItems.CRUSHED.get(this).get();
     }
 
-    public Tag.Named<Item> getCrushedTag() {
+    public TagKey<Item> getCrushedTag() {
         return BITags.Items.METAL_CRUSHED.get(this);
     }
 
@@ -58,7 +59,7 @@ public enum Metals {
         return BIItems.INGOT.get(this).get();
     }
 
-    public Tag.Named<Item> getIngotTag() {
+    public TagKey<Item> getIngotTag() {
         return BITags.Items.METAL_INGOTS.get(this);
     }
 
@@ -66,7 +67,7 @@ public enum Metals {
         return BIItems.NUGGET.get(this).get();
     }
 
-    public Tag.Named<Item> getNuggetTag() {
+    public TagKey<Item> getNuggetTag() {
         return BITags.Items.METAL_NUGGETS.get(this);
     }
 
@@ -75,7 +76,7 @@ public enum Metals {
         return BIItems.RAW.get(this).get();
     }
 
-    public Tag.Named<Item> getRawTag() {
+    public TagKey<Item> getRawTag() {
         if(isAlloy()) return null;
         return BITags.Items.METAL_RAW.get(this);
     }
@@ -88,7 +89,7 @@ public enum Metals {
         return BIBlocks.STORAGE_BLOCK.get(this).get();
     }
 
-    public Tag.Named<Item> getStorageBlockTag() {
+    public TagKey<Item> getStorageBlockTag() {
         return BITags.Items.METAL_STORAGE_BLOCKS.get(this);
     }
 
@@ -97,7 +98,7 @@ public enum Metals {
         return BIBlocks.RAW_STORAGE_BLOCK.get(this).get();
     }
 
-    public Tag.Named<Item> getRawStorageBlockTag() {
+    public TagKey<Item> getRawStorageBlockTag() {
         return BITags.Items.METAL_RAW_STORAGE_BLOCKS.get(this);
     }
 
@@ -106,7 +107,7 @@ public enum Metals {
         return BIBlocks.ORE.get(this).get();
     }
 
-    public Tag.Named<Item> getOreTag() {
+    public TagKey<Item> getOreTag() {
         return BITags.Items.METAL_ORES.get(this);
     }
 

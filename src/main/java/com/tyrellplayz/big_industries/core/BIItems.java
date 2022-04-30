@@ -11,6 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class BIItems {
 
@@ -23,26 +24,26 @@ public class BIItems {
     static {
         for (Metals metal : Metals.values()) {
             if(!metal.isAlloy()) {
-                RAW.put(metal,register("raw_"+metal,new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
+                RAW.put(metal,register("raw_"+metal,() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
             }
-            CRUSHED.put(metal,register("crushed_"+ metal,new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
-            INGOT.put(metal,register(metal+"_ingot",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
-            NUGGET.put(metal,register( metal+"_nugget",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
+            CRUSHED.put(metal,register("crushed_"+ metal,() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
+            INGOT.put(metal,register(metal+"_ingot",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
+            NUGGET.put(metal,register( metal+"_nugget",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
         }
     }
 
-    public static final RegistryObject<Item> CRUSHED_COAL = register("crushed_coal",new BurnableItem(1600,new Item.Properties().tab(BigIndustries.ITEM_TAB)));
-    public static final RegistryObject<Item> CRUSHED_IRON = register("crushed_iron",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
-    public static final RegistryObject<Item> CRUSHED_COPPER = register("crushed_copper",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
-    public static final RegistryObject<Item> CRUSHED_GOLD = register("crushed_gold",new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_COAL = register("crushed_coal",() -> new BurnableItem(1600,new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_IRON = register("crushed_iron",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_COPPER = register("crushed_copper",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_GOLD = register("crushed_gold",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
-    public static final RegistryObject<Item> COKE = register("coke",new BurnableItem(2200, new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> COKE = register("coke",() -> new BurnableItem(2200, new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
     // Tools
-    public static final RegistryObject<Item> HAMMER = register("hammer",new HammerItem(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> HAMMER = register("hammer",() -> new HammerItem(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
-    public static <T extends Item> RegistryObject<T> register(String registryName, T item) {
-        return REGISTER.register(registryName,() -> item);
+    public static <T extends Item> RegistryObject<T> register(String registryName, Supplier<T> itemSupplier) {
+        return REGISTER.register(registryName,itemSupplier);
     }
 
 }

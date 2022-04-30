@@ -8,6 +8,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -40,12 +41,12 @@ public class RecipeGen extends RecipeProvider {
         ShapedRecipeBuilder.shaped(BIItems.HAMMER.get()).define('T', Metals.TIN.getIngot()).define('I',Items.IRON_INGOT).define('S',Items.STICK).pattern("TIT").pattern("TST").pattern(" S ").unlockedBy("has_item",has(Metals.TIN.getIngot())).save(consumer);
     }
 
-    protected void metalRecipe(Consumer<FinishedRecipe> consumer, Item ingotItem, Tag<Item> ingotTag, Item nuggetItem, Tag<Item> nuggetTag, Block storageBlock, Tag<Item> storageBlockTag, Item rawItem, Tag<Item> rawTag, Block rawStorageBlock, Tag<Item> rawStorageBlockTag) {
+    protected void metalRecipe(Consumer<FinishedRecipe> consumer, Item ingotItem, TagKey<Item> ingotTag, Item nuggetItem, TagKey<Item> nuggetTag, Block storageBlock, TagKey<Item> storageBlockTag, Item rawItem, TagKey<Item> rawTag, Block rawStorageBlock, TagKey<Item> rawStorageBlockTag) {
         metalRecipeAlloy(consumer,ingotItem,ingotTag,nuggetItem,nuggetTag,storageBlock,storageBlockTag);
         nineStorageRecipe(consumer,rawItem,rawTag,rawStorageBlock,rawStorageBlockTag,simpleItemName(rawItem)+"_from_block");
     }
 
-    protected void metalRecipeAlloy(Consumer<FinishedRecipe> consumer, Item ingotItem, Tag<Item> ingotTag, Item nuggetItem, Tag<Item> nuggetTag, Block storageBlock, Tag<Item> storageBlockTag) {
+    protected void metalRecipeAlloy(Consumer<FinishedRecipe> consumer, Item ingotItem, TagKey<Item> ingotTag, Item nuggetItem, TagKey<Item> nuggetTag, Block storageBlock, TagKey<Item> storageBlockTag) {
         nineStorageRecipe(consumer,ingotItem,ingotTag,storageBlock,storageBlockTag,simpleItemName(ingotItem)+"_from_block");
         nineStorageRecipe(consumer,nuggetItem,nuggetTag,ingotItem,ingotTag,simpleItemName(ingotItem)+"_from_nugget");
     }
@@ -55,7 +56,7 @@ public class RecipeGen extends RecipeProvider {
         ShapedRecipeBuilder.shaped(block).define('#',Ingredient.of(item)).pattern("###").pattern("###").pattern("###").unlockedBy("has_item",has(item)).save(consumer);
     }
 
-    protected void nineStorageRecipe(Consumer<FinishedRecipe> consumer, ItemLike mainItem, Tag<Item> mainItemTag, ItemLike secondaryItem, Tag<Item> secondaryItemTag, String saveName) {
+    protected void nineStorageRecipe(Consumer<FinishedRecipe> consumer, ItemLike mainItem, TagKey<Item> mainItemTag, ItemLike secondaryItem, TagKey<Item> secondaryItemTag, String saveName) {
         ShapelessRecipeBuilder.shapeless(mainItem,9).requires(secondaryItemTag).group(simpleItemName(mainItem)).unlockedBy("has_item",has(mainItemTag)).save(consumer,modLoc(saveName));
         ShapedRecipeBuilder.shaped(secondaryItem).define('#',mainItemTag).pattern("###").pattern("###").pattern("###").unlockedBy("has_item",has(mainItemTag)).save(consumer);
     }

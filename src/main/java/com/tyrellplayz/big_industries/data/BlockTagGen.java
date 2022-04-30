@@ -9,6 +9,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
@@ -67,7 +68,7 @@ public class BlockTagGen extends BlockTagsProvider {
         return "Block Tags: "+modId;
     }
 
-    private static Tag.Named<Block> getToolTag(Tier tier) {
+    private static TagKey<Block> getToolTag(Tier tier) {
         if(tier == Tiers.IRON) {
             return BlockTags.NEEDS_IRON_TOOL;
         }else if(tier == Tiers.DIAMOND) {

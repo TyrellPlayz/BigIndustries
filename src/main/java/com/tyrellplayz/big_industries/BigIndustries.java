@@ -1,6 +1,5 @@
 package com.tyrellplayz.big_industries;
 
-import com.tyrellplayz.big_industries.client.render.BIInstances;
 import com.tyrellplayz.big_industries.core.BIBlockEntities;
 import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.core.BIItems;
@@ -15,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +22,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import net.minecraftforge.registries.NewRegistryEvent;
 import net.minecraftforge.registries.RegistryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -65,8 +64,6 @@ public class BigIndustries {
         BIOreFeatures.init();
         BIOrePlacements.init();
 
-        BIInstances.init();
-
         proxy.onCommonSetup(event);
     }
 
@@ -79,6 +76,7 @@ public class BigIndustries {
         if(dataEvent.includeClient()) {
             generator.addProvider(new BlockStateGen(generator,dataEvent.getExistingFileHelper()));
             generator.addProvider(new ItemModelGen(generator,dataEvent.getExistingFileHelper()));
+            generator.addProvider(new LanguageGen(generator));
         }
         if(dataEvent.includeServer()) {
             BlockTagGen blockTagGen = new BlockTagGen(generator,dataEvent.getExistingFileHelper());
@@ -89,12 +87,12 @@ public class BigIndustries {
         }
     }
 
-    public void registerRegistries(RegistryEvent.NewRegistry event) {
-        createRegistry(new ResourceLocation(MOD_ID,"multiblock_type"), MultiblockType.class);
+    public void registerRegistries(NewRegistryEvent event) {
+        createRegistry(event,new ResourceLocation(MOD_ID,"multiblock_type"), MultiblockType.class);
     }
 
-    public <T extends IForgeRegistryEntry<T>> void createRegistry(ResourceLocation key, Class<T> type) {
-        new RegistryBuilder<T>().setName(key).setType(type).setDefaultKey(key).create();
+    public <T extends IForgeRegistryEntry<T>> void createRegistry(NewRegistryEvent event, ResourceLocation key, Class<T> type) {
+        event.create(new RegistryBuilder<T>().setName(key).setType(type).setDefaultKey(key));
     }
 
     public static Logger getLogger() {

@@ -1,17 +1,20 @@
 {
 	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "big_industries:block/aluminium_block",
+		"particle": "big_industries:block/aluminium_block"
+	},
 	"elements": [
 		{
 			"from": [4, 4, 4],
 			"to": [12, 12, 12],
-			"color": 6,
 			"faces": {
-				"north": {"uv": [0, 0, 6, 5], "texture": "#missing"},
-				"east": {"uv": [0, 0, 6, 5], "texture": "#missing"},
-				"south": {"uv": [0, 0, 6, 5], "texture": "#missing"},
-				"west": {"uv": [0, 0, 6, 5], "texture": "#missing"},
-				"up": {"uv": [0, 0, 6, 6], "texture": "#missing"},
-				"down": {"uv": [0, 0, 6, 6], "texture": "#missing"}
+				"north": {"uv": [1, 1, 15, 15], "texture": "#0"},
+				"east": {"uv": [1, 1, 15, 15], "texture": "#0"},
+				"south": {"uv": [1, 1, 15, 15], "texture": "#0"},
+				"west": {"uv": [1, 1, 15, 15], "texture": "#0"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#0"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#0"}
 			}
 		}
 	]
