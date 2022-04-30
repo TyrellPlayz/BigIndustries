@@ -3,11 +3,9 @@ package com.tyrellplayz.big_industries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +43,7 @@ public class BITags {
         public static final Map<Metals,TagKey<Item>> METAL_RAW = new HashMap<>();
         public static final Map<Metals,TagKey<Item>> METAL_INGOTS = new HashMap<>();
         public static final Map<Metals,TagKey<Item>> METAL_NUGGETS = new HashMap<>();
-        public static final Map<Metals,TagKey<Item>> METAL_CRUSHED = new HashMap<>();
+        public static final Map<Metals,TagKey<Item>> METAL_DUSTS = new HashMap<>();
 
         public static final Map<Metals,TagKey<Item>> METAL_ORES = new HashMap<>();
         public static final Map<Metals,TagKey<Item>> METAL_RAW_STORAGE_BLOCKS = new HashMap<>();
@@ -61,7 +59,7 @@ public class BITags {
                 }
                 METAL_INGOTS .put(metal,forgeTag("ingots/"+metal));
                 METAL_NUGGETS.put(metal,forgeTag("nuggets/"+metal));
-                METAL_CRUSHED.put(metal,forgeTag("dusts/"+metal));
+                METAL_DUSTS.put(metal,forgeTag("dusts/"+metal));
 
                 METAL_STORAGE_BLOCKS.put(metal,forgeTag("storage_blocks/"+metal));
             }

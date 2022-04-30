@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "big_industries:nickel_ingot_from_smelting_crushed_nickel"
+      "big_industries:silver_ingot_from_smelting_silver_dust"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "big_industries:crushed_nickel"
+              "big_industries:silver_dust"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "big_industries:nickel_ingot_from_smelting_crushed_nickel"
+        "recipe": "big_industries:silver_ingot_from_smelting_silver_dust"
       }
     }
   },

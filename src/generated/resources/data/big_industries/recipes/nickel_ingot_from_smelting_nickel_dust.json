@@ -1,10 +1,10 @@
 {
-  "type": "minecraft:blasting",
+  "type": "minecraft:smelting",
   "group": "nickel_ingot",
   "ingredient": {
-    "item": "big_industries:crushed_nickel"
+    "item": "big_industries:nickel_dust"
   },
   "result": "big_industries:nickel_ingot",
   "experience": 0.0,
-  "cookingtime": 100
+  "cookingtime": 200
 }

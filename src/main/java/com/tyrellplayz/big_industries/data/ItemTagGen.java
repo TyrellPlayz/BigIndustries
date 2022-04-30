@@ -32,8 +32,8 @@ public class ItemTagGen extends ItemTagsProvider {
 
                 this.tag(Items.RAW_ORES).addTags(Items.METAL_RAW.get(metal));
             }
-            this.tag(Items.METAL_CRUSHED.get(metal))
-                    .add(BIItems.CRUSHED.get(metal).get());
+            this.tag(Items.METAL_DUSTS.get(metal))
+                    .add(BIItems.DUST.get(metal).get());
             this.tag(Items.METAL_INGOTS.get(metal))
                     .add(BIItems.INGOT.get(metal).get());
             this.tag(Items.METAL_NUGGETS.get(metal))
@@ -42,7 +42,7 @@ public class ItemTagGen extends ItemTagsProvider {
             this.copy(Blocks.METAL_STORAGE_BLOCKS.get(metal),Items.METAL_STORAGE_BLOCKS.get(metal));
 
             this.tag(Items.DUSTS)
-                    .addTags(Items.METAL_CRUSHED.get(metal));
+                    .addTags(Items.METAL_DUSTS.get(metal));
             this.tag(Items.INGOTS)
                     .addTags(Items.METAL_INGOTS.get(metal));
             this.tag(Items.NUGGETS)

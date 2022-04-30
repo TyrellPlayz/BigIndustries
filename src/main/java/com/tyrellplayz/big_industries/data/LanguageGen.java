@@ -30,7 +30,7 @@ public class LanguageGen extends LanguageProvider {
             }
             addBlock(metal::getStorageBlock,"Block of "+ StringUtils.capitalize(metal.toString()));
 
-            addItem(metal::getCrushed,"Crushed "+StringUtils.capitalize(metal.toString()));
+            addItem(metal::getDust,StringUtils.capitalize(metal.toString())+" Dust");
             addItem(metal::getIngot,StringUtils.capitalize(metal.toString())+" Ingot");
             addItem(metal::getNugget,StringUtils.capitalize(metal.toString())+" Nugget");
         }
@@ -50,10 +50,10 @@ public class LanguageGen extends LanguageProvider {
     }
 
     private void itemTranslations() {
-        addItem(BIItems.CRUSHED_COAL,"Crushed Coal");
-        addItem(BIItems.CRUSHED_IRON,"Crushed Iron");
-        addItem(BIItems.CRUSHED_COPPER,"Crushed Copper");
-        addItem(BIItems.CRUSHED_GOLD,"Crushed Gold");
+        addItem(BIItems.CRUSHED_COAL,"Coal Dust");
+        addItem(BIItems.CRUSHED_IRON,"Iron Dust");
+        addItem(BIItems.CRUSHED_COPPER,"Copper Dust");
+        addItem(BIItems.CRUSHED_GOLD,"Gold Dust");
 
         addItem(BIItems.HAMMER,"Hammer");
         addItem(BIItems.COKE,"Coke");
@@ -74,7 +74,7 @@ public class LanguageGen extends LanguageProvider {
 
     private void addCreativeModeTab(Supplier<? extends CreativeModeTab> key, String name) {
         TranslatableComponent component = (TranslatableComponent)key.get().getDisplayName();
-        add("itemGroup."+component.getKey(),name);
+        add(component.getKey(),name);
     }
 
 }

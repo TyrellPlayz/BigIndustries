@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.core.BIItems;
 import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
@@ -47,12 +46,12 @@ public enum Metals {
         Items
          */
 
-    public Item getCrushed() {
-        return BIItems.CRUSHED.get(this).get();
+    public Item getDust() {
+        return BIItems.DUST.get(this).get();
     }
 
     public TagKey<Item> getCrushedTag() {
-        return BITags.Items.METAL_CRUSHED.get(this);
+        return BITags.Items.METAL_DUSTS.get(this);
     }
 
     public Item getIngot() {
@@ -118,9 +117,9 @@ public enum Metals {
 
     public ImmutableList<ItemLike> getSmeltables() {
         if(isAlloy()) {
-            return ImmutableList.of(getCrushed());
+            return ImmutableList.of(getDust());
         }else {
-            return ImmutableList.of(getOre(),getDeepslateOre(), getRaw(), getCrushed());
+            return ImmutableList.of(getOre(),getDeepslateOre(), getRaw(), getDust());
         }
 
     }

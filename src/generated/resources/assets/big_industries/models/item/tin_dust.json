@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "big_industries:item/crushed_tin"
+    "layer0": "big_industries:item/tin_dust"
   }
 }

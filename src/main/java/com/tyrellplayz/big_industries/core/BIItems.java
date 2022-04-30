@@ -17,7 +17,7 @@ public class BIItems {
 
     public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS,BigIndustries.MOD_ID);
     public static final Map<Metals,RegistryObject<Item>> RAW = new HashMap<>();
-    public static final Map<Metals,RegistryObject<Item>> CRUSHED = new HashMap<>();
+    public static final Map<Metals,RegistryObject<Item>> DUST = new HashMap<>();
     public static final Map<Metals,RegistryObject<Item>> INGOT = new HashMap<>();
     public static final Map<Metals,RegistryObject<Item>> NUGGET = new HashMap<>();
 
@@ -26,16 +26,16 @@ public class BIItems {
             if(!metal.isAlloy()) {
                 RAW.put(metal,register("raw_"+metal,() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
             }
-            CRUSHED.put(metal,register("crushed_"+ metal,() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
+            DUST.put(metal,register(metal+"_dust",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
             INGOT.put(metal,register(metal+"_ingot",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
             NUGGET.put(metal,register( metal+"_nugget",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB))));
         }
     }
 
-    public static final RegistryObject<Item> CRUSHED_COAL = register("crushed_coal",() -> new BurnableItem(1600,new Item.Properties().tab(BigIndustries.ITEM_TAB)));
-    public static final RegistryObject<Item> CRUSHED_IRON = register("crushed_iron",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
-    public static final RegistryObject<Item> CRUSHED_COPPER = register("crushed_copper",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
-    public static final RegistryObject<Item> CRUSHED_GOLD = register("crushed_gold",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_COAL = register("coal_dust",() -> new BurnableItem(1600,new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_IRON = register("iron_dust",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_COPPER = register("copper_dust",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> CRUSHED_GOLD = register("gold_dust",() -> new Item(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
     public static final RegistryObject<Item> COKE = register("coke",() -> new BurnableItem(2200, new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 

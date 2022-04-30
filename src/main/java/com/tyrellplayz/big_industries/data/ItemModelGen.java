@@ -31,7 +31,7 @@ public class ItemModelGen extends ItemModelProvider {
             if(!metal.isAlloy()) {
                 simpleItem(BIItems.RAW.get(metal).get());
             }
-            simpleItem(BIItems.CRUSHED.get(metal).get());
+            simpleItem(BIItems.DUST.get(metal).get());
             simpleItem(BIItems.INGOT.get(metal).get());
             simpleItem(BIItems.NUGGET.get(metal).get());
         }
