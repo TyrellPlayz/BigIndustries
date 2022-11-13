@@ -2,7 +2,6 @@
   "block.big_industries.aluminium_block": "Block of Aluminium",
   "block.big_industries.aluminium_ore": "Aluminium Ore",
   "block.big_industries.blast_brick": "Blast Brick",
-  "block.big_industries.blast_furnace": "Blast Furnace",
   "block.big_industries.deepslate_aluminium_ore": "Deepslate Aluminium Ore",
   "block.big_industries.deepslate_lead_ore": "Deepslate Lead Ore",
   "block.big_industries.deepslate_nickel_ore": "Deepslate Nickel Ore",
@@ -51,7 +50,5 @@
   "item.big_industries.steel_nugget": "Steel Nugget",
   "item.big_industries.tin_dust": "Tin Dust",
   "item.big_industries.tin_ingot": "Tin Ingot",
-  "item.big_industries.tin_nugget": "Tin Nugget",
-  "itemGroup.big_industries.blocks": "Big Industries (Blocks)",
-  "itemGroup.big_industries.items": "Big Industries (Items)"
+  "item.big_industries.tin_nugget": "Tin Nugget"
 }

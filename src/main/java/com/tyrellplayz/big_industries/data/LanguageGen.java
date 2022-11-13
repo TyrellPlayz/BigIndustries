@@ -5,7 +5,7 @@ import com.tyrellplayz.big_industries.Metals;
 import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.core.BIItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.network.chat.TranslatableComponent;
+//import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.data.LanguageProvider;
 import org.apache.commons.lang3.StringUtils;
@@ -44,7 +44,7 @@ public class LanguageGen extends LanguageProvider {
 
     private void blockTranslations() {
         addBlock(BIBlocks.BLAST_BRICK,"Blast Brick");
-        addBlock(BIBlocks.BLAST_FURNACE,"Blast Furnace");
+        //addBlock(BIBlocks.BLAST_FURNACE,"Blast Furnace");
 
         addBlock(BIBlocks.FLUID_PIPE,"Fluid Pipe");
     }
@@ -73,8 +73,10 @@ public class LanguageGen extends LanguageProvider {
     }
 
     private void addCreativeModeTab(Supplier<? extends CreativeModeTab> key, String name) {
-        TranslatableComponent component = (TranslatableComponent)key.get().getDisplayName();
-        add(component.getKey(),name);
+
+        //FIXME: Update to 1.19
+        //TranslatableComponent component = (TranslatableComponent)key.get().getDisplayName();
+        //add(component.getKey(),name);
     }
 
 }

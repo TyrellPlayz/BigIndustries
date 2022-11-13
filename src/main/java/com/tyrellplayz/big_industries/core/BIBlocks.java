@@ -46,7 +46,7 @@ public class BIBlocks {
     }
 
     public static final RegistryObject<Block> BLAST_BRICK = register("blast_brick",() -> new BlastBrickBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 9.0F)), BIBlocks::tabBlockItem);
-    public static final RegistryObject<Block> BLAST_FURNACE = register("blast_furnace",() -> new BlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,9.0F).noDrops().dynamicShape().noOcclusion()), BIBlocks::simpleBlockItem);
+    //public static final RegistryObject<Block> BLAST_FURNACE = register("blast_furnace",() -> new BlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,9.0F).noDrops().dynamicShape().noOcclusion()), BIBlocks::simpleBlockItem);
 
     public static final RegistryObject<Block> FLUID_PIPE = register("fluid_pipe",() -> new FluidPipeBlock(BlockBehaviour.Properties.of(Material.METAL).dynamicShape().noOcclusion()), BIBlocks::tabBlockItem);
 

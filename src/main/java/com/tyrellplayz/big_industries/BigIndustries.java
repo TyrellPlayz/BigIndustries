@@ -5,25 +5,25 @@ import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.core.BIItems;
 import com.tyrellplayz.big_industries.core.BIMenus;
 import com.tyrellplayz.big_industries.data.*;
-import com.tyrellplayz.big_industries.multiblock.MultiblockType;
-import com.tyrellplayz.big_industries.world.worldgen.BIOreFeatures;
-import com.tyrellplayz.big_industries.world.worldgen.BIOrePlacements;
+import com.tyrellplayz.big_industries.world.biomemod.BIBiomeModifiers;
+import com.tyrellplayz.big_industries.world.feature.BIConfiguredFeatures;
+import com.tyrellplayz.big_industries.world.feature.BIPlacedFeatures;
 import com.tyrellplayz.zlib.proxy.ModProxy;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
-import net.minecraftforge.registries.IForgeRegistryEntry;
+//import net.minecraftforge.registries.IForgeRegistryEntry;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.NewRegistryEvent;
-import net.minecraftforge.registries.RegistryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -54,16 +54,16 @@ public class BigIndustries {
         BIBlockEntities.REGISTER.register(eventBus);
         BIMenus.REGISTER.register(eventBus);
 
+        BIBiomeModifiers.BIOME_MODIFIERS.register(eventBus);
+        BIConfiguredFeatures.CONFIGURED_FEATURES.register(eventBus);
+        BIPlacedFeatures.PLACED_FEATURES.register(eventBus);
+
         //MinecraftForge.EVENT_BUS.register(ModFeatures.class);
 
         MinecraftForge.EVENT_BUS.addListener(this::registerRegistries);
     }
 
     public void onCommonSetup(final FMLCommonSetupEvent event) {
-
-        BIOreFeatures.init();
-        BIOrePlacements.init();
-
         proxy.onCommonSetup(event);
     }
 
@@ -73,26 +73,25 @@ public class BigIndustries {
 
     public void gatherData(final GatherDataEvent dataEvent) {
         DataGenerator generator = dataEvent.getGenerator();
-        if(dataEvent.includeClient()) {
-            generator.addProvider(new BlockStateGen(generator,dataEvent.getExistingFileHelper()));
-            generator.addProvider(new ItemModelGen(generator,dataEvent.getExistingFileHelper()));
-            generator.addProvider(new LanguageGen(generator));
-        }
-        if(dataEvent.includeServer()) {
-            BlockTagGen blockTagGen = new BlockTagGen(generator,dataEvent.getExistingFileHelper());
-            generator.addProvider(blockTagGen);
-            generator.addProvider(new ItemTagGen(generator,blockTagGen,dataEvent.getExistingFileHelper()));
-            generator.addProvider(new LootTableGen(generator));
-            generator.addProvider(new RecipeGen(generator));
-        }
+        generator.addProvider(dataEvent.includeClient(),new BlockStateGen(generator,dataEvent.getExistingFileHelper()));
+        generator.addProvider(dataEvent.includeClient(),new ItemModelGen(generator,dataEvent.getExistingFileHelper()));
+        generator.addProvider(dataEvent.includeClient(),new LanguageGen(generator));
+
+        BlockTagGen blockTagGen = new BlockTagGen(generator,dataEvent.getExistingFileHelper());
+        generator.addProvider(dataEvent.includeServer(),blockTagGen);
+        generator.addProvider(dataEvent.includeServer(),new ItemTagGen(generator,blockTagGen,dataEvent.getExistingFileHelper()));
+        generator.addProvider(dataEvent.includeServer(),new LootTableGen(generator));
+        generator.addProvider(dataEvent.includeServer(),new RecipeGen(generator));
     }
 
     public void registerRegistries(NewRegistryEvent event) {
-        createRegistry(event,new ResourceLocation(MOD_ID,"multiblock_type"), MultiblockType.class);
+        // FIXME: Update to 1.19
+        //createRegistry(event,new ResourceLocation(MOD_ID,"multiblock_type"), MultiblockType.class);
     }
 
-    public <T extends IForgeRegistryEntry<T>> void createRegistry(NewRegistryEvent event, ResourceLocation key, Class<T> type) {
-        event.create(new RegistryBuilder<T>().setName(key).setType(type).setDefaultKey(key));
+    public <T extends IForgeRegistry<T>> void createRegistry(NewRegistryEvent event, ResourceLocation key, Class<T> type) {
+        // FIXME: Update to 1.19
+        //event.create(new RegistryBuilder<T>().setName(key).setType(type).setDefaultKey(key));
     }
 
     public static Logger getLogger() {

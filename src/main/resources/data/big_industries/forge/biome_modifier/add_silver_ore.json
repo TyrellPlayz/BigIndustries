@@ -1,0 +1,5 @@
+{
+  "type": "big_industries:ores",
+  "biomes": "#minecraft:is_overworld",
+  "feature": "big_industries:silver_ore_placed"
+}

@@ -21,6 +21,7 @@ public class BlastBrickBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        /*
         if((player.getItemInHand(hand).getItem() instanceof HammerItem) && !level.isClientSide()) {
             ServerLevel serverLevel = (ServerLevel) level;
             if(MultiblockType.BLAST_FURNACE.isStructureValid(serverLevel,pos,player)) {
@@ -28,6 +29,7 @@ public class BlastBrickBlock extends Block {
                 return InteractionResult.SUCCESS;
             }
         }
+         */
         return InteractionResult.PASS;
     }
 

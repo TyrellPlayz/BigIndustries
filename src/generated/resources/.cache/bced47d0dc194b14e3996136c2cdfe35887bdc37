@@ -1,0 +1,24 @@
+// 1.19.2	2022-11-09T22:02:37.7150953	Block Tags: big_industries
+d6eb900caba552d9cd5642c91ec07d51bc0ea092 data/forge/tags/blocks/ores.json
+a1445de77fac14e364638ca8c514510be341a5e8 data/forge/tags/blocks/ores/aluminium.json
+792d8e0a51246b8c2361f541bffa14269ee67bc8 data/forge/tags/blocks/ores/lead.json
+d405f14d4a2ea9a58aea4ead80cd4c8a3c063881 data/forge/tags/blocks/ores/nickel.json
+2ee4def7e00f788e67a00a792e0319946b70c6ba data/forge/tags/blocks/ores/silver.json
+6a0e927061ee491754ca05177aaa2701988e4633 data/forge/tags/blocks/ores/tin.json
+8b0df93fb213abb5df5f18dd043b4d1b0670dc43 data/forge/tags/blocks/raw_storage_blocks/aluminium.json
+c84b253471ad96e1d1bd3740463ded8dfa0f08ca data/forge/tags/blocks/raw_storage_blocks/lead.json
+90bd581ec7d9b459503db3d76d4c42a69d6574d1 data/forge/tags/blocks/raw_storage_blocks/nickel.json
+3348a9a704e795b89ff431cfe081880290cf6ebb data/forge/tags/blocks/raw_storage_blocks/silver.json
+49d3b73dc24e3d5c2b1adb065a625313c3c366b7 data/forge/tags/blocks/raw_storage_blocks/tin.json
+d76705fffb883eef2d3e749d6896d4a5d741e596 data/forge/tags/blocks/storage_blocks.json
+29f83d4f46eec2254c4d415792062d15eb48c8ea data/forge/tags/blocks/storage_blocks/aluminium.json
+e20ee8c4912555111f69b511b720c5ac650b96b4 data/forge/tags/blocks/storage_blocks/lead.json
+9846f73c384b1d8435ab4206f7a323b933270c04 data/forge/tags/blocks/storage_blocks/nickel.json
+3910f90830f2b93e909039024da925b72dcd8f01 data/forge/tags/blocks/storage_blocks/silver.json
+9246581c190e44722f1583cd48c0a31bf1cc6b60 data/forge/tags/blocks/storage_blocks/steel.json
+6d33ebae27bdbf4d5917a4c32e771741cd98831b data/forge/tags/blocks/storage_blocks/tin.json
+055d5a7d750a53a6a84135d52cb5459315bc58ab data/minecraft/tags/blocks/deepslate_ore_replaceables.json
+ea16a2977e8d327b6bdd3bb18f7a474742d6cbd0 data/minecraft/tags/blocks/mineable/pickaxe.json
+9ee3fd824be15042b2c701fc1e73ee965869b26e data/minecraft/tags/blocks/needs_iron_tool.json
+0cef10703ed002ad4f9d744caf24354c504c3310 data/minecraft/tags/blocks/needs_stone_tool.json
+df14c82d55710f90a459403c4f8e599585d59666 data/minecraft/tags/blocks/stone_ore_replaceables.json

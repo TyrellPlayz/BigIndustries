@@ -1,13 +1,10 @@
 package com.tyrellplayz.big_industries.blockentity;
 
-import com.tyrellplayz.big_industries.core.BIBlockEntities;
 import com.tyrellplayz.big_industries.inventory.BlastFurnaceMenu;
-import com.tyrellplayz.big_industries.multiblock.MultiblockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
@@ -76,7 +73,8 @@ public class BlastFurnaceEntity extends MultiblockEntity<BlastFurnaceEntity> imp
     private final RecipeType<? extends AbstractCookingRecipe> recipeType;
 
     public BlastFurnaceEntity(BlockPos pos, BlockState state) {
-        super(BIBlockEntities.BLAST_FURNACE.get(), MultiblockType.BLAST_FURNACE, pos, state);
+        super(null,null ,pos,state);
+        //super(BIBlockEntities.BLAST_FURNACE.get(), MultiblockType.BLAST_FURNACE, pos, state);
         this.recipeType = RecipeType.BLASTING;
     }
 
@@ -165,7 +163,7 @@ public class BlastFurnaceEntity extends MultiblockEntity<BlastFurnaceEntity> imp
 
     @Override
     protected Component getDefaultName() {
-        return new TranslatableComponent("container.blast_furnace");
+        return Component.translatable("container.blast_furnace");
     }
 
     @Override

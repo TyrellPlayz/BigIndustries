@@ -4,12 +4,13 @@ import com.google.common.collect.ImmutableList;
 import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.Metals;
 import com.tyrellplayz.big_industries.core.BIItems;
+import com.tyrellplayz.zlib.util.ItemUtil;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.SimpleCookingSerializer;
@@ -80,7 +81,7 @@ public class RecipeGen extends RecipeProvider {
     }
 
     private String simpleItemName(ItemLike item) {
-        return item.asItem().getRegistryName().getPath();
+        return ItemUtil.simpleItemName(item);
     }
 
 }

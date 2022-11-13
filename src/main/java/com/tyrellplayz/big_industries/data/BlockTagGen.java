@@ -1,20 +1,19 @@
 package com.tyrellplayz.big_industries.data;
 
 import com.tyrellplayz.big_industries.BigIndustries;
-import static com.tyrellplayz.big_industries.BITags.*;
-
 import com.tyrellplayz.big_industries.Metals;
 import com.tyrellplayz.big_industries.core.BIBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import static com.tyrellplayz.big_industries.BITags.Blocks;
 
 public class BlockTagGen extends BlockTagsProvider {
 
@@ -60,7 +59,7 @@ public class BlockTagGen extends BlockTagsProvider {
         }
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(BIBlocks.BLAST_BRICK.get()).add(BIBlocks.BLAST_FURNACE.get());
+                .add(BIBlocks.BLAST_BRICK.get())/*.add(BIBlocks.BLAST_FURNACE.get())*/;
     }
 
     @Override

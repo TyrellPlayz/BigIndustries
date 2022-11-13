@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class BIMenus {
 
-    public static final DeferredRegister<MenuType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.CONTAINERS,BigIndustries.MOD_ID);
+    public static final DeferredRegister<MenuType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.MENU_TYPES,BigIndustries.MOD_ID);
 
     public static final RegistryObject<MenuType<BlastFurnaceMenu>> BLAST_FURNACE = register("blast_furnace", BlastFurnaceMenu::new);
 

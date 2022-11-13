@@ -16,10 +16,10 @@ import java.util.function.Supplier;
 
 public class BIBlockEntities {
 
-    public static final DeferredRegister<BlockEntityType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES,BigIndustries.MOD_ID);
+    public static final DeferredRegister<BlockEntityType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES,BigIndustries.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<BlastFurnaceEntity>> BLAST_FURNACE = register("blastfurnace", BlastFurnaceEntity::new,() -> new Block[]{BIBlocks.BLAST_FURNACE.get()});
-    public static final RegistryObject<BlockEntityType<MultiblockEntityChild>> MULTI_BLOCK_CHILD = register("multiblock_child", MultiblockEntityChild::new,() -> new Block[]{BIBlocks.BLAST_FURNACE.get()});
+    //public static final RegistryObject<BlockEntityType<BlastFurnaceEntity>> BLAST_FURNACE = register("blastfurnace", BlastFurnaceEntity::new,() -> new Block[]{BIBlocks.BLAST_FURNACE.get()});
+    //public static final RegistryObject<BlockEntityType<MultiblockEntityChild>> MULTI_BLOCK_CHILD = register("multiblock_child", MultiblockEntityChild::new,() -> new Block[]{BIBlocks.BLAST_FURNACE.get()});
 
     public static final RegistryObject<BlockEntityType<FluidPipeEntity>> FLUID_PIPE = register("fluid_pipe", FluidPipeEntity::new, () -> new Block[]{BIBlocks.FLUID_PIPE.get()});
 

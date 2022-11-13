@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "#forge:raw_storage_blocks/tin",
     "#forge:ores/tin",
@@ -17,7 +16,6 @@
     "#forge:ores/nickel",
     "#forge:storage_blocks/nickel",
     "#forge:storage_blocks/steel",
-    "big_industries:blast_brick",
-    "big_industries:blast_furnace"
+    "big_industries:blast_brick"
   ]
 }

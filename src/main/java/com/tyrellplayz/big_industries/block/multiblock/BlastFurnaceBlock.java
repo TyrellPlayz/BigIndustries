@@ -30,7 +30,8 @@ public class BlastFurnaceBlock extends MultiblockBlock {
 
 
     public BlastFurnaceBlock(Properties properties) {
-        super(MultiblockType.BLAST_FURNACE,properties);
+        super(null,properties);
+        //super(MultiblockType.BLAST_FURNACE,properties);
     }
 
     @Nullable
@@ -40,10 +41,11 @@ public class BlastFurnaceBlock extends MultiblockBlock {
         return new MultiblockEntityChild(pos, state);
     }
 
+    /*
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, BIBlockEntities.BLAST_FURNACE.get(), BlastFurnaceEntity::onServerTick);
     }
-
+     */
 }

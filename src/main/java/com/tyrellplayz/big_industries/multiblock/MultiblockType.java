@@ -15,21 +15,21 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = BigIndustries.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class MultiblockType extends ForgeRegistryEntry<MultiblockType> {
+public class MultiblockType {
 
+    // FIXME: Update to 1.19
+    /*
     protected static final List<MultiblockType> MULTIBLOCK_TYPES = new ArrayList<>();
 
-    public static final MultiblockType BLAST_FURNACE = register("blast_furnace", BIBlocks.BLAST_FURNACE);
+    //public static final MultiblockType BLAST_FURNACE = register("blast_furnace", BIBlocks.BLAST_FURNACE);
 
     private static MultiblockType register(String name, Supplier<Block> blockSupplier) {
         MultiblockType type = new MultiblockType(blockSupplier);
@@ -176,7 +176,7 @@ public class MultiblockType extends ForgeRegistryEntry<MultiblockType> {
         level.destroyBlock(removedPos,true);
         return true;
     }
-    */
+
 
     public boolean isStructureValid(ServerLevel level, BlockPos pos, Player player) {
         StructureTemplate template = StructureUtil.getStructureTemplate(level,getRegistryName());
@@ -188,4 +188,5 @@ public class MultiblockType extends ForgeRegistryEntry<MultiblockType> {
         return new ResourceLocation(BigIndustries.MOD_ID,path);
     }
 
+    */
 }

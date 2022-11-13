@@ -22,13 +22,14 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.DrawSelectionEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
+//import net.minecraftforge.client.event.DrawSelectionEvent;
+//import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class ClientEvents {
 
+    /*
     @SubscribeEvent
     public static void onRenderOutline(final DrawSelectionEvent.HighlightBlock event) {
         Minecraft minecraft = Minecraft.getInstance();
@@ -51,10 +52,14 @@ public class ClientEvents {
         }
     }
 
+
+     */
     private static void renderHitOutline(PoseStack stack, VertexConsumer consumer, VoxelShape shape, double camX, double camY, double camZ, BlockPos blockPos, BlockState state) {
         LevelRenderer.renderShape(stack, consumer, shape, (double)blockPos.getX() - camX, (double)blockPos.getY() - camY, (double)blockPos.getZ() - camZ, 0.0F, 0.0F, 0.0F, 0.4F);
     }
 
+    // FIXME: Update to 1.19
+    /*
     @SubscribeEvent
     public static void onDebugOverlay(final RenderGameOverlayEvent.Text event){
         Minecraft minecraft = Minecraft.getInstance();
@@ -81,5 +86,7 @@ public class ClientEvents {
         }
 
     }
+
+     */
 
 }

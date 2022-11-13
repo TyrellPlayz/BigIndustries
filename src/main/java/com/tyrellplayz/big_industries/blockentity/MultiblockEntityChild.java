@@ -19,7 +19,8 @@ public class MultiblockEntityChild extends SyncBlockEntity implements IMultibloc
     protected ResourceLocation previousBlock;
 
     public MultiblockEntityChild( BlockPos pos, BlockState state) {
-        super(BIBlockEntities.MULTI_BLOCK_CHILD.get(), pos, state);
+        super(null, pos, state);
+        //super(BIBlockEntities.MULTI_BLOCK_CHILD.get(), pos, state);
     }
 
     public BlockPos getParent() {

@@ -17,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -65,7 +66,7 @@ public class LootTableGen extends LootTableProvider {
 
         @Override
         protected Iterable<net.minecraft.world.level.block.Block> getKnownBlocks() {
-            return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> block.getRegistryName() != null && BigIndustries.MOD_ID.equals(block.getRegistryName().getNamespace())).collect(Collectors.toSet());
+            return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> ForgeRegistries.BLOCKS.getKey(block) != null && BigIndustries.MOD_ID.equals(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getNamespace())).collect(Collectors.toSet());
         }
     }
 

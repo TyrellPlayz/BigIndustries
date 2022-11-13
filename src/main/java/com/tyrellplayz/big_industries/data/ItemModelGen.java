@@ -4,15 +4,19 @@ import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.Metals;
 import com.tyrellplayz.big_industries.core.BIBlocks;
 import com.tyrellplayz.big_industries.core.BIItems;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ItemModelGen extends ItemModelProvider {
 
@@ -131,24 +135,28 @@ public class ItemModelGen extends ItemModelProvider {
     }
 
     public void simpleItem(Item item) {
-        getBuilder(item.getRegistryName().getPath())
+        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
+        getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0",modLoc("item/"+item.getRegistryName().getPath()));
+                .texture("layer0",modLoc("item/"+name));
     }
 
     public void simpleItem(Block block) {
-        getBuilder(block.getRegistryName().getPath())
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/"+block.getRegistryName().getPath())));
+        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(block.asItem())).getPath();
+        getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile(modLoc("block/"+name)));
     }
 
     public void simpleTool(Item item) {
-        getBuilder(item.getRegistryName().getPath())
+        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
+        getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile("item/handheld"))
-                .texture("layer0",modLoc("item/"+item.getRegistryName().getPath()));
+                .texture("layer0",modLoc("item/"+name));
     }
 
     @Override
-    public void run(HashCache cache) throws IOException {
+    public void run(CachedOutput cache) throws IOException {
         super.run(cache);
     }
+
 }
