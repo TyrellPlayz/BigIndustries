@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "big_industries:aluminium_ingot"
+    },
+    "T": {
+      "item": "big_industries:tin_ingot"
+    }
+  },
+  "pattern": [
+    " A ",
+    " TA",
+    "T  "
+  ],
+  "result": {
+    "item": "big_industries:wrench"
+  }
+}

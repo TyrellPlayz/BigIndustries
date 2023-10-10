@@ -62,6 +62,7 @@ public class LootTableGen extends LootTableProvider {
 
             this.dropSelf(BIBlocks.BLAST_BRICK.get());
             this.dropSelf(BIBlocks.FLUID_PIPE.get());
+            this.dropSelf(BIBlocks.FLUID_TANK.get());
         }
 
         @Override

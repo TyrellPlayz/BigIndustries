@@ -47,6 +47,7 @@ public class LanguageGen extends LanguageProvider {
         //addBlock(BIBlocks.BLAST_FURNACE,"Blast Furnace");
 
         addBlock(BIBlocks.FLUID_PIPE,"Fluid Pipe");
+        addBlock(BIBlocks.FLUID_TANK, "Fluid Tank");
     }
 
     private void itemTranslations() {
@@ -55,8 +56,10 @@ public class LanguageGen extends LanguageProvider {
         addItem(BIItems.CRUSHED_COPPER,"Copper Dust");
         addItem(BIItems.CRUSHED_GOLD,"Gold Dust");
 
-        addItem(BIItems.HAMMER,"Hammer");
         addItem(BIItems.COKE,"Coke");
+
+        addItem(BIItems.HAMMER,"Hammer");
+        addItem(BIItems.WRENCH,"Wrench");
     }
 
     private void containerTranslations() {

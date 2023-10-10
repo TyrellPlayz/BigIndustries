@@ -1,0 +1,123 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "big_industries:block/fluid_tank"
+      }
+    },
+
+    {
+      "when": {
+        "north_port": "export"
+      },
+      "apply": {
+        "model": "big_industries:block/export_port",
+        "y": 0
+      }
+    },
+    {
+      "when": {
+        "north_port": "import"
+      },
+      "apply": {
+        "model": "big_industries:block/import_port",
+        "y": 0
+      }
+    },
+    {
+      "when": {
+        "east_port": "export"
+      },
+      "apply": {
+        "model": "big_industries:block/export_port",
+        "y": 90
+      }
+    },
+
+    {
+      "when": {
+        "east_port": "import"
+      },
+      "apply": {
+        "model": "big_industries:block/import_port",
+        "y": 90
+      }
+    },
+
+    {
+      "when": {
+        "south_port": "export"
+      },
+      "apply": {
+        "model": "big_industries:block/export_port",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south_port": "import"
+      },
+      "apply": {
+        "model": "big_industries:block/import_port",
+        "y": 180
+      }
+    },
+
+    {
+      "when": {
+        "west_port": "export"
+      },
+      "apply": {
+        "model": "big_industries:block/export_port",
+        "y": -90
+      }
+    },
+    {
+      "when": {
+        "west_port": "import"
+      },
+      "apply": {
+        "model": "big_industries:block/import_port",
+        "y": -90
+      }
+    },
+
+    {
+      "when": {
+        "up_port": "export"
+      },
+      "apply": {
+        "model": "big_industries:block/export_port",
+        "x": -90
+      }
+    },
+    {
+      "when": {
+        "up_port": "import"
+      },
+      "apply": {
+        "model": "big_industries:block/import_port",
+        "x": -90
+      }
+    },
+
+    {
+      "when": {
+        "down_port": "export"
+      },
+      "apply": {
+        "model": "big_industries:block/export_port",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down_port": "import"
+      },
+      "apply": {
+        "model": "big_industries:block/import_port",
+        "x": 90
+      }
+    }
+  ]
+}

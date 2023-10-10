@@ -36,4 +36,10 @@ public abstract class SyncBlockEntity extends BlockEntity {
         level.sendBlockUpdated(this.worldPosition,this.getBlockState(),this.getBlockState(),2);
     }
 
+    public void syncToClient() {
+        if(this.level != null && !this.level.isClientSide) {
+
+        }
+    }
+
 }

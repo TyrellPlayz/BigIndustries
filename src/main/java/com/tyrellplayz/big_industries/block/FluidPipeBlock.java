@@ -13,9 +13,12 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -24,6 +27,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -45,13 +50,8 @@ public class FluidPipeBlock extends PipeBlock implements EntityBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockGetter getter = context.getLevel();
         BlockPos pos = context.getClickedPos();
-        return this.defaultBlockState()
-                .setValue(DOWN, getter.getBlockState(pos.below()).is(this))
-                .setValue(UP, getter.getBlockState(pos.above()).is(this))
-                .setValue(NORTH, getter.getBlockState(pos.north()).is(this))
-                .setValue(EAST, getter.getBlockState(pos.east()).is(this))
-                .setValue(SOUTH, getter.getBlockState(pos.south()).is(this))
-                .setValue(WEST, getter.getBlockState(pos.west()).is(this));
+        BlockState state = this.defaultBlockState();
+        return getPipeState(state,getter,pos);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -60,20 +60,24 @@ public class FluidPipeBlock extends PipeBlock implements EntityBlock {
 
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor accessor, BlockPos pos, BlockPos neighborPos) {
-        return state.setValue(PROPERTY_BY_DIRECTION.get(direction), connectsTo(accessor,neighborState,neighborPos,direction));
+        return state.setValue(PROPERTY_BY_DIRECTION.get(direction), canConnectTo(state,accessor,pos,direction));
     }
 
-    public boolean connectsTo(LevelAccessor level, BlockState neighborState, BlockPos neighborPos, Direction direction) {
-        boolean flag1 = neighborState.getBlock() == this;
-        boolean flag2 = true;
-        if(flag1) {
-            if(level.getBlockEntity(neighborPos) instanceof FluidPipeEntity fluidPipeEntity) {
-                flag2 = !fluidPipeEntity.isSideDisabled(direction);
-            }else {
-                flag2 = false;
-            }
+    @Override
+    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
+        BlockState newState = getPipeState(state,level,pos);
+        
+    }
+
+    public boolean canConnectTo(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+        BlockPos neighborPos = pos.relative(direction);
+        BlockEntity neighborBlockEntity = level.getBlockEntity(neighborPos);
+        if(neighborBlockEntity instanceof FluidPipeEntity fluidPipeEntity) {
+            return !fluidPipeEntity.isSideDisabled(direction);
+        } else if (neighborBlockEntity != null && neighborBlockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER, direction.getOpposite()).isPresent()) {
+            return true;
         }
-        return flag1 && flag2;
+        return false;
     }
 
     @Override
@@ -93,32 +97,53 @@ public class FluidPipeBlock extends PipeBlock implements EntityBlock {
         return new FluidPipeEntity(pos,state);
     }
 
-    @javax.annotation.Nullable
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return EntityBlock.super.getTicker(level, state, type);
+    }
+
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level p_151988_, BlockEntityType<T> p_151989_, BlockEntityType<? extends AbstractFurnaceBlockEntity> p_151990_) {
+        return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, p_151990_, AbstractFurnaceBlockEntity::serverTick);
+    }
+
+    @Nullable
     protected static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> createTickerHelper(BlockEntityType<A> type, BlockEntityType<E> type2, BlockEntityTicker<? super E> ticker) {
         return type2 == type ? (BlockEntityTicker<A>)ticker : null;
     }
 
+    protected BlockState getPipeState(BlockState state, BlockGetter level, BlockPos pos) {
+        return state
+                .setValue(DOWN, canConnectTo(state,level,pos,Direction.DOWN))
+                .setValue(UP, canConnectTo(state,level,pos,Direction.UP))
+                .setValue(NORTH, canConnectTo(state,level,pos,Direction.NORTH))
+                .setValue(EAST, canConnectTo(state,level,pos,Direction.EAST))
+                .setValue(SOUTH, canConnectTo(state,level,pos,Direction.SOUTH))
+                .setValue(WEST, canConnectTo(state,level,pos,Direction.WEST));
+    }
+
     public VoxelShape[] getCollisionShapes(LevelAccessor level, BlockState state, BlockPos pos) {
         List<VoxelShape> shapes = new ArrayList<>();
-        shapes.add(VoxelShapeHelper.create(4,4,4,4,4,4));
+        int pipeSize = 5;
+        shapes.add(VoxelShapeHelper.create(pipeSize,pipeSize,pipeSize,pipeSize,pipeSize,pipeSize));
 
         if(state.getValue(NORTH)) {
-            shapes.add(VoxelShapeHelper.create(0,4,12,4,4,4));
+            shapes.add(VoxelShapeHelper.create(0,pipeSize,12,pipeSize,pipeSize,pipeSize));
         }
         if(state.getValue(EAST)) {
-            shapes.add(VoxelShapeHelper.create(4,0,4,12,4,4));
+            shapes.add(VoxelShapeHelper.create(pipeSize,0,pipeSize,12,pipeSize,pipeSize));
         }
         if(state.getValue(SOUTH)) {
-            shapes.add(VoxelShapeHelper.create(12,4,0,4,4,4));
+            shapes.add(VoxelShapeHelper.create(12,pipeSize,0,pipeSize,pipeSize,pipeSize));
         }
         if(state.getValue(WEST)) {
-            shapes.add(VoxelShapeHelper.create(4,12,4,0,4,4));
+            shapes.add(VoxelShapeHelper.create(pipeSize,12,pipeSize,0,pipeSize,pipeSize));
         }
         if(state.getValue(UP)) {
-            shapes.add(VoxelShapeHelper.create(4,4,4,4,0,12));
+            shapes.add(VoxelShapeHelper.create(pipeSize,pipeSize,pipeSize,pipeSize,0,12));
         }
         if(state.getValue(DOWN)) {
-            shapes.add(VoxelShapeHelper.create(4,4,4,4,12,0));
+            shapes.add(VoxelShapeHelper.create(pipeSize,pipeSize,pipeSize,pipeSize,12,0));
         }
 
         return shapes.toArray(new VoxelShape[]{});

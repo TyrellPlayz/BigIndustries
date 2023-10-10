@@ -8,6 +8,7 @@
   "block.big_industries.deepslate_silver_ore": "Deepslate Silver Ore",
   "block.big_industries.deepslate_tin_ore": "Deepslate Tin Ore",
   "block.big_industries.fluid_pipe": "Fluid Pipe",
+  "block.big_industries.fluid_tank": "Fluid Tank",
   "block.big_industries.lead_block": "Block of Lead",
   "block.big_industries.lead_ore": "Lead Ore",
   "block.big_industries.nickel_block": "Block of Nickel",
@@ -50,5 +51,6 @@
   "item.big_industries.steel_nugget": "Steel Nugget",
   "item.big_industries.tin_dust": "Tin Dust",
   "item.big_industries.tin_ingot": "Tin Ingot",
-  "item.big_industries.tin_nugget": "Tin Nugget"
+  "item.big_industries.tin_nugget": "Tin Nugget",
+  "item.big_industries.wrench": "Wrench"
 }

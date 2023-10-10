@@ -3,14 +3,14 @@ package com.tyrellplayz.big_industries.blockentity;
 import com.tyrellplayz.big_industries.core.BIBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,7 +23,6 @@ public class FluidPipeEntity extends SyncBlockEntity implements IFluidHandler {
         super(BIBlockEntities.FLUID_PIPE.get(), pos, state);
     }
 
-    @Override
     public int getTanks() {
         return tank.getTanks();
     }
@@ -74,11 +73,16 @@ public class FluidPipeEntity extends SyncBlockEntity implements IFluidHandler {
         return this.disabledSides[side.get3DDataValue()];
     }
 
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        tank.writeToNBT(tag);
+    }
+
     @NotNull
     @Override
     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
-
+        if(cap == ForgeCapabilities.FLUID_HANDLER) {
             return LazyOptional.empty();
         }
         return super.getCapability(cap, side);

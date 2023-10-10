@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-09T22:02:37.7090966	LootTables: big_industries
+// 1.19.2	2023-04-09T00:24:50.5895671	LootTables: big_industries
 07bb1335eed38af3898ab996bafb1b287d524810 data/big_industries/loot_tables/blocks/aluminium_block.json
 546b9a440a1642548cdbef6d67934325d74e5b2c data/big_industries/loot_tables/blocks/aluminium_ore.json
 1fbc0ca5f0338ab500eb23352f9416d395a9a88b data/big_industries/loot_tables/blocks/blast_brick.json
@@ -8,6 +8,7 @@ ac9a2983bccba322c5b81b81a157070ca9b17714 data/big_industries/loot_tables/blocks/
 e91e88695b34185b550eb932a46fc8f4cb5708fe data/big_industries/loot_tables/blocks/deepslate_silver_ore.json
 bb5283ab8b2a35f29aa412c7d15bf8138449e575 data/big_industries/loot_tables/blocks/deepslate_tin_ore.json
 eb65d264bd25aeb8cb9ec524c616599728199cc0 data/big_industries/loot_tables/blocks/fluid_pipe.json
+ff52135970b610716d134354a8000b57387504cf data/big_industries/loot_tables/blocks/fluid_tank.json
 e39d697a5981394c0e34bf85173f9f4e2bf2f257 data/big_industries/loot_tables/blocks/lead_block.json
 5e4f6e09141408aa1bb7a92bf95e05fb92d486c5 data/big_industries/loot_tables/blocks/lead_ore.json
 8a06f6d64ab8836987d7189fe3c473ff503d4efb data/big_industries/loot_tables/blocks/nickel_block.json

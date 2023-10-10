@@ -4,13 +4,15 @@ import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.Metals;
 import com.tyrellplayz.big_industries.block.BlastBrickBlock;
 import com.tyrellplayz.big_industries.block.FluidPipeBlock;
+import com.tyrellplayz.big_industries.block.FluidTankBlock;
 import com.tyrellplayz.big_industries.block.multiblock.BlastFurnaceBlock;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.PipeBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
@@ -49,6 +51,7 @@ public class BIBlocks {
     //public static final RegistryObject<Block> BLAST_FURNACE = register("blast_furnace",() -> new BlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,9.0F).noDrops().dynamicShape().noOcclusion()), BIBlocks::simpleBlockItem);
 
     public static final RegistryObject<Block> FLUID_PIPE = register("fluid_pipe",() -> new FluidPipeBlock(BlockBehaviour.Properties.of(Material.METAL).dynamicShape().noOcclusion()), BIBlocks::tabBlockItem);
+    public static final RegistryObject<Block> FLUID_TANK = register("fluid_tank", () -> new FluidTankBlock(BlockBehaviour.Properties.of(Material.GLASS).noOcclusion().isViewBlocking(BIBlocks::never)), BIBlocks::simpleBlockItem);
 
     /**
      * Registers a block.
@@ -71,6 +74,14 @@ public class BIBlocks {
 
     private static BlockItem tabBlockItem(Block block) {
         return new BlockItem(block,new Item.Properties().tab(BigIndustries.BLOCK_TAB));
+    }
+
+    private static boolean always(BlockState state, BlockGetter getter, BlockPos pos) {
+        return true;
+    }
+
+    private static boolean never(BlockState state, BlockGetter getter, BlockPos pos) {
+        return false;
     }
 
 }

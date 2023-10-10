@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Matrix4f;
 import com.tyrellplayz.big_industries.block.FluidPipeBlock;
+import com.tyrellplayz.big_industries.core.BIBlockEntities;
 import com.tyrellplayz.big_industries.multiblock.IMultiblockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Camera;
@@ -24,6 +25,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 //import net.minecraftforge.client.event.DrawSelectionEvent;
 //import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 @OnlyIn(Dist.CLIENT)

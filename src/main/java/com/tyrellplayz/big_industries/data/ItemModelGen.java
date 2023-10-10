@@ -86,6 +86,7 @@ public class ItemModelGen extends ItemModelProvider {
         simpleItem(BIItems.COKE.get());
 
         simpleTool(BIItems.HAMMER.get());
+        simpleTool(BIItems.WRENCH.get());
     }
 
     private void registerBlockModels() {
@@ -132,6 +133,8 @@ public class ItemModelGen extends ItemModelProvider {
         //simpleItem(BIBlocks.STEEL_BLOCK.get());
 
         simpleItem(BIBlocks.BLAST_BRICK.get());
+
+        simpleItem(BIBlocks.FLUID_TANK.get());
     }
 
     public void simpleItem(Item item) {

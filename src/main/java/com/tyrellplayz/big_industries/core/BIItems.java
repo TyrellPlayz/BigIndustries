@@ -4,6 +4,7 @@ import com.tyrellplayz.big_industries.BigIndustries;
 import com.tyrellplayz.big_industries.Metals;
 import com.tyrellplayz.big_industries.item.BurnableItem;
 import com.tyrellplayz.big_industries.item.HammerItem;
+import com.tyrellplayz.big_industries.item.WrenchItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -41,6 +42,7 @@ public class BIItems {
 
     // Tools
     public static final RegistryObject<Item> HAMMER = register("hammer",() -> new HammerItem(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
+    public static final RegistryObject<Item> WRENCH = register("wrench",() -> new WrenchItem(new Item.Properties().tab(BigIndustries.ITEM_TAB)));
 
     public static <T extends Item> RegistryObject<T> register(String registryName, Supplier<T> itemSupplier) {
         return REGISTER.register(registryName,itemSupplier);

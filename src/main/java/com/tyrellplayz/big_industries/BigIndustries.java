@@ -13,6 +13,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -61,6 +62,10 @@ public class BigIndustries {
         //MinecraftForge.EVENT_BUS.register(ModFeatures.class);
 
         MinecraftForge.EVENT_BUS.addListener(this::registerRegistries);
+
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () -> {
+            eventBus.addListener(ClientProxy::onRegisterRenderers);
+        });
     }
 
     public void onCommonSetup(final FMLCommonSetupEvent event) {
